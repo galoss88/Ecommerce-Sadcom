@@ -9,7 +9,7 @@ const ListadoProductos = ({ mostrarDetalle }) => {
     dispatch(getProducts());
   }, [dispatch]);
   const productos = useSelector((state) => state.products);
-  console.log(productos);
+  
   return (
     <Container>
       <CardContainer>

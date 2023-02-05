@@ -7,7 +7,16 @@ export const Container = styled.div`
   margin-top: 1.5em;
   width: 16%;
   background-color: #e4e4ea;
+  
 `;
 export const FormFilters = styled.form`
   margin: 1em auto 0 2em;
 `;
+
+// export const ButtonFilters = styled.button`
+//   display: none;
+//   @media (max-width: 760px) {
+//     display: block;
+//     /* background-color: ${(props)=>props.showButtonResponsive ? "blue": "red"}; */
+//   }
+// `;

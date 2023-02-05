@@ -1,11 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ListadoProductos from "../components/container/ListadoProductos/ListadoProductos";
+import Productos from "../pages/Productos/Productos";
+
 
 const routesSadcom = () => {
   return (
     <Routes>
-      <Route path="/productos" element={<ListadoProductos />}></Route>
+      <Route path="/productos" element={<Productos />}></Route>
     </Routes>
   );
 };

@@ -10,7 +10,7 @@ const CardProduct = ({ producto }) => {
   return (
     <Card>
       <ImgProduct src={producto.image}></ImgProduct>
-      <NameProduct>{producto.name   }</NameProduct>
+      <NameProduct>{producto.name}</NameProduct>
       <NamePrice>Precio:</NamePrice>
       <PriceProduct>$ {producto.id}</PriceProduct>
     </Card>

@@ -2,6 +2,7 @@
 import axios from "axios";
 //export nombre actions
 export const GET_PRODUCTS = "GET_PRODUCTS";
+export const SHOW_DETAIL = "SHOW_DETAIL";
 
 //Funciones actions
 export function getProducts() {
@@ -12,4 +13,12 @@ export function getProducts() {
       payload: products.data.results,
     });
   };
+}
+
+//VER DETALLE DE PRODUCTOS
+export function showDetail(payload){
+  return{
+    type: SHOW_DETAIL,
+    payload
+  }
 }

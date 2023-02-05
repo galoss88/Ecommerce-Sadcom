@@ -1,11 +1,15 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ListadoProductos from "../components/container/ListadoProductos/ListadoProductos";
+import DetailProducts from "../components/container/DetailProducts/DetailProducts";
+import Productos from "../pages/Productos/Productos";
 
 const routesSadcom = () => {
   return (
     <Routes>
-      <Route path="/productos" element={<ListadoProductos />}></Route>
+      <Route path="/productos/*" element={<Productos />}>
+      <Route path="detailProduct" element={<DetailProducts/>} />
+      </Route>
+      <Route path="*" element={<p>Not found</p>}/>
     </Routes>
   );
 };

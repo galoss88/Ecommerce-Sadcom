@@ -16,6 +16,7 @@ export const Card = styled.div`
 export const ImgProduct = styled.img`
   max-width: 100%;
   height: 70%;
+
 `;
 export const NameProduct = styled.h2`
   display: flex;

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   ImgProduct,
@@ -6,9 +7,11 @@ import {
   NameProduct,
   PriceProduct,
 } from "./stylesCardProduct";
-const CardProduct = ({ producto }) => {
+const CardProduct = ({ producto, mostrarDetalle }) => {
+  
+
   return (
-    <Card>
+    <Card onClick={()=>mostrarDetalle()}>
       <ImgProduct src={producto.image}></ImgProduct>
       <NameProduct>{producto.name}</NameProduct>
       <NamePrice>Precio:</NamePrice>

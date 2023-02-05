@@ -1,8 +1,9 @@
 //import actions
-import { GET_PRODUCTS } from "../actions/index";
+import { GET_PRODUCTS, SHOW_DETAIL } from "../actions/index";
 //estado global redux
 const initialState = {
   products: [],
+  showDetail: false,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -12,6 +13,12 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
+
+    case SHOW_DETAIL:{
+      return {
+        showDetail: action.payload,
+      };
+    }
     //Default
     default:
       return state;

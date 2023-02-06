@@ -3,11 +3,13 @@ import { Route, Routes } from "react-router-dom";
 import DetailProducts from "../components/container/DetailProducts/DetailProducts";
 import Productos from "../pages/Productos/Productos";
 import Header from "../pages/Header/Header";
+import NavBar from "../components/container/Navbar/Navbar";
 
 const routesSadcom = () => {
   return (
     <>
       <Header/>
+      <NavBar/>
       <Routes>
         <Route path="/productos/*" element={<Productos />}>
         <Route path="detailProduct" element={<DetailProducts/>} />

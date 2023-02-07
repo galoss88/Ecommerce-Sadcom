@@ -1,11 +1,10 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav'
 import {FaShoppingCart} from "react-icons/fa"
 import styled from "styled-components";
+import Searcher from '../../pure/searcher/Searcher';
 
 export default function NavBar() {
     const Wrapper = styled.div`
@@ -21,21 +20,12 @@ export default function NavBar() {
                     <Container fluid>
                     
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-xxl`} />
-                        <b><Navbar.Brand href="/" /* style={{"padding-right": "25vw"}} */>Logo</Navbar.Brand></b>
+                        <Navbar.Brand href="/"><b>Logo</b></Navbar.Brand>
                         <Wrapper> 
-                            <Form className="d-flex"  style={{"padding-right": "30vw"}} >
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Buscar..."
-                                    className="me-2"
-                                    aria-label="Search"
-                                />
-                                <Button variant="outline-secondary">Ir</Button>
-                            </Form>
+                            <Searcher/>
                             <Nav.Link style={{"padding-top": "1vh"}}><FaShoppingCart/> Carrito</Nav.Link>
-                            </Wrapper> 
+                        </Wrapper> 
                      
-                   
                         <Navbar.Offcanvas id={`offcanvasNavbar-expand-xxl `} aria-labelledby={`offcanvasNavbarLabel-expand-xxl`} placement="start">
                             
                             <Offcanvas.Body>

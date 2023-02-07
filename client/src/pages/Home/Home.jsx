@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import image from "./image/pexels-photo-7153908.png"
+import Searcher from "../../components/pure/searcher/Searcher";
 import Button from 'react-bootstrap/Button';
 
 
@@ -39,14 +40,41 @@ export default function Home() {
             display: none;
         }
     `
+    const SecondBlock = styled.div`
+        height: 100vh;
+        background-color: #F2F2F2;
+    `
+    const Title = styled.h2`
+        text-align: center;
+        padding: 5vh 0 5vh 0;
+    `
+    const ResponsiveSearcher = styled.div`
+        display: none;
+        @media (max-width: 768px) {
+            display: flex;
+            background-color: rgba(242, 242, 242, 0.5);
+            padding: 5px 0 5px 25vw;
+        }
+    `
 
     return(
-        <Wrapper>
-            <Detail>
-                <h1><b>Algo</b></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident neque, eaque numquam minima nesciunt vero doloribus dolores ipsam esse? Esse error magnam accusamus laudantium assumenda beatae est in quia nemo!</p>
-                <Button href='/categorias'>Ver productos</Button>
-            </Detail>
-        </Wrapper>
+        <div> 
+            <Wrapper>
+                <ResponsiveSearcher>
+                    <Searcher/>
+                </ResponsiveSearcher>
+                <Detail>
+                    <h1><b>Algo</b></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident neque, eaque numquam minima nesciunt vero doloribus dolores ipsam esse? Esse error magnam accusamus laudantium assumenda beatae est in quia nemo!</p>
+                    <Button href='/categorias'>Ver productos</Button>
+                </Detail>
+            </Wrapper>
+            <SecondBlock>
+                <Title>
+                    Más vendido
+                </Title>
+            </SecondBlock>
+        </div>
+       
     )
 }

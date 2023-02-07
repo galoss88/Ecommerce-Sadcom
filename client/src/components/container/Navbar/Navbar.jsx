@@ -17,7 +17,7 @@ export default function NavBar() {
     return(
         <div>
             
-                <Navbar  key="xxl" bg="light" expand="xxl" className="mb-3">
+                <Navbar  key="xxl" bg="light" expand="xxl" >
                     <Container fluid>
                     
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-xxl`} />
@@ -45,7 +45,7 @@ export default function NavBar() {
                                     <hr/>
                                     <Nav.Link href="#action2">Categorias</Nav.Link>
                                     <hr/>
-                                    <Nav.Link href="#action2">Carrito</Nav.Link>
+                                    <Nav.Link href="#action2"><FaShoppingCart/> Carrito</Nav.Link>
                                     <hr/>
                                     <Nav.Link href="#action2">Preguntas frecuentes</Nav.Link>
                                     <hr/>

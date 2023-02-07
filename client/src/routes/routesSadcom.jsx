@@ -4,6 +4,7 @@ import DetailProducts from "../components/container/DetailProducts/DetailProduct
 import Productos from "../pages/Productos/Productos";
 import Header from "../pages/Header/Header";
 import NavBar from "../components/container/Navbar/Navbar";
+import Home from "../pages/Home/Home.jsx"
 
 const routesSadcom = () => {
   return (
@@ -14,6 +15,7 @@ const routesSadcom = () => {
         <Route path="/productos/*" element={<Productos />}>
         <Route path="detailProduct" element={<DetailProducts/>} />
         </Route>
+        <Route exact path="/" element={<Home/>}/>
         <Route path="*" element={<p>Not found</p>}/>
       </Routes>
     </>

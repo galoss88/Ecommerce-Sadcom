@@ -1,11 +1,12 @@
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Nav from 'react-bootstrap/Nav'
-import {FaShoppingCart} from "react-icons/fa"
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Nav from "react-bootstrap/Nav";
+import { FaShoppingCart } from "react-icons/fa";
 import styled from "styled-components";
-import Searcher from '../../pure/searcher/Searcher';
-
+import Searcher from "../../pure/searcher/Searcher";
+import { useNavigate } from "react-router-dom";
+import "./stylesNavbar.css"
 export default function NavBar() {
     const Wrapper = styled.div`
         display: flex;

@@ -10,18 +10,17 @@ import FAQ from "../pages/FAQ/FAQ.jsx";
 const routesSadcom = () => {
   return (
     <>
-      <Header/>
-      <NavBar/>
+      <Header />
+      <NavBar />
       <Routes>
         <Route path="/productos/*" element={<Productos />}>
-        <Route path="detailProduct" element={<DetailProducts/>} />
+          <Route path="detailProduct" element={<DetailProducts />} />
         </Route>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/faq" element={<FAQ/>}/>
         <Route path="*" element={<p>Not found</p>}/>
       </Routes>
     </>
-    
   );
 };
 

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import image from "./image/pexels-photo-7153908.png"
 import Searcher from "../../components/pure/searcher/Searcher";
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 
 export default function Home() {
@@ -56,7 +57,8 @@ export default function Home() {
             padding: 5px 0 5px 25vw;
         }
     `
-
+    //navigate
+    const navigate = useNavigate();
     return(
         <div> 
             <Wrapper>

@@ -16,17 +16,17 @@ export default function NavBar() {
     return(
         <div>
             
-                <Navbar  key="xxl" bg="light" expand="xxl" >
+                <Navbar  key="xxxl" bg="light" expand="xxxl" >
                     <Container fluid>
                     
-                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-xxl`} />
+                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-xxxl`} />
                         <Navbar.Brand href="/"><b>Logo</b></Navbar.Brand>
                         <Wrapper> 
                             <Searcher/>
                             <Nav.Link style={{"padding-top": "1vh"}}><FaShoppingCart/> Carrito</Nav.Link>
                         </Wrapper> 
                      
-                        <Navbar.Offcanvas id={`offcanvasNavbar-expand-xxl `} aria-labelledby={`offcanvasNavbarLabel-expand-xxl`} placement="start">
+                        <Navbar.Offcanvas id={`offcanvasNavbar-expand-xxxl `} aria-labelledby={`offcanvasNavbarLabel-expand-xxxl`} placement="start">
                             
                             <Offcanvas.Body>
                                 <Nav className="flex-grow-2 pe-3 align-items-center">
@@ -37,7 +37,7 @@ export default function NavBar() {
                                     <hr/>
                                     <Nav.Link href="#action2"><FaShoppingCart/> Carrito</Nav.Link>
                                     <hr/>
-                                    <Nav.Link href="#action2">Preguntas frecuentes</Nav.Link>
+                                    <Nav.Link href="/faq">Preguntas frecuentes</Nav.Link>
                                     <hr/>
                                     <Nav.Link href="#action2">Contacto</Nav.Link>
                                 </Nav>

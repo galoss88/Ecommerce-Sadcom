@@ -66,7 +66,7 @@ export default function Home() {
                 <Detail>
                     <h1><b>Algo</b></h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident neque, eaque numquam minima nesciunt vero doloribus dolores ipsam esse? Esse error magnam accusamus laudantium assumenda beatae est in quia nemo!</p>
-                    <Button href='/categorias'>Ver productos</Button>
+                    <Button >Ver productos</Button>
                 </Detail>
             </Wrapper>
             <SecondBlock>

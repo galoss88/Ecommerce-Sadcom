@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 export default function Searcher() {
     return(
-        <Form className="d-flex"  style={{"padding-right": "30vw"}} >
+        <Form className="d-flex"   style={{"padding-right": "30vw"}}  >
             <Form.Control
                 type="search"
                 placeholder="Buscar..."

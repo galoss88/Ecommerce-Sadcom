@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { showDetail } from "../../redux/actions";
+import SearcherResponsive from "../../components/pure/searcher/SearcherResponsive";
 const DivProductos = styled.div`
   display: flex;
 `;
@@ -23,6 +24,7 @@ const Productos = () => {
 
   return (
     <DivProductos>
+      <SearcherResponsive/>
       <FiltrosProductos />
       <ListadoProductos mostrarDetalle={mostrarDetalle}/>
     </DivProductos>

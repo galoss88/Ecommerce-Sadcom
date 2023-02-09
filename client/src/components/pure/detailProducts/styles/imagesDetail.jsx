@@ -2,6 +2,8 @@ import styled from "styled-components";
 export const ContainerImages = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: blue;
+  flex: 1.5;
 `;
 export const ContainerImagePrincipal = styled.div`
   display: flex;

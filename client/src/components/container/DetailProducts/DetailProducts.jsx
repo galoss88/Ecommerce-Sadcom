@@ -5,7 +5,11 @@ import { showDetail } from "../../../redux/actions";
 import ButtonAtras from "../../pure/ButtonAtras.jsx/ButtonAtras";
 import DescriptionDetail from "../../pure/detailProducts/DescriptionDetail";
 import ImagesDetail from "../../pure/detailProducts/ImagesDetail";
-import { Container, ContainerButton } from "./stylesDetailProducts";
+import {
+  Container,
+  ContainerButton,
+  ContainerDescription,
+} from "./stylesDetailProducts";
 
 const DetailProducts = () => {
   const navigate = useNavigate();
@@ -17,11 +21,12 @@ const DetailProducts = () => {
   return (
     <Container>
       <ContainerButton>
-        <ButtonAtras funcion={backProduct}/>
+        <ButtonAtras funcion={backProduct} />
       </ContainerButton>
-
-      <ImagesDetail />
-      <DescriptionDetail />
+      <ContainerDescription>
+        <ImagesDetail />
+        <DescriptionDetail />
+      </ContainerDescription>
     </Container>
   );
 };

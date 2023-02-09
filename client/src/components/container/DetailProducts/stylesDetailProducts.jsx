@@ -1,15 +1,22 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    position: relative;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-
-`
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  background: yellow;
+`;
 export const ContainerButton = styled.div`
-    position: absolute;
-    left: 1rem;
-`
+  display: flex;
+
+  background-color: green;
+  justify-content: start;
+  width: auto;
+`;
+export const ContainerDescription = styled.div`
+  display: flex;
+  width: 90%;
+`;

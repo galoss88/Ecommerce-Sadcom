@@ -1,10 +1,11 @@
 import React from 'react'
+import { Container } from './styles/stylesDescription'
 
 const DescriptionDetail = () => {
   return (
-    <div>
-      asdasdas
-    </div>
+    <Container>
+      asdasd
+    </Container>
   )
 }
 

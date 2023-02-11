@@ -163,5 +163,21 @@ module.exports = [
     //     categoria: "",
     //     precioBruto: 0,
     //     descripcion: "",
+    // },
+    // {
+    //     nombre: "",
+    //     marca: "",
+    //     imagen: "",
+    //     categoria: "",
+    //     precioBruto: 0,
+    //     descripcion: "",
+    // },
+    // {
+    //     nombre: "",
+    //     marca: "",
+    //     imagen: "",
+    //     categoria: "",
+    //     precioBruto: 0,
+    //     descripcion: "",
     // }
 ]

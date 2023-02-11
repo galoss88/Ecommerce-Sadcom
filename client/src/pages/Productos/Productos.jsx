@@ -8,25 +8,25 @@ import { showDetail } from "../../redux/actions";
 import SearcherResponsive from "../../components/pure/searcher/SearcherResponsive";
 const DivProductos = styled.div`
   display: flex;
+  flex-direction: column;
 `;
 const Productos = () => {
-  
-  const detailShow = useSelector(state => state.showDetail)
- const dispatch = useDispatch()
-  const navigate = useNavigate()
-  
-  const mostrarDetalle = ()=>{    
-    navigate("/productos/detailProduct")
+  const detailShow = useSelector((state) => state.showDetail);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const mostrarDetalle = () => {
+    navigate("/productos/detailProduct");
     dispatch(showDetail(true));
-  }
+  };
 
   if (detailShow) return <Outlet />;
 
   return (
     <DivProductos>
-      <SearcherResponsive/>
+      <SearcherResponsive />
       <FiltrosProductos />
-      <ListadoProductos mostrarDetalle={mostrarDetalle}/>
+      <ListadoProductos mostrarDetalle={mostrarDetalle} />
     </DivProductos>
   );
 };

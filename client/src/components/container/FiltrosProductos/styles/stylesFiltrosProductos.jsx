@@ -7,7 +7,7 @@ export const Container = styled.div`
   margin-top: 1.5em;
   width: 16%;
   background-color: #e4e4ea;
-  @media (max-width:768px){
+  @media (max-width:761px){
     display: none;
 
   }

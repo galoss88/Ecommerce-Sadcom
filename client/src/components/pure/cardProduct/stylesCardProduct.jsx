@@ -11,12 +11,15 @@ export const Card = styled.div`
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
   }
+  @media (max-width: 761px) {
+    width: 10rem;
+    
+  }
 `;
 
 export const ImgProduct = styled.img`
   max-width: 100%;
   height: 70%;
-
 `;
 export const NameProduct = styled.h2`
   display: flex;

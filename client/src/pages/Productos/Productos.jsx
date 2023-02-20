@@ -8,7 +8,10 @@ import { showDetail } from "../../redux/actions";
 import SearcherResponsive from "../../components/pure/searcher/SearcherResponsive";
 const DivProductos = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const Productos = () => {
   const detailShow = useSelector((state) => state.showDetail);

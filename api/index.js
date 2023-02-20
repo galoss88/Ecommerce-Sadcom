@@ -1,6 +1,7 @@
-const server = require('./src/app.js');
+const { config } = require("dotenv");
+const server = require("./src/app.js");
+config();
+const { port } = process.env;
 
-
-const port = 3000;
-server.listen(port);
+server.listen(port || 3000);
 console.log("server listo en puerto", port);

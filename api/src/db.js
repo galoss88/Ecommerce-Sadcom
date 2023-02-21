@@ -1,7 +1,9 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize("SadcomEcommerce", "galo88", "78914526", {
-  dialect: "mssql",
-  host: "localhost",
+require("dotenv").config();
+const { database, user, password, dialect, host, port } = process.env;
+const sequelize = new Sequelize(database, user, password, {
+  dialect,
+  host,
   port: 1433, //predeterminado de SQL server
   dialectOptions: {
     optiones: {
@@ -10,12 +12,13 @@ const sequelize = new Sequelize("SadcomEcommerce", "galo88", "78914526", {
   },
 });
 //Comprobar si funciona sequelize
-sequelize.authenticate()
+sequelize
+  .authenticate()
   .then(() => {
-      console.log('Conexión establecida correctamente.');
+    console.log("Conexión establecida correctamente.");
   })
-  .catch(err => {
-      console.error('Error al conectarse a la base de datos:', err);
+  .catch((err) => {
+    console.error("Error al conectarse a la base de datos:", err);
   });
 
 // require("dotenv").config();

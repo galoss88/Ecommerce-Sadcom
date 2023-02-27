@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "./stylesButtonAtras";
 
-const ButtonAtras = ({funcion}) => {
+const ButtonAtras = ({ funcion }) => {
+  const navigate = useNavigate();
   return (
-    <button type="button" onClick={() => funcion()}>
+    <Button type="button" onClick={() => navigate(-1)}>
       Volver
-    </button>
+    </Button>
   );
 };
 

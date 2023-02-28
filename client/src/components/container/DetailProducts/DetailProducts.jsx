@@ -9,6 +9,8 @@ import {
   Container,
   ContainerButton,
   ContainerDescription,
+  ContainerDetail,
+  ContainerImageDetail,
 } from "./stylesDetailProducts";
 
 const DetailProducts = () => {
@@ -24,8 +26,12 @@ const DetailProducts = () => {
         <ButtonAtras funcion={backProduct} />
       </ContainerButton>
       <ContainerDescription>
-        <ImagesDetail />
-        <DescriptionDetail />
+        <ContainerImageDetail>
+          <ImagesDetail />
+        </ContainerImageDetail>
+        <ContainerDetail>
+          <DescriptionDetail />
+        </ContainerDetail>
       </ContainerDescription>
     </Container>
   );

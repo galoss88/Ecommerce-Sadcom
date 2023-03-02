@@ -4,8 +4,12 @@ import { Button } from "./stylesButtonAtras";
 
 const ButtonAtras = ({ funcion }) => {
   const navigate = useNavigate();
+  const funcionAplicar = ()=>{
+    funcion()
+    navigate(-1)
+  }
   return (
-    <Button type="button" onClick={() => navigate(-1)}>
+    <Button type="button" onClick={() => funcionAplicar()}>
       Volver
     </Button>
   );

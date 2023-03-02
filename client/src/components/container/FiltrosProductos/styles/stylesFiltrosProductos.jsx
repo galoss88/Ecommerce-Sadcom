@@ -4,9 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 1.5em;
-  width: 16%;
-  background-color: #e4e4ea;
+  width: 20%;
+  background-color: #d9d9d9;
   @media (max-width:768px){
     display: none;
 

@@ -23,7 +23,7 @@ const FiltrosProductos = () => {
           Filtros
         </ButtonFilters> */}
         {/* //FILTRO ORDEN PRECIO */}
-        <FilterPrecio />
+        <FilterPrecio/>
         {/* //FILTRO 2 //FILTRO 3 */}
       </FormFilters>
     </Container>

@@ -3,11 +3,11 @@ export const Card = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 18rem;
-  width: 12rem;
+  height: 14rem;
+  width: 14rem;
   background-color: #e4e4e4;
-  border-radius: 10px;
-  box-shadow: 0.5rem 0.5rem 1rem grey;
+  /* border-radius: 10px; */
+  box-shadow: 4px 4px 4px grey;
   cursor: default;
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
@@ -20,7 +20,11 @@ export const Card = styled.div`
 
 export const ImgProduct = styled.img`
   max-width: 100%;
-  height: 70%;
+  height: 60%;
+  @supports(object-fit: cover) {
+      object-fit: cover;
+      object-position: center center;
+  }
 `;
 export const NameProduct = styled.h2`
   display: flex;

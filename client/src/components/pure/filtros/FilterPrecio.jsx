@@ -6,11 +6,11 @@ export default function FilterPrecio() {
     <CampoRadio>
       <Label>Ordenar por precio</Label>
       <DivInput>
-        <InputRadio type="radio" name="ordenPrecio" value="mayorAmenor" />
+        <InputRadio type="checkbox" name="ordenPrecio" value="mayorAmenor" />
         Mayor a Menor
       </DivInput>
       <DivInput>
-        <InputRadio type="radio" name="ordenPrecio" value="menorAmayor" />
+        <InputRadio type="checkbox" name="ordenPrecio" value="menorAmayor" />
         Menor A Mayor
       </DivInput>
     </CampoRadio>

@@ -24,7 +24,7 @@ const Product = () => {
         </WrapperImagenProducto>
         <WrapperNameAndTalle>
           <NameProduct>Nombre Producto</NameProduct>
-          <Talle>talle M</Talle>
+          <Talle>Talle M</Talle>
         </WrapperNameAndTalle>
       </WrapperImageAndNameProduct>
       {/* --------------- */}

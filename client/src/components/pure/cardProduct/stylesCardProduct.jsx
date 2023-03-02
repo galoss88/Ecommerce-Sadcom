@@ -3,11 +3,12 @@ export const Card = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 14rem;
+  height: 18rem;
   width: 12rem;
   background-color: #e4e4e4;
   border-radius: 10px;
   box-shadow: 0.5rem 0.5rem 1rem grey;
+  cursor: default;
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
   }
@@ -45,3 +46,15 @@ export const NamePrice = styled.label`
   bottom: 1.5rem;
   left: 0.8rem;
 `;
+export const ButtonAddToCart = styled.button`
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  width: 2em;
+  border-radius: .5em;
+  border: none;
+  :hover{
+    cursor: pointer;
+    background-color: grey;
+  }
+`

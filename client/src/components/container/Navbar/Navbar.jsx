@@ -2,14 +2,17 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Nav from "react-bootstrap/Nav";
-import { FaShoppingCart } from "react-icons/fa";
+ import { FaShoppingCart } from "react-icons/fa";
 import styled from "styled-components";
 import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
+import CartProducts from "../CartProducts/CartProducts";
+
 export default function NavBar() {
   const Wrapper = styled.div`
     display: flex;
+    position: relative;
     @media (max-width: 768px) {
       display: none;
     }
@@ -23,11 +26,12 @@ export default function NavBar() {
           <Navbar.Brand onClick={() => navigate("/")}>
             <b>Logo</b>
           </Navbar.Brand>
-          <Wrapper>
+          <Wrapper >
             <Searcher />
-            <Nav.Link style={{ "padding-top": "1vh" }}>
+            {/* <Nav.Link style={{ "padding-top": "1vh" }}>
               <FaShoppingCart /> Carrito
-            </Nav.Link>
+            </Nav.Link> */}
+            <CartProducts></CartProducts>
           </Wrapper>
 
           <Navbar.Offcanvas

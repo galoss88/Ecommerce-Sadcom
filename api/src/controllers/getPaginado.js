@@ -3,11 +3,9 @@ const productsPerPage = 12;
 const paginado = async (req, res) => {
   const pageCurrent = +req.params.currentPage || 1;
 
-  const offset = (pageCurrent - 1) * productsPerPage;
-  console.log("pagecurrent",pageCurrent)
+  const offset = (pageCurrent - 1) * productsPerPage; 
 
-  console.log("offset",offset)
-  console.log(pageCurrent-1)
+
 
   try {
     const productosTotales = await ArticuloTbl.count();

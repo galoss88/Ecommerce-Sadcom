@@ -8,15 +8,10 @@ import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
 import CartProducts from "../CartProducts/CartProducts";
+import { Wrapper } from "./styles/stylesNavbar";
 
 export default function NavBar() {
-  const Wrapper = styled.div`
-    display: flex;
-    position: relative;
-    @media (max-width: 768px) {
-      display: none;
-    }
-  `;
+
   const navigate = useNavigate();
   return (
     <div>
@@ -27,10 +22,7 @@ export default function NavBar() {
             <b>Logo</b>
           </Navbar.Brand>
           <Wrapper >
-            <Searcher />
-            {/* <Nav.Link style={{ "padding-top": "1vh" }}>
-              <FaShoppingCart /> Carrito
-            </Nav.Link> */}
+            <Searcher />        
             <CartProducts></CartProducts>
           </Wrapper>
 

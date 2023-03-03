@@ -1,29 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { CardContainer, Container } from "./styles/card";
-import { getProducts, showDetail } from "../../../redux/actions";
+import Spinner from "react-bootstrap/Spinner";
+import {
+  CardContainer,
+  Container,
+  WrapperCards,
+  WrapperPaginado,
+} from "./styles/styleListadoProductos";
+import { getProducts, pagination, showDetail } from "../../../redux/actions";
 import CardProduct from "../../pure/cardProduct/CardProduct";
+import usePaginado from "../../../hooks/usePaginado";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
-  const todosLosProductos = useSelector((state) => state.products);
-  const showProducts = useSelector(state=>state.showDetail)
+  const todosLosProductos = useSelector((state) => state.paginado);
+  const loading = useSelector((state) => state.loading);
+  const showProducts = useSelector((state) => state.showDetail);
+  const [Paginado, currentPage] = usePaginado();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts());    
-  }, []);
-if(showProducts) return null;
+    dispatch(pagination(currentPage));
+  }, [dispatch, currentPage]);
+
+  if (showProducts) return;
+  if (loading)
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
   return (
     <Container>
-      <CardContainer>
-        {todosLosProductos &&
-          todosLosProductos.map((p) => (
+      <WrapperCards>
+        <CardContainer>
+          {todosLosProductos?.productosAMostrar?.map((producto) => (
             <CardProduct
-              key={p.id}
-              producto={p}
+              key={producto.IdArt}
+              producto={producto}
               mostrarDetalle={mostrarDetalle}
             />
           ))}
-      </CardContainer>
+        </CardContainer>
+      </WrapperCards>
+      <WrapperPaginado>
+        <Paginado />
+      </WrapperPaginado>
     </Container>
   );
 };

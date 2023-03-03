@@ -1,20 +1,12 @@
 const { Router } = require("express");
+const express = require("express");
 const router = Router();
-const {ArticuloTbl, ArticuloIvaTbl} = require("../db")
+const paginado = require("./Paginado/Paginado.js")
+const productos = require("./Productos/Productos.js")
+router.use(express.json());
+router.use("/paginado",paginado)
+router.use("/productos", productos)
 
 
-
-
-
-//Rutas De prueba que traen datos!
-// router.get("/", async (req, res) => {
-//  const data = await ArticuloTbl.findAll()
-//  res.json(data)
-// });
-
-// router.get("/prueba", async (req, res) => {
-//     const datas = await ArticuloIvaTbl.findAll()
-//     res.json(datas)
-//    });
 
 module.exports = router;

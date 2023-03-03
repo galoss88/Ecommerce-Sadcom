@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteProductCart } from "../../../redux/actions";
 import {
   Cantidad,
+  Delete,
   ImagenProduct,
   NameProduct,
   PriceProduct,
@@ -9,27 +12,48 @@ import {
   WrapperImagenProducto,
   WrapperNameAndTalle,
   WrapperPriceProduct,
-  WrapperProducto
+  WrapperProducto,
 } from "./styles/stylesProduct";
 
-const Product = () => {
+const Product = ({ producto }) => {
+  const dispatch = useDispatch();
+  const { Detalle, Talle, Venta, IdArt } = producto;
+  const [showDelete, setShowDelete] = useState(false);
+  const mostrarDelete = () => setShowDelete(true);
+  const ocultarDelete = () => setShowDelete(false);
+  const deleteProduct = (idProducto) => {
+    dispatch(deleteProductCart(idProducto));
+  };
   return (
     <WrapperProducto>
       {/* --------------- */}
 
       <WrapperImageAndNameProduct>
         <WrapperImagenProducto>
-          <ImagenProduct src="https://m.media-amazon.com/images/I/61T13F94iRL._AC_UL1500_.jpg" />
+          {showDelete ? (
+            <Delete
+              onClick={() => deleteProduct(IdArt)}
+              onMouseLeave={ocultarDelete}
+            >
+              <i class="bi bi-x-circle"></i>
+            </Delete>
+          ) : (
+            <ImagenProduct
+              onMouseEnter={mostrarDelete}
+              src=""
+              alt="sin imagen"
+            />
+          )}
           <Cantidad>12</Cantidad>
         </WrapperImagenProducto>
         <WrapperNameAndTalle>
-          <NameProduct>Nombre Producto</NameProduct>
-          <Talle>talle M</Talle>
+          <NameProduct>{Detalle}</NameProduct>
+          {Talle ? <Talle>talle M</Talle> : null}
         </WrapperNameAndTalle>
       </WrapperImageAndNameProduct>
       {/* --------------- */}
       <WrapperPriceProduct>
-        <PriceProduct>$12</PriceProduct>
+        <PriceProduct>$ {Venta}</PriceProduct>
       </WrapperPriceProduct>
       {/* --------------- */}
     </WrapperProducto>

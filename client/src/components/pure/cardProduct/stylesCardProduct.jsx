@@ -3,12 +3,12 @@ export const Card = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 14rem;
+  justify-content: space-between;
+  height: auto;
   width: 14rem;
   background-color: #e4e4e4;
   border-radius: 10px;
   box-shadow: 0.5rem 0.5rem 1rem grey;
-
   cursor: default;
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
@@ -33,7 +33,6 @@ export const NameProduct = styled.h2`
   display: flex;
   width: 80%;
   flex-wrap: wrap;
-  height: auto;
   font-family: Montserrat;
   margin: 0.3em 0 0em 0.8rem;
   line-height: 1.2rem;
@@ -65,7 +64,6 @@ export const ButtonAddToCart = styled.button`
   right: 7px;
   width: 2em;
   text-align: center;
-  background-color: red;
   padding: .2em;
   
   border-radius: 0.5em;

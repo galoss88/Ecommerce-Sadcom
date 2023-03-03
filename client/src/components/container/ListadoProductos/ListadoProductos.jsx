@@ -22,12 +22,7 @@ const ListadoProductos = ({ mostrarDetalle }) => {
   }, [dispatch, currentPage]);
 
   if (showProducts) return;
-  if (loading)
-    return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    );
+
   return (
     <Container>
       <WrapperCards>

@@ -15,6 +15,15 @@ padding: .5em;
   align-items: start;
   box-shadow: 0 0 0.1rem 0;
 `;
+export const WrapperProductsCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: .3em;
+  padding-top: .3em;
+  overflow-y: scroll;
+`
 //Contenedor de la imagen, el nombre-talle y precio del producto
 export const Hr = styled.hr`
   width: 94%;

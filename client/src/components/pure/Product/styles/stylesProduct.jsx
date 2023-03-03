@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const WrapperProducto = styled.div`
   display: flex;
-  height: 25%;
+  height: 35%;
   width: 100%;
+  padding-bottom: 1em;
   justify-content: space-between;
 `;
 export const WrapperImageAndNameProduct = styled.div`
@@ -14,8 +15,8 @@ export const WrapperImageAndNameProduct = styled.div`
 `;
 //IMAGEN DEL PRODUCTO
 export const WrapperImagenProducto = styled.div`
-  width: 35%;
-  height: 100%;
+  width: 50%;
+  height: 4.5em;
   position: relative;
   border: 1px solid black;
 `;

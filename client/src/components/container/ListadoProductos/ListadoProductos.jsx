@@ -13,7 +13,6 @@ import usePaginado from "../../../hooks/usePaginado";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
   const todosLosProductos = useSelector((state) => state.paginado);
-  const loading = useSelector((state) => state.loading);
   const showProducts = useSelector((state) => state.showDetail);
   const [Paginado, currentPage] = usePaginado();
   const dispatch = useDispatch();

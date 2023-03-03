@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart } from "../../../redux/actions";
 import {
@@ -12,10 +13,14 @@ import {
   WrapperCard,
 } from "./stylesCardProduct";
 const CardProduct = ({ producto, mostrarDetalle }) => {
-  const { Detalle, EstadoArt, Venta } = producto;
+  const { Detalle, EstadoArt, Venta } = producto;  
   const dispatch = useDispatch();
   const addToCart = (producto) => {
-    dispatch(addProductToCart(producto));
+  console.log(producto, "PRODUCTOOOO")
+   
+      
+       dispatch(addProductToCart({...producto}));
+    
   };
   return (
     <Card>

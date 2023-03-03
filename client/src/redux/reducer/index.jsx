@@ -12,7 +12,6 @@ const initialState = {
   showDetail: null,
   paginado: [],
   cart: [],
-  
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -25,6 +24,7 @@ export default function rootReducer(state = initialState, action) {
 
     case SHOW_DETAIL: {
       return {
+        ...state,
         showDetail: action.payload,
       };
     }
@@ -32,7 +32,6 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         paginado: action.payload,
-       
       };
     }
     case ADD_PRODUCT_TO_CART: {

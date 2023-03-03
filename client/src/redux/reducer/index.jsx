@@ -3,7 +3,7 @@ import { GET_PRODUCTS, SHOW_DETAIL } from "../actions/index";
 //estado global redux
 const initialState = {
   products: [],
-  showDetail: false,
+  showDetail: null,
 };
 
 export default function rootReducer(state = initialState, action) {

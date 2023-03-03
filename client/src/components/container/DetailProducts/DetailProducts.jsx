@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { showDetail } from "../../../redux/actions";
@@ -16,9 +16,14 @@ import {
 const DetailProducts = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
+  // useEffect(() => {
+  
+  //   // dispatch(showDetail(true));
+  // }, []);
   const backProduct = () => {
     dispatch(showDetail(false));
-    navigate(-1);
+    
   };
   return (
     <Container>

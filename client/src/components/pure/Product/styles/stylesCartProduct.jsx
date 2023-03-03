@@ -29,3 +29,6 @@ export const Hr = styled.hr`
   width: 94%;
   margin: 0 .5rem 0 .5rem;
 `
+export const WrapperButton = styled.div`
+  
+`

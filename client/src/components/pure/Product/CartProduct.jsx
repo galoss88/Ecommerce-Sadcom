@@ -11,12 +11,12 @@ const CartProduct = () => {
   return (
     <Container>
       <WrapperProductsCart>
-        {products.map((producto) => (
+        {products?.map((producto) => (
           <Product producto={producto} key={producto.idArt} />
         ))}
       </WrapperProductsCart>
       <Subtotal />
-      <Hr/>
+      <hr/>
       <Total />
       <WrapperButton>Finalizar Compra</WrapperButton>
     </Container>

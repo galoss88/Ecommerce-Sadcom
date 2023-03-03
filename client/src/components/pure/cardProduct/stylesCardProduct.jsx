@@ -67,7 +67,7 @@ export const ButtonAddToCart = styled.button`
   text-align: center;
   background-color: red;
   padding: .2em;
-  z-index: 4;
+  
   border-radius: 0.5em;
   border: none;
   :hover {

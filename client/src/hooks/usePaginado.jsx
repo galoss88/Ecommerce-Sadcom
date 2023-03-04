@@ -28,21 +28,21 @@ const usePaginado = () => {
       <Container>
         <WrapperButton>
           <Button onClick={() => prevPage()}>
-            <i class="bi bi-arrow-left"></i>
+            <i className="bi bi-arrow-left"></i>
           </Button>
         </WrapperButton>
         <WrapperUl>
-        <Ul>
-          {NumerosPaginado?.map((numero) => (
-            <Li paginaActual={currentPage === numero} key={numero}>
-              {numero}
-            </Li>
-          ))}
-        </Ul>
+          <Ul>
+            {NumerosPaginado?.map((numero) => (
+              <Li paginaActual={currentPage === numero} key={numero}>
+                {numero}
+              </Li>
+            ))}
+          </Ul>
         </WrapperUl>
         <WrapperButton>
           <Button onClick={() => nextPage()}>
-            <i class="bi bi-arrow-right"></i>
+            <i className="bi bi-arrow-right"></i>
           </Button>
         </WrapperButton>
       </Container>

@@ -7,15 +7,17 @@ export const GET_PAGINADO = "GET_PAGINADO";
 export const ADD_PRODUCT_TO_CART = "ADD_PRODUCT_TO_CART";
 export const DELETE_PRODUCT_CART = "DELETE_PRODUCT_CART";
 export const FILTER_PRICE = "FILTER_PRICE";
+export const RESET_FILTERS = "RESET_FILTERS";
+export const BUSQUEDA = "BUSQUEDA";
 //Funciones actions
-export function getProducts(page, filtro) {
+export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
       `http://localhost:4000/productos/?page=${page}${
-        filtro ? (filtro = filtro) : ""
-      }`
+        filtro ? `&filtro=${filtro}` : ""
+      }${search ? `&search=${search}` : ""}`
     );
-    console.log(products.data);
+
     return dispatch({
       type: GET_PRODUCTS,
       payload: products.data,
@@ -28,20 +30,6 @@ export function showDetail(payload) {
   return {
     type: SHOW_DETAIL,
     payload,
-  };
-}
-
-//paginado
-export function pagination(currentPage, filtro) {
-  return async function (dispatch) {
-    let paginado = await axios.get(
-      `http://localhost:4000/paginado/?page=${currentPage}&filtro=${filtro}`
-    );
-
-    return dispatch({
-      type: GET_PAGINADO,
-      payload: paginado.data,
-    });
   };
 }
 
@@ -69,3 +57,16 @@ export function filterPrice(filtro) {
     payload: filtro,
   };
 }
+export const resetFilters = (reset) => {
+  return {
+    type: RESET_FILTERS,
+    payload: reset,
+  };
+};
+
+export const searchProduct = (buscar) => {
+  return {
+    type: BUSQUEDA,
+    payload: buscar,
+  };
+};

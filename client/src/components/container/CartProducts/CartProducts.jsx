@@ -13,7 +13,7 @@ const CartProducts = () => {
     <Container>
       <Nav.Link
         onClick={() => setShowCart(!showCart)}
-        style={{ "padding-top": "1vh", "font-size": "2em" }}
+        style={{ "paddingTop": "1vh", "fontSize": "2em" }}
       >
         <ProductosEnCarrito>{carritoConProductos}</ProductosEnCarrito>
         <i className="bi bi-cart3"></i>

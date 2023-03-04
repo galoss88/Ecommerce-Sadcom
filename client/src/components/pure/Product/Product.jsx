@@ -35,7 +35,7 @@ const Product = ({ producto }) => {
               onClick={() => deleteProduct(IdArt)}
               onMouseLeave={ocultarDelete}
             >
-              <i class="bi bi-x-circle"></i>
+              <i className="bi bi-x-circle"></i>
             </Delete>
           ) : (
             <ImagenProduct

@@ -49,7 +49,7 @@ const DescriptionDetail = () => {
         </WrapperTalleCantidad>
         <WrapperButtonCarrito>
           <ButtonAñadirCarrito>
-            <i class="bi bi-cart-fill"></i>Añadir al carrito
+            <i className="bi bi-cart-fill"></i>Añadir al carrito
           </ButtonAñadirCarrito>
         </WrapperButtonCarrito>
       </WrapperInfoProducto>

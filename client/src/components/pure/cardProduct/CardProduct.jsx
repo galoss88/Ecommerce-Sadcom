@@ -36,7 +36,7 @@ const CardProduct = ({ producto, mostrarDetalle }) => {
       </WrapperCard>
 
       <ButtonAddToCart onClick={() => addToCart(producto)}>
-        <i class="bi bi-cart-plus"></i>
+        <i className="bi bi-cart-plus"></i>
       </ButtonAddToCart>
     </Card>
   );

@@ -1,9 +1,12 @@
+import ListaProductosProvider from "./context/ContextListaProductos";
 import RoutesSadcom from "./routes/routesSadcom";
 
 function App() {
   return (
     <>
-      <RoutesSadcom></RoutesSadcom>
+      <ListaProductosProvider>
+        <RoutesSadcom></RoutesSadcom>
+      </ListaProductosProvider>
     </>
   );
 }

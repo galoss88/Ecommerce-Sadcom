@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: flex-start;
   width: 20%;
   background-color: #d9d9d9;
+  
+  height: auto;
   @media (max-width:768px){
     display: none;
 

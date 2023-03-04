@@ -3,9 +3,10 @@ import {
   ADD_PRODUCT_TO_CART,
   DELETE_PRODUCT_CART,
   FILTER_PRICE,
-  GET_PAGINADO,
   GET_PRODUCTS,
   SHOW_DETAIL,
+  RESET_FILTERS,
+  BUSQUEDA,
 } from "../actions/index";
 //estado global redux
 const initialState = {
@@ -13,7 +14,9 @@ const initialState = {
   showDetail: null,
   paginado: [],
   cart: [],
-  filtro:"",
+  filtro: "",
+  reset: "",
+  search: "",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -30,12 +33,7 @@ export default function rootReducer(state = initialState, action) {
         showDetail: action.payload,
       };
     }
-    case GET_PAGINADO: {
-      return {
-        ...state,
-        paginado: action.payload,
-      };
-    }
+
     case ADD_PRODUCT_TO_CART: {
       return {
         ...state,
@@ -54,12 +52,23 @@ export default function rootReducer(state = initialState, action) {
         cart: eliminarProducto,
       };
     }
-    case FILTER_PRICE:{
-      return{
+    case FILTER_PRICE: {
+      return {
         ...state,
-        filtro:action.payload
-        
-      }
+        filtro: action.payload,
+      };
+    }
+    case RESET_FILTERS: {
+      return {
+        ...state,
+        reset: action.payload,
+      };
+    }
+    case BUSQUEDA: {
+      return {
+        ...state,
+        search: action.payload,
+      };
     }
     //Default
     default:

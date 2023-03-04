@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilterPrecio from "../../pure/filtros/FilterPrecio";
+import ResetFilters from "../../pure/filtros/ResetFilters";
 import {
   // ButtonFilters,
   Container,
@@ -9,6 +10,7 @@ import {
 const FiltrosProductos = () => {
   return (
     <Container>
+      <ResetFilters />
       <FormFilters>
         <FilterPrecio />
       </FormFilters>

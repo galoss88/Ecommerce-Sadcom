@@ -1,7 +1,7 @@
 const { ArticuloTbl } = require("../db");
 const paginado = require("./getPaginado");
 const getProductos = async (req, res) => {
-  const { page, filtro } = req.query;
+  const { page, filtro, search } = req.query;
   console.log(page, filtro);
   try {
     let filtrar = "vacio";
@@ -9,7 +9,7 @@ const getProductos = async (req, res) => {
       filtrar = filtro ==="menorAmayor" ? "ASC" : "DESC"
     }
     
-    const realizarPaginado = await paginado(page,filtrar);
+    const realizarPaginado = await paginado(page,filtrar,search);
     
     res.status(200).json(realizarPaginado);
   } catch (e) {

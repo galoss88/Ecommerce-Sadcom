@@ -1,16 +1,28 @@
 import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
-  width: 50%;
+  width: 75%;
+  flex-direction: column;
   margin: 0 auto;
   justify-content: center;
+  align-items: center;
+  gap: 1em;
   @media (max-width: 768px) {
     width: 100vw;
   }
 `;
+export const WrapperCards = styled.div`
+  display: flex;
+  width: 80%;
+  justify-content: center;
+`;
+export const WrapperPaginado = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(12rem, 1fr));
+  grid-template-columns: repeat(3, minmax(33.33%, 1fr));
   gap: 1rem;
   margin-top: 2rem;
   width: 80%;
@@ -29,7 +41,6 @@ export const CardContainer = styled.div`
     grid-template-columns: repeat(3, minmax(10rem, 1fr));
     width: 100%;
     margin: 1rem 0 0 2rem;
-    background-color: red;
   }
   @media (max-width: 300px) {
     grid-template-columns: repeat(1, 100%);

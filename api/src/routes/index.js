@@ -1,20 +1,12 @@
 const { Router } = require("express");
+const express = require("express");
 const router = Router();
-const {ArticuloTbl, ArticuloIvaTbl} = require("../db")
-
-
-
-
-
-//Rutas De prueba que traen datos!
-// router.get("/", async (req, res) => {
-//  const data = await ArticuloTbl.findAll()
-//  res.json(data)
-// });
-
-// router.get("/prueba", async (req, res) => {
-//     const datas = await ArticuloIvaTbl.findAll()
-//     res.json(datas)
-//    });
+const paginado = require("./Paginado/Paginado.js");
+const productos = require("./Productos/Productos.js");
+const filtros = require("./filtros/Filtros.js");
+router.use(express.json());
+// router.use("/listaProductos", paginado);
+router.use("/productos", productos);
+// router.use("/listaProductos", filtros);
 
 module.exports = router;

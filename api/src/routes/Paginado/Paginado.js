@@ -2,6 +2,6 @@ const { Router } = require("express");
 const route = Router();
 const getPaginado = require("../../controllers/getPaginado.js");
 
-route.get("/:currentPage", getPaginado);
+route.get("/", getPaginado);
 
 module.exports = route;

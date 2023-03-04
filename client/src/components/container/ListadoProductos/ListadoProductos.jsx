@@ -12,12 +12,13 @@ import CardProduct from "../../pure/cardProduct/CardProduct";
 import usePaginado from "../../../hooks/usePaginado";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
-  const todosLosProductos = useSelector((state) => state.paginado);
+  const filtrar = useSelector((state) => state.filtro);
+  const todosLosProductos = useSelector((state) => state.products);
   const showProducts = useSelector((state) => state.showDetail);
   const [Paginado, currentPage] = usePaginado();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(pagination(currentPage));
+    dispatch(getProducts(currentPage, filtrar));
   }, [dispatch, currentPage]);
 
   if (showProducts) return;

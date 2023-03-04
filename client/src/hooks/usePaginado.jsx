@@ -15,7 +15,7 @@ import { numerosPaginado } from "../utils/numerosPaginado";
 const usePaginado = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const estructuraPaginas = () => {
-    const totalPagination = useSelector((state) => state.paginado);
+    const totalPagination = useSelector((state) => state.products);
     const totalPages = totalPagination?.lastPage;
     const prevPage = () => {
       setCurrentPage(totalPagination.prevPage);

@@ -2,6 +2,7 @@
 import {
   ADD_PRODUCT_TO_CART,
   DELETE_PRODUCT_CART,
+  FILTER_PRICE,
   GET_PAGINADO,
   GET_PRODUCTS,
   SHOW_DETAIL,
@@ -12,6 +13,7 @@ const initialState = {
   showDetail: null,
   paginado: [],
   cart: [],
+  filtro:"",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -51,6 +53,13 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         cart: eliminarProducto,
       };
+    }
+    case FILTER_PRICE:{
+      return{
+        ...state,
+        filtro:action.payload
+        
+      }
     }
     //Default
     default:

@@ -1,12 +1,15 @@
 import ListaProductosProvider from "./context/ContextListaProductos";
+import ContextLoginProvider from "./context/ContextLogin";
 import RoutesSadcom from "./routes/routesSadcom";
 
 function App() {
   return (
     <>
-      <ListaProductosProvider>
-        <RoutesSadcom></RoutesSadcom>
-      </ListaProductosProvider>
+      <ContextLoginProvider>
+        <ListaProductosProvider>
+          <RoutesSadcom></RoutesSadcom>
+        </ListaProductosProvider>
+      </ContextLoginProvider>
     </>
   );
 }

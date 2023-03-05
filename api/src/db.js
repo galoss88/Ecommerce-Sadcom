@@ -16,17 +16,8 @@ const sequelize = new Sequelize(DATABASE_NAME, USER, PASSWORD, {
     },
   },
 });
-// //Comprobar si funciona sequelize
-// const verificarConexion = async () => {
-//   try {
-//     const conexionExitosa = await sequelize.authenticate();
-//     console.log("Conexion exitosa!!");
-//   } catch (e) {
-//     console.log({ message: e.message });
-//   }
-//   sequelize.authenticate();
-// };
-// verificarConexion();
+
+
 
 const basename = path.basename(__filename);
 

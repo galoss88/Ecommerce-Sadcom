@@ -9,7 +9,7 @@ const ListaProductosProvider = (props) => {
   const [infoFiltros, setInfoFiltros] = useState({
     filterPrice: "",
     search: "",
-    pageCurrent: "",
+    pageCurrent: "" || 1 ,
   });
 
   const resetFiltros = () => {
@@ -24,6 +24,7 @@ const ListaProductosProvider = (props) => {
       ...infoFiltros,
       search: "",      
       pageCurrent: 1,
+      filterPrice:"",
     });
   };
 

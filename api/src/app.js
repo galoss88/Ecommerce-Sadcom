@@ -5,6 +5,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+// SDK de Mercado Pago
+const mercadopago = require("mercadopago");
 //settings
 server.use(cors());
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -18,6 +20,12 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+// Credenciales mercado pago
+mercadopago.configure({
+  access_token: "TEST-3387753665236650-030518-e050f756d85a6ab6612370dcb5490609-281850149",
+});
+
 
 server.use("/", routes);
 

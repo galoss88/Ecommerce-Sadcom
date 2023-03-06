@@ -1,12 +1,19 @@
-import React from 'react'
-import { ButtonLogin, ContainerLogin } from './styleLogin'
+import { useAuth0 } from "@auth0/auth0-react";
+import React from "react";
+import MiUsuarioButton from "../../pure/login/MiUsuario/MiUsuario";
+import { ContainerLogin } from "./styleLogin";
+import LoginButton from "../../pure/login/loginButton/LoginButton";
+
 
 const Login = () => {
+  const { loginWithRedirect, user, isAuthenticated } = useAuth0();
   return (
     <ContainerLogin>
-      <ButtonLogin>Iniciar Sesion</ButtonLogin>
-    </ContainerLogin>
-  )
-}
+      {isAuthenticated ? <MiUsuarioButton /> : <LoginButton />}
+    
 
-export default Login
+    </ContainerLogin>
+  );
+};
+
+export default Login;

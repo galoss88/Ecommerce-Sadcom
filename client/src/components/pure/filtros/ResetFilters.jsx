@@ -18,6 +18,7 @@ const ResetFilters = () => {
   };
   const allProducts = () => {
     verTodosLosProductos();
+    dispatch(resetFilters("reset"));
   };
   return (
     <WrapperButton>

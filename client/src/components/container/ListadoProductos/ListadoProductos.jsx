@@ -31,7 +31,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
     setInfoFiltros({
       ...infoFiltros,
       filterPrice: filtrar,
-
       pageCurrent: currentPage,
     });
   }, [currentPage, filtrar]);

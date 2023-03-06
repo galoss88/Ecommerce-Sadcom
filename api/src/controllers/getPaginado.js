@@ -15,6 +15,7 @@ const paginado = async (page, filtro, search) => {
   try {
     const options = {
       where: busqueda,
+      order: [["IdArt", "DESC"]],
       limit: productsPerPage,
       offset,
     };

@@ -4,7 +4,7 @@ import {
   DatoUsuario,
   LabelInfo,
   WrapperInfo,
-} from "../components/pure/login/PerfilUsuario/stylesPerfilUsuario";
+} from "../components/pure/login/PerfilUsuario/styles/stylesPerfilUsuario";
 
 const useDatosUsuario = (options) => {
   //Se traen datos directamente de auth0, hasta que en la base de datos

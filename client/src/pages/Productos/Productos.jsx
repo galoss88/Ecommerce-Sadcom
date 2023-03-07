@@ -9,8 +9,17 @@ import SearcherResponsive from "../../components/pure/searcher/SearcherResponsiv
 const DivProductos = styled.div`
   display: flex;
   flex-direction: row;
+  animation: pagina 1s ease-in-out 0s 1 alternate none;
+  transition: animation 2s ease-in-out;
+	@keyframes pagina {
+	0% {
+		opacity: 0;
+	}
 
- 
+	100% {
+		opacity: 1;
+	}
+}
 `;
 const Productos = () => {
   const detailShow = useSelector((state) => state.showDetail);

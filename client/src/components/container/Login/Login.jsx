@@ -4,14 +4,11 @@ import MiUsuarioButton from "../../pure/login/MiUsuario/MiUsuario";
 import { ContainerLogin } from "./styleLogin";
 import LoginButton from "../../pure/login/LoginButton/LoginButton";
 
-
 const Login = () => {
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
   return (
     <ContainerLogin>
       {isAuthenticated ? <MiUsuarioButton /> : <LoginButton />}
-    
-
     </ContainerLogin>
   );
 };

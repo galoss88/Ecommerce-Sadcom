@@ -5,12 +5,23 @@ export const ContainerPerfilUsuario = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-
   bottom: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #00000050;
+  animation: perfilusuario 1s ease-in-out 0s 1 alternate none;
+  @keyframes perfilusuario {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 export const WrapperDatosPerfil = styled.div`
   display: flex;

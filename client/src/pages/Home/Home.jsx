@@ -11,6 +11,18 @@ export default function Home() {
     background-size: cover;
     background-position: 0 75%;
     height: 86vh;
+    animation: home 1s ease-in-out 0s 1 alternate none;
+    @keyframes home {
+      0% {
+        opacity: 0;
+        transform: scale(1.4);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
     @media (max-width: 768px) {
       background-position: bottom;
     }

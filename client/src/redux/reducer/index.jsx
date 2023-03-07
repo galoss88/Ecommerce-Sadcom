@@ -4,14 +4,12 @@ import {
   DELETE_PRODUCT_CART,
   FILTER_PRICE,
   GET_PRODUCTS,
-  SHOW_DETAIL,
   RESET_FILTERS,
   BUSQUEDA,
 } from "../actions/index";
 //estado global redux
 const initialState = {
   products: [],
-  showDetail: null,
   paginado: [],
   cart: [],
   filtro: "",
@@ -26,13 +24,6 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
-
-    case SHOW_DETAIL: {
-      return {
-        ...state,
-        showDetail: action.payload,
-      };
-    }
 
     case ADD_PRODUCT_TO_CART: {
       return {

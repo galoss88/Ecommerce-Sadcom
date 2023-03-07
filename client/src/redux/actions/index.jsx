@@ -2,7 +2,6 @@
 import axios from "axios";
 //export nombre actions
 export const GET_PRODUCTS = "GET_PRODUCTS";
-export const SHOW_DETAIL = "SHOW_DETAIL";
 export const GET_PAGINADO = "GET_PAGINADO";
 export const ADD_PRODUCT_TO_CART = "ADD_PRODUCT_TO_CART";
 export const DELETE_PRODUCT_CART = "DELETE_PRODUCT_CART";
@@ -22,14 +21,6 @@ export function getProducts(page, filtro, search) {
       type: GET_PRODUCTS,
       payload: products.data,
     });
-  };
-}
-
-//VER DETALLE DE PRODUCTOS
-export function showDetail(payload) {
-  return {
-    type: SHOW_DETAIL,
-    payload,
   };
 }
 

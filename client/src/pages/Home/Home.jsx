@@ -2,7 +2,7 @@ import styled from "styled-components";
 import image from "./image/pexels-photo-7153908.png";
 import Searcher from "../../components/pure/searcher/Searcher";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const Wrapper = styled.div`
@@ -83,7 +83,7 @@ export default function Home() {
             esse? Esse error magnam accusamus laudantium assumenda beatae est in
             quia nemo!
           </p>
-          <Button onClick={() => navigate("/productos")}>Ver productos</Button>
+          <Button onClick={() => navigate("/productos/listaProductos")}>Ver productos</Button>
         </Detail>
       </Wrapper>
       <SecondBlock>

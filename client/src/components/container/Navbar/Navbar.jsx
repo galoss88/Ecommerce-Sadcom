@@ -36,17 +36,18 @@ export default function NavBar() {
             <Offcanvas.Body>
               <Nav className="flex-grow-2 pe-3 align-items-center">
                 <hr />
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
                 <hr />
-                <Nav.Link href="#action2">Categorias</Nav.Link>
+                <Nav.Link onClick={() => navigate("/productos")}>Productos</Nav.Link>
                 <hr />
                 <Nav.Link href="#action2">
                   <FaShoppingCart /> Carrito
                 </Nav.Link>
                 <hr />
-                <Nav.Link href="/faq">Preguntas frecuentes</Nav.Link>
+                <Nav.Link onClick={() => navigate("/faq")}>Preguntas frecuentes</Nav.Link>
                 <hr />
                 <Nav.Link href="#action2">Contacto</Nav.Link>
+                
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

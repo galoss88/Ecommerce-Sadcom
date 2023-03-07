@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import MiUsuarioButton from "../../pure/login/MiUsuario/MiUsuario";
 import { ContainerLogin } from "./styleLogin";
-import LoginButton from "../../pure/login/loginButton/LoginButton";
+import LoginButton from "../../pure/login/LoginButton/LoginButton";
 
 
 const Login = () => {

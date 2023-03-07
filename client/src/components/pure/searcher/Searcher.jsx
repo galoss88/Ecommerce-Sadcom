@@ -21,7 +21,7 @@ export default function Searcher() {
   };
   
   return (
-    <Form className="d-flex" style={{ paddingRight: "30vw" }}>
+    <Form className="d-flex" style={{ paddingRight: "20vw", paddingLeft: "20vw" }}>
       <Form.Control
         type="search"
         placeholder="Buscar..."

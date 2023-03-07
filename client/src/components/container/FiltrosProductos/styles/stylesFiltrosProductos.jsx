@@ -5,9 +5,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 20%;
-  background-color: #d9d9d9;
+  height: 85vh;
+  background-color: #f2f2f2;
   
-  height: auto;
+ 
   @media (max-width:768px){
     display: none;
 

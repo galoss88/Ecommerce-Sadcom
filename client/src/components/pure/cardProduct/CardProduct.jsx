@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addProductToCart } from "../../../redux/actions";
 import {
   ButtonAddToCart,
@@ -12,15 +13,19 @@ import {
   Stock,
   WrapperCard,
 } from "./stylesCardProduct";
-const CardProduct = ({ producto, mostrarDetalle }) => {
+const CardProduct = ({ producto }) => {
   const { Detalle, EstadoArt, Venta } = producto;
   const dispatch = useDispatch();
   const addToCart = (producto) => {
     dispatch(addProductToCart({ ...producto }));
   };
+  const navigate = useNavigate();
+  const verDetalles = () => {
+    navigate("/detailProduct");
+  };
   return (
     <Card>
-      <WrapperCard onClick={() => mostrarDetalle()}>
+      <WrapperCard onClick={() => verDetalles()}>
         <ImgProduct
           src="https://www.ansilta.com/img/articulos/2022/01/campera_crux_imagen18.jpg"
           alt="sin imagen"

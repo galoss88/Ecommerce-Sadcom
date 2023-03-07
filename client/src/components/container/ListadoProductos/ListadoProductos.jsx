@@ -6,7 +6,6 @@ import {
   WrapperCards,
   WrapperPaginado,
 } from "./styles/styleListadoProductos";
-import { getProducts, showDetail } from "../../../redux/actions";
 import CardProduct from "../../pure/cardProduct/CardProduct";
 import usePaginado from "../../../hooks/usePaginado";
 import { useContext } from "react";
@@ -18,11 +17,9 @@ const ListadoProductos = ({ mostrarDetalle }) => {
   //Traigo del estado global lo que necesito para realizar los filtrados y renderizarlo en la lista de productos.
   const filtrar = useSelector((state) => state.filtro);
   const todosLosProductos = useSelector((state) => state.products);
-  const showProducts = useSelector((state) => state.showDetail);
 
   //---------------------->>
   const [Paginado, currentPage] = usePaginado();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     setInfoFiltros({
@@ -31,7 +28,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
       pageCurrent: currentPage,
     });
   }, [currentPage, filtrar]);
-  if (showProducts) return;
 
   return (
     <Container>

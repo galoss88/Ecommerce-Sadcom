@@ -49,7 +49,7 @@ export default function NavBar() {
                   Preguntas frecuentes
                 </Nav.Link>
                 <hr />
-                <Nav.Link href="#action2">Contacto</Nav.Link>
+                <Nav.Link onClick={() => navigate("/contact")}>Contacto</Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

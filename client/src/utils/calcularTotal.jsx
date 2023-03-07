@@ -1,12 +1,11 @@
 import { useSelector } from "react-redux";
 
-const calcularTotalCarrito = () => {
-  const carrito = useSelector((state) => state.cart);
-
+const calcularTotalCarrito = (carrito) => {
   const total = carrito?.reduce(
-    (acumulador, precioActual) => acumulador + precioActual.Venta,0
+    (acumulador, precioActual) => acumulador + precioActual.Venta,
+    0
   );
-  console.log("acacaca", total);
-  return total;
+  const totalSinDecimles = total.toFixed(2);
+  return totalSinDecimles;
 };
 export default calcularTotalCarrito;

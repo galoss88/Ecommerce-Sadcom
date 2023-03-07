@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteProductCart } from "../../../redux/actions";
+import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   Cantidad,
   Delete,
@@ -15,7 +16,7 @@ import {
   WrapperProducto,
 } from "./styles/stylesProduct";
 
-const Product = ({ producto }) => {
+const Product = ({ producto, conteoProductos }) => {
   const dispatch = useDispatch();
   const { Detalle, Talle, Venta, IdArt } = producto;
   const [showDelete, setShowDelete] = useState(false);
@@ -24,6 +25,9 @@ const Product = ({ producto }) => {
   const deleteProduct = (idProducto) => {
     dispatch(deleteProductCart(idProducto));
   };
+  const cantidadProducto = conteoProductos[IdArt];
+  const precio = quitarDecimales(Venta);
+
   return (
     <WrapperProducto>
       {/* --------------- */}
@@ -44,16 +48,18 @@ const Product = ({ producto }) => {
               alt="sin imagen"
             />
           )}
-          <Cantidad>12</Cantidad>
+          <Cantidad>{cantidadProducto}</Cantidad>
         </WrapperImagenProducto>
         <WrapperNameAndTalle>
           <NameProduct>{Detalle}</NameProduct>
+          {/* Deberia mostrar un talle, depende de la tienda */}
           {Talle ? <Talle>talle M</Talle> : null}
+          {/* ---------------------------------------------------- */}
         </WrapperNameAndTalle>
       </WrapperImageAndNameProduct>
       {/* --------------- */}
       <WrapperPriceProduct>
-        <PriceProduct>$ {Venta}</PriceProduct>
+        <PriceProduct>$ {precio}</PriceProduct>
       </WrapperPriceProduct>
       {/* --------------- */}
     </WrapperProducto>

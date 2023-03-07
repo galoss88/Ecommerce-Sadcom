@@ -13,14 +13,10 @@ import {
   WrapperCard,
 } from "./stylesCardProduct";
 const CardProduct = ({ producto, mostrarDetalle }) => {
-  const { Detalle, EstadoArt, Venta } = producto;  
+  const { Detalle, EstadoArt, Venta } = producto;
   const dispatch = useDispatch();
   const addToCart = (producto) => {
-  console.log(producto, "PRODUCTOOOO")
-   
-      
-       dispatch(addProductToCart({...producto}));
-    
+    dispatch(addProductToCart({ ...producto }));
   };
   return (
     <Card>

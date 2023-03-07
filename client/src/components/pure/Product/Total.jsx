@@ -4,7 +4,8 @@ import calcularTotalCarrito from "../../../utils/calcularTotal";
 import { WrapperTotal, Total_, TotalPrice } from "./styles/stylesTotal";
 
 const Total = () => {
-  const total = calcularTotalCarrito();
+  const carrito = useSelector((state) => state.cart);
+  const total = calcularTotalCarrito(carrito);
   return (
     <WrapperTotal>
       <Total_>Total: </Total_>

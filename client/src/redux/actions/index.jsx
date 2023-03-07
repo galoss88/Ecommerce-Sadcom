@@ -35,7 +35,6 @@ export function showDetail(payload) {
 
 //agregar producto al carrito
 export function addProductToCart(producto) {
-  console.log(producto, "action");
   return {
     type: ADD_PRODUCT_TO_CART,
     payload: producto,

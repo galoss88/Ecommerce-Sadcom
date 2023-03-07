@@ -9,11 +9,15 @@ import { useSelector } from "react-redux";
 const CartProducts = () => {
   const [showCart, setShowCart] = useState(false);
   const carritoConProductos = useSelector((state) => state.cart?.length);
+  const mostrarOcultarCarrito = () => {
+    setShowCart(!showCart);
+  };
   return (
-    <Container>
+    <Container isOpen={showCart?"open":"close"}>
       <Nav.Link
-        onClick={() => setShowCart(!showCart)}
-        style={{ "paddingTop": "1vh", "fontSize": "2em" }}
+      className="abreCierraCarrito"
+        onClick={() => mostrarOcultarCarrito()}
+        style={{ paddingTop: "1vh", fontSize: "2em" }}
       >
         <ProductosEnCarrito>{carritoConProductos}</ProductosEnCarrito>
         <i className="bi bi-cart3"></i>

@@ -27,6 +27,11 @@ export const WrapperProductsCart = styled.div`
 //Contenedor de la imagen, el nombre-talle y precio del producto
 export const Hr = styled.hr`
   width: 94%;
-  margin: 0 0.5rem 0 0.5rem;
+  margin: 0 0.5rem .5em 0.5rem;
 `;
-export const WrapperButton = styled.div``;
+export const WrapperButton = styled.button`
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 3em;
+`;

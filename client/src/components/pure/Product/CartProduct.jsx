@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Product from "./Product";
-import { Container, WrapperButton, WrapperProductsCart } from "./styles/stylesCartProduct";
+import { Container, WrapperButton, WrapperProductsCart, Hr } from "./styles/stylesCartProduct";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
 
@@ -15,8 +15,9 @@ const CartProduct = () => {
           <Product producto={producto} key={producto.idArt} />
         ))}
       </WrapperProductsCart>
+      <Hr/>
       <Subtotal />
-      <hr/>
+      <Hr/>
       <Total />
       <WrapperButton>Finalizar Compra</WrapperButton>
     </Container>

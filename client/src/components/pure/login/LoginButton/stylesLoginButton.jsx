@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const ButtonLogin = styled.button`
+/* export const ButtonLogin = styled.button`
   border: none;
 
   padding: 0.3rem 0.3rem;
@@ -12,4 +12,15 @@ export const ButtonLogin = styled.button`
   :active{
     animation: none;
   }
-`;
+`; */
+
+export const ButtonLogin = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+`
+
+export const Login = styled.p`
+  margin: 0 0 0 .5em;
+`

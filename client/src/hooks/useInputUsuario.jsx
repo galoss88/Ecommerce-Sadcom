@@ -4,7 +4,7 @@ import {
   InputInfo,
   LabelInfo,
   WrapperInfo,
-} from "../components/pure/login/PerfilUsuario/stylesPerfilUsuario";
+} from "../components/pure/login/PerfilUsuario/styles/stylesPerfilUsuario";
 
 const useInputUsuario = (options) => {
   const [dataInput, setDataInput] = useState({});

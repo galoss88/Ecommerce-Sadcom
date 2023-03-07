@@ -10,7 +10,7 @@ import {
   WrapperButtonSetInfo,
   WrapperDatosPerfil,
   WrapperInputs,
-} from "./stylesPerfilUsuario";
+} from "./styles/stylesPerfilUsuario";
 
 const PerfilUsuario = ({ ocultarPerfil }) => {
   const [valuesInputs, Inputs] = useInputUsuario(optionsInput);

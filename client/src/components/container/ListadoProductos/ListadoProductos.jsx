@@ -24,9 +24,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
   const [Paginado, currentPage] = usePaginado();
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getProducts(currentPage, filtrar));
-  // }, [dispatch, currentPage, filtrar]);
   useEffect(() => {
     setInfoFiltros({
       ...infoFiltros,

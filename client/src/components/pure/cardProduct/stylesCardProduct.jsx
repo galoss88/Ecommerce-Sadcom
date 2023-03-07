@@ -38,6 +38,7 @@ export const NameProduct = styled.h2`
   line-height: 1.2rem;
   font-size: .7rem;
   white-space: wrap;
+  
 `;
 export const PriceProduct = styled.label`
   margin: 1rem 0 0 0.8rem;

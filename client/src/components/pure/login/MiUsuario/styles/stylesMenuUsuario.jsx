@@ -17,16 +17,16 @@ export const NavMenuUsuario = styled.nav`
   z-index: 1;
   animation: menuUsuario 1s ease-in-out 0s 1 alternate none;
   @keyframes menuUsuario {
-	0% {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
 
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-} 
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 export const WrapperButtonMenu = styled.div`
   display: flex;

@@ -12,7 +12,7 @@ const MiUsuarioButton = () => {
   return (
     <ContainerMiUsuario>
       <ButtonMiUsuario onClick={() => verMenuUsuario()}>
-        Bienvenido{user && ` ${user.given_name}!`}
+        ¡Bienvenido{user && ` ${user.given_name}!`}
       </ButtonMiUsuario>
       {showConfig && <MenuUsuario />}
     

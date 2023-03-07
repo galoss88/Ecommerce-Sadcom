@@ -6,6 +6,7 @@ import Header from "../pages/Header/Header";
 import NavBar from "../components/container/Navbar/Navbar";
 import Home from "../pages/Home/Home.jsx"
 import FAQ from "../pages/FAQ/FAQ.jsx";
+import Contact from "../pages/Contact/Contact.jsx";
 
 const routesSadcom = () => {
   return (
@@ -18,6 +19,7 @@ const routesSadcom = () => {
         </Route>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/faq" element={<FAQ/>}/>
+        <Route path="/contact" element={<Contact/>}/>
         <Route path="*" element={<p>Not found</p>}/>
       </Routes>
     </>

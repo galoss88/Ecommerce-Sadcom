@@ -16,15 +16,14 @@ export default function NavBar() {
   return (
     <div>
       <Navbar key="xxxl" bg="light" expand="xxxl">
-        <Container className="d-flex justify-content-between" fluid >
+        <Container className="d-flex justify-content-between" fluid>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-xxxl`} />
           <Navbar.Brand onClick={() => navigate("/")}>
             <b>Logo</b>
           </Navbar.Brand>
           <Searcher />
-            <Login/>
+          <Login />
           <Wrapper>
-            
             <CartProducts></CartProducts>
           </Wrapper>
 
@@ -38,16 +37,19 @@ export default function NavBar() {
                 <hr />
                 <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
                 <hr />
-                <Nav.Link onClick={() => navigate("/productos")}>Productos</Nav.Link>
+                <Nav.Link onClick={() => navigate("/productos")}>
+                  Productos
+                </Nav.Link>
                 <hr />
                 <Nav.Link href="#action2">
                   <FaShoppingCart /> Carrito
                 </Nav.Link>
                 <hr />
-                <Nav.Link onClick={() => navigate("/faq")}>Preguntas frecuentes</Nav.Link>
+                <Nav.Link onClick={() => navigate("/faq")}>
+                  Preguntas frecuentes
+                </Nav.Link>
                 <hr />
                 <Nav.Link href="#action2">Contacto</Nav.Link>
-                
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

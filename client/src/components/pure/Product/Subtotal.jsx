@@ -5,7 +5,7 @@ const Subtotal = () => {
   return (
     <WrapperSubtotal>
       <Subtotal_>Subtotal: </Subtotal_>
-      <SubtotalPrice>$400</SubtotalPrice>
+      <SubtotalPrice>$ 0</SubtotalPrice>
     </WrapperSubtotal>
   );
 };

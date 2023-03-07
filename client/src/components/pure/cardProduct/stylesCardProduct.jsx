@@ -13,6 +13,7 @@ export const Card = styled.div`
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
   }
+ 
   @media (max-width: 761px) {
     width: 10rem;
   }
@@ -20,6 +21,7 @@ export const Card = styled.div`
 export const WrapperCard = styled.div`
   display: flex;
   flex-direction: column;
+  user-select: none;
 ` 
 export const ImgProduct = styled.img`
   max-width: 100%;
@@ -38,6 +40,7 @@ export const NameProduct = styled.h2`
   line-height: 1.2rem;
   font-size: .7rem;
   white-space: wrap;
+  
 `;
 export const PriceProduct = styled.label`
   margin: 1rem 0 0 0.8rem;

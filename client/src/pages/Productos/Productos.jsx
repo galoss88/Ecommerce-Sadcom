@@ -9,9 +9,8 @@ import SearcherResponsive from "../../components/pure/searcher/SearcherResponsiv
 const DivProductos = styled.div`
   display: flex;
   flex-direction: row;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+
+ 
 `;
 const Productos = () => {
   const detailShow = useSelector((state) => state.showDetail);

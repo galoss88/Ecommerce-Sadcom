@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+const { Sequelize, Op } = require("sequelize");
 const { ArticuloTbl } = require("../db");
 
 const paginado = async (page, filtro, search) => {
@@ -9,9 +9,13 @@ const paginado = async (page, filtro, search) => {
   const busqueda = search
     ? //si tengo search en la columna Detalle hago una busqueda con comodin con el
       //operador like [Sequelize.Op.Like] que busca coincidencias
-      { Detalle: { [Sequelize.Op.like]: `%${search}%` } }
-    : {};
-
+      {
+        Detalle: { [Sequelize.Op.like]: `%${search}%` },
+        Venta: { [Op.gt]: 0 },
+        StockTienda: { [Op.gt]: 0 },
+      }
+    : { Venta: { [Op.gt]: 0 }, StockTienda: { [Op.gt]: 0 } };
+  console.log(busqueda);
   try {
     const options = {
       where: busqueda,
@@ -34,15 +38,6 @@ const paginado = async (page, filtro, search) => {
       productosSinFiltro,
     };
     return paginado;
-    // res.status(200).json({
-    //   productosAMostrar,
-    //   hasNextPage: productsPerPage * pageCurrent < productosTotales,
-    //   hasPrevPage: pageCurrent > 1,
-    //   nextPage: pageCurrent + 1,
-    //   prevPage: pageCurrent - 1,
-    //   lastPage: Math.ceil(productosTotales / productsPerPage),
-    //   productosTotales,
-    // });
   } catch (e) {
     return e;
   }

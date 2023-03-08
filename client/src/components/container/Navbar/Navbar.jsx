@@ -30,8 +30,10 @@ export default function NavBar() {
           </Navbar.Brand>
           <WrapperResponsive>
             <Searcher />
+            
           </WrapperResponsive>
           <Login />
+         
           <Wrapper>
             <CartProducts></CartProducts>
           </Wrapper>

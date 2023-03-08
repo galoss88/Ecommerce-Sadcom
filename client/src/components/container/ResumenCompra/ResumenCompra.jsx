@@ -14,12 +14,23 @@ import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
 import Subtotal from "../../pure/Product/Subtotal";
 import Total from "../../pure/Product/Total";
 import ProductResumen from "../../pure/ProductResumen/ProductResumen";
+import { enviarSocket, recibirSocket } from "../../../utils/enviarSocket";
 const CartProduct = () => {
+  const [compras, setCompras] = useState([{
+    respuesta:""
+  }])
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
-  const navigate = useNavigate();
-  const finalizarCompra = () => {};
+  const finalizarCompra = () => {
+    enviarSocket("carritoDescontarStock", conteoProductosCarrito);
+    recibirSocket("compraProductos", setCompras)
+    if(compras === "Fracaso") return alert("Producto Sin stock")
+  };
+ 
+   
+ 
+ 
   return (
     <ContainerResumenCompra>
       <WrapperProductos>

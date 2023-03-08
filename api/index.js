@@ -20,11 +20,11 @@
 const { config } = require("dotenv");
 config();
 const { PORT } = process.env;
-const serverHttp = require("./src/app");
+const server = require("./src/app");
 const { conn } = require("./src/db.js");
 
 conn.sync({ force: false }).then(() => {
-  serverHttp.listen(PORT || 3000, () => {
+  server.listen(PORT || 3000, () => {
     console.log(`server ready en el puerto ${process.env.PORT || 4000}`);
   });
 });

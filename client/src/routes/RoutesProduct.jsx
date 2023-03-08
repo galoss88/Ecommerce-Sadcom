@@ -7,7 +7,6 @@ const RoutesProduct = () => {
   return (
     <Routes>
       <Route path="listaProductos" element={<ListadoProductos />} />
-      <Route path="resumenCompra" element={<ResumenCompra />} />
     </Routes>
   );
 };

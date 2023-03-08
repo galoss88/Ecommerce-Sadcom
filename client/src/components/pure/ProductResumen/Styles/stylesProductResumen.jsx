@@ -2,27 +2,27 @@ import styled from "styled-components";
 
 export const WrapperProducto = styled.div`
   display: flex;
-  height: 35%;
-  width: 100%;
-  padding-bottom: 1em;
+  background-color: transparent;
+  width: 35rem;
+  padding: 1em;
   justify-content: space-between;
 `;
 export const WrapperImageAndNameProduct = styled.div`
   display: flex;
   gap: 4px;
-  width: 65%;
+  width: 100%;
   height: 100%;
 `;
 //IMAGEN DEL PRODUCTO
 export const WrapperImagenProducto = styled.div`
-  width: 50%;
-  height: 4.5em;
+  width: 40%;
+  height: 7em;
   position: relative;
   border: 1px solid black;
 `;
 export const ImagenProduct = styled.img`
   border-radius: 5px;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
   background-position: center;
   background-size: cover;
@@ -50,11 +50,12 @@ export const WrapperNameAndTalle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 65%;
+  width: 60%;
 `;
 export const NameProduct = styled.h2`
-  font-size: 0.7rem;
+  font-size: .9rem;
   font-weight: bold;
+  color: black;
 `;
 export const Talle = styled.h3`
   font-size: 0.6rem;
@@ -71,7 +72,7 @@ export const WrapperPriceProduct = styled.div`
 export const PriceProduct = styled.p`
   display: flex;
   align-items: center;
-
+color: black;
   word-wrap: break-word;
 `;
 
@@ -79,16 +80,13 @@ export const Delete = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   background-color: #551616;
   height: 100%;
-  width: 100%;
+  width: auto;
   cursor: pointer;
-  i{
+  i {
     font-size: 1.5em;
-    
+
     color: #FFF;
-    
-    
   }
 `;

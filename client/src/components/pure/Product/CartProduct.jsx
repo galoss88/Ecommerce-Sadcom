@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
 import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
 import Product from "./Product";
+import Swal from "sweetalert2";
+
 import {
   Container,
   WrapperButton,
@@ -16,7 +19,17 @@ const CartProduct = () => {
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
-  console.log(productosSinRepetir);
+  const navigate = useNavigate();
+  const finalizarCompra = () => {
+    //validar
+    if (!products.length)
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Su carrito esta vació.",
+      });
+    navigate("/resumenCompra");
+  };
   return (
     <Container>
       <WrapperProductsCart>
@@ -32,7 +45,9 @@ const CartProduct = () => {
       <Subtotal />
       <Hr />
       <Total />
-      <WrapperButton>Finalizar Compra</WrapperButton>
+      <WrapperButton onClick={() => finalizarCompra()}>
+        Finalizar Compra
+      </WrapperButton>
     </Container>
   );
 };

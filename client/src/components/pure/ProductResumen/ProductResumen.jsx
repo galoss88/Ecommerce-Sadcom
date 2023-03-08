@@ -14,9 +14,9 @@ import {
   WrapperNameAndTalle,
   WrapperPriceProduct,
   WrapperProducto,
-} from "./styles/stylesProduct";
+} from "./Styles/stylesProductResumen";
 
-const Product = ({ producto, conteoProductos }) => {
+const ProductResumen = ({ producto, conteoProductos }) => {
   const dispatch = useDispatch();
   const { Detalle, Talle, Venta, IdArt } = producto;
   const [showDelete, setShowDelete] = useState(false);
@@ -33,16 +33,20 @@ const Product = ({ producto, conteoProductos }) => {
       {/* --------------- */}
 
       <WrapperImageAndNameProduct>
-        <WrapperImagenProducto
-          onMouseEnter={mostrarDelete}
-          onMouseLeave={ocultarDelete}
-        >
+        <WrapperImagenProducto  onMouseEnter={mostrarDelete}  onMouseLeave={ocultarDelete}>
           {showDelete ? (
-            <Delete onClick={() => deleteProduct(IdArt)}>
+            <Delete
+              onClick={() => deleteProduct(IdArt)}
+             
+            >
               <i className="bi bi-x-circle"></i>
             </Delete>
           ) : (
-            <ImagenProduct src="" alt="sin imagen" />
+            <ImagenProduct
+             
+              src=""
+              alt="sin imagen"
+            />
           )}
           <Cantidad>{cantidadProducto}</Cantidad>
         </WrapperImagenProducto>
@@ -62,4 +66,4 @@ const Product = ({ producto, conteoProductos }) => {
   );
 };
 
-export default Product;
+export default ProductResumen;

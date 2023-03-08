@@ -89,7 +89,7 @@ export default function Contact() {
     return(
         <div>
             <Title>Contacto</Title>
-            <Form style={{ width: '90vw', "margin-left": "5vw"}} onSubmit={(e) => handleSubmit(e)}>
+            <Form style={{ width: '90vw', marginLeft : "5vw"}} onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" >
                     <Form.Label><b>Nombre y apellido</b></Form.Label>
                     <Form.Control type="string" placeholder="Ingresa tu nombre..." name="name" value={input.name} onChange={(e) => handleChange(e)}/>
@@ -118,7 +118,7 @@ export default function Contact() {
                         </Form.Text> 
                     )}
                 </Form.Group>
-                <Button style={{ "background-color": 'black', "color": "white", "border-color": "black" }} type="submit">
+                <Button style={{ backgroundColor : 'black', color : "white", borderColor : "black" }} type="submit">
                     Enviar
                 </Button>
             </Form>

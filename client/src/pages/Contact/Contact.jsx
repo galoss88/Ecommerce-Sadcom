@@ -27,8 +27,7 @@ export default function Contact() {
             ...input,
             [e.target.name]: e.target.value
         }))
-        console.log(input)
-        console.log(errors)
+       
     }
 
     function handleSubmit(e) {

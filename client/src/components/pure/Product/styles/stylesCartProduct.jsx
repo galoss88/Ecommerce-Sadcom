@@ -14,7 +14,6 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: start;
   box-shadow: 0 0 0.1rem 0;
-
   animation: myAnim 1s ease-in-out 0s 1 normal forwards;
 
   @keyframes myAnim {

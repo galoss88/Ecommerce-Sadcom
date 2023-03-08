@@ -14,7 +14,7 @@ import {
   WrapperCard,
 } from "./stylesCardProduct";
 const CardProduct = ({ producto }) => {
-  const { Detalle, EstadoArt, Venta } = producto;
+  const { Detalle, StockTienda, Venta } = producto;
   const dispatch = useDispatch();
   const addToCart = (producto) => {
     dispatch(addProductToCart({ ...producto }));
@@ -31,7 +31,7 @@ const CardProduct = ({ producto }) => {
           alt="sin imagen"
         ></ImgProduct>
         <NameProduct>{Detalle}</NameProduct>
-        <Stock stock={EstadoArt}>{EstadoArt ? "En stock" : "Sin stock"}</Stock>
+        <Stock stock={StockTienda}>{StockTienda ? "Quedan "+StockTienda : "Sin stock"}</Stock>
         {/* <NamePrice>Precio:</NamePrice> */}
         <PriceProduct>$ {Venta}</PriceProduct>
       </WrapperCard>

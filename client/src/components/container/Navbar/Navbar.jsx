@@ -8,7 +8,7 @@ import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
 import CartProducts from "../CartProducts/CartProducts";
-import { Wrapper } from "./styles/stylesNavbar";
+import { Wrapper, WrapperResponsive } from "./styles/stylesNavbar";
 import Login from "../Login/Login";
 import { useState } from "react";
 
@@ -28,7 +28,9 @@ export default function NavBar() {
           <Navbar.Brand onClick={() => navigate("/")}>
             <b>Logo</b>
           </Navbar.Brand>
-          <Searcher />
+          <WrapperResponsive>
+            <Searcher />
+          </WrapperResponsive>
           <Login />
           <Wrapper>
             <CartProducts></CartProducts>

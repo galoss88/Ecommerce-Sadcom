@@ -20,7 +20,6 @@ const CartProduct = () => {
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
   const navigate = useNavigate();
-  console.log("contando productos", conteoProductosCarrito)
   const finalizarCompra = () => {
     //validar
     if (!products.length)

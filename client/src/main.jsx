@@ -17,21 +17,27 @@ import store from "./redux/store/index";
 const domain = import.meta.env.VITE_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+
+const persistor = persistStore(store);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <React.StrictMode>
-        <Auth0Provider
-          domain={domain}
-          clientId={clientId}
-          authorizationParams={{
-            redirect_uri: window.location.origin,
-          }}
-        >
-          <App />
-        </Auth0Provider>
-      </React.StrictMode>
-    </BrowserRouter>
-    ,
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <React.StrictMode>
+          <Auth0Provider
+            domain={domain}
+            clientId={clientId}
+            authorizationParams={{
+              redirect_uri: window.location.origin,
+            }}
+          >
+            <App />
+          </Auth0Provider>
+        </React.StrictMode>
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
 );

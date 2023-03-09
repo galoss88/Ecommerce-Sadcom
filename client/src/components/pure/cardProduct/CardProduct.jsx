@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addProductToCart } from "../../../redux/actions";
+import { addProductToCart, seleccionarProducto } from "../../../redux/actions";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   ButtonAddToCart,
@@ -23,6 +23,7 @@ const CardProduct = ({ producto }) => {
   const navigate = useNavigate();
   const verDetalles = () => {
     navigate("/detailProduct");
+    dispatch(seleccionarProducto(producto.IdArt))
   };
   const precio = quitarDecimales(Venta)
   return (

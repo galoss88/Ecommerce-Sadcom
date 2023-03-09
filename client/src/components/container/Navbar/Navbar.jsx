@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Nav from "react-bootstrap/Nav";
 import { FaShoppingCart } from "react-icons/fa";
-import styled from "styled-components";
 import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
@@ -23,7 +22,7 @@ export default function NavBar() {
   return (
     <div>
       <Navbar key="xxxl" bg="light" expand="xxxl">
-        <Container className="d-flex justify-content-between" fluid>
+        <Container className="d-flex justify-content-between sticky-top" fluid>
           <Navbar.Toggle
             aria-controls={`offcanvasNavbar-expand-xxxl`}
             onClick={toggleShow}

@@ -10,7 +10,8 @@ import {
 const ResetFilters = () => {
   const dispatch = useDispatch();
   const resetearFiltro = useContext(contextListaProductos);
-  const { resetFiltros, verTodosLosProductos } = resetearFiltro;
+  const { resetFiltros, verTodosLosProductos, infoFiltros } = resetearFiltro;
+  const {resetPaginado} = infoFiltros
   const reset = () => {
     resetFiltros();
     // dispatch(getProducts(1));
@@ -19,6 +20,7 @@ const ResetFilters = () => {
   const allProducts = () => {
     verTodosLosProductos();
     dispatch(resetFilters("reset"));
+    resetPaginado(1)
   };
   return (
     <WrapperButton>

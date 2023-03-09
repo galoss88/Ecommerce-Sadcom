@@ -49,4 +49,8 @@ export const WrapperButton = styled.button`
   color: white;
   width: 100%;
   height: 3em;
+  border: none;
+  :hover {
+    background-color: #6f0000;
+  }
 `;

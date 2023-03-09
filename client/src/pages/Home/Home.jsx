@@ -48,6 +48,10 @@ export default function Home() {
     border-radius: 0;
     border-width: 1px;
     background-color: transparent;
+    :hover{
+      background-color: #6F0000;
+      color: #FFF;
+    }
     @media (max-width: 768px) {
       display: none;
     }

@@ -7,11 +7,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1em;
-  
+
   @media (max-width: 768px) {
     width: 100vw;
   }
-  
 `;
 export const WrapperCards = styled.div`
   display: flex;
@@ -20,7 +19,9 @@ export const WrapperCards = styled.div`
 `;
 export const WrapperPaginado = styled.div`
   display: flex;
-  justify-content: center;
+  width: 100%;
+  gap: 3rem;
+  align-items: center;
 `;
 export const CardContainer = styled.div`
   display: grid;

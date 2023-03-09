@@ -28,8 +28,13 @@ export const WrapperDatosPerfil = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 30%;
-  height: 50%;
-  background: rgb(111, 0, 0);
+  height: 60%;
+  /* background: rgb(111, 0, 0); */
+  background-color: #f2f2f2;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
 `;
 export const WrapperInputs = styled.div`
   display: flex;
@@ -50,13 +55,14 @@ export const WrapperButtonSetInfo = styled.div`
 `;
 export const ButtonSetInfo = styled.button`
   border: none;
-  background-color: transparent;
-  color: #fff;
-  box-shadow: 0 0 3px 0 #fff;
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 3px 0 grey;
   padding: 0.5em 0.5em;
+  margin-bottom: 0.5em;
   :hover {
-    background-color: #fff;
-    color: rgb(111, 0, 0);
+    background-color: #111111;
+    color: #F2F2F2;
   }
 `;
 //Boton cerrar Modal de perfil del usuario
@@ -67,7 +73,7 @@ export const ButtonCloseModal = styled.button`
   width: 1.6em;
   border: none;
   background-color: transparent;
-  color: #fff;
+  color: black;
   font-size: 1.4em;
   :hover {
     background-color: #fff;
@@ -78,14 +84,27 @@ export const ButtonCloseModal = styled.button`
 
 //INPUTS!! DATOS DE USUARIO Y MODIFICACION
 export const WrapperInfo = styled.div`
-  display: flex;
+  display: inline-block;
   gap: 1em;
+  width: 100%;
 `;
 export const LabelInfo = styled.label`
-  color: white;
+  width: 100%;
+  color: black;
 `;
 
-export const InputInfo = styled.input``;
+export const InputInfo = styled.input`
+  width: 94%;
+  height: 2em;
+  border-radius: 6px;
+  border-color: none;
+  border: 1px solid white;
+  padding: 8px 10px;
+  margin-bottom: 0.5em;
+`;
 export const DatoUsuario = styled.p`
-  color: #fff;
+  display: flex;
+  color: black;
+  width: 50%;
+  /* margin-top: .5em; */
 `;

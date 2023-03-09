@@ -22,7 +22,7 @@ const useDatosUsuario = (options) => {
       <>
         {options.map(({ label, valor }) => (
           <WrapperInfo key={label}>
-            <LabelInfo>{label}:</LabelInfo>
+            <LabelInfo><b>{label}:</b></LabelInfo>
             <DatoUsuario>{generarDatoUsuario(valor)}</DatoUsuario>
           </WrapperInfo>
         ))}

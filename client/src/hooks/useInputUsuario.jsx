@@ -17,7 +17,7 @@ const useInputUsuario = (options) => {
       <>
         {options.map(({ label, type, placeholder }) => (
           <WrapperInfo key={label}>
-            <LabelInfo>{label}</LabelInfo>
+            <LabelInfo><b>{label}:</b></LabelInfo>
             <InputInfo
               type={type}
               placeholder={placeholder}

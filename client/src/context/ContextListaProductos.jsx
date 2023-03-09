@@ -6,10 +6,12 @@ export const contextListaProductos = createContext();
 
 const ListaProductosProvider = (props) => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
   const [infoFiltros, setInfoFiltros] = useState({
     filterPrice: "",
     search: "",
-    pageCurrent: "" || 1 ,
+    pageCurrent: "" || 1,
+    resetPaginado: () => {},
   });
 
   const resetFiltros = () => {
@@ -22,21 +24,31 @@ const ListaProductosProvider = (props) => {
   const verTodosLosProductos = () => {
     setInfoFiltros({
       ...infoFiltros,
-      search: "",      
+      search: "",
       pageCurrent: 1,
-      filterPrice:"",
+      filterPrice: "",
     });
   };
 
   const { pageCurrent, filterPrice, search } = infoFiltros;
   useEffect(() => {
-    dispatch(getProducts(pageCurrent, filterPrice, search));
+    const cargarProductos = async () => {
+      try {
+        await dispatch(getProducts(pageCurrent, filterPrice, search));
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    cargarProductos();
   }, [infoFiltros]);
   return (
     <div>
       <contextListaProductos.Provider
         value={{
           infoFiltros,
+          loading,
           setInfoFiltros,
           resetFiltros,
           verTodosLosProductos,

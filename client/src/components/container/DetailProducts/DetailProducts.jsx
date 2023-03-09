@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { showDetailProduct } from "../../../redux/actions";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 // import { showDetail } from "../../../redux/actions";
@@ -14,7 +16,11 @@ import {
 } from "./stylesDetailProducts";
 
 const DetailProducts = () => {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(showDetailProduct());
+  }, []);
+  const productDetail = useSelector(state=>state.detalleProductoSeleccionado)
   return (
     <Container>
       <ContainerButton>
@@ -25,7 +31,7 @@ const DetailProducts = () => {
           <ImagesDetail />
         </ContainerImageDetail>
         <ContainerDetail>
-          <DescriptionDetail />
+          <DescriptionDetail {...productDetail} />
         </ContainerDetail>
       </ContainerDescription>
     </Container>

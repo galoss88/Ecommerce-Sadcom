@@ -18,6 +18,6 @@ export const ButtonResetFilters = styled.button`
     align-items: center;
     width: 100%;
     :hover{
-        background-color: grey;
+        background-color: #6F0000;
     }
 `

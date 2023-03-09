@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addProductToCart } from "../../../redux/actions";
+import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   Container,
   ButtonAñadirCarrito,
@@ -16,39 +19,36 @@ import {
   WrapperSelector,
 } from "./styles/stylesDescription";
 
-const DescriptionDetail = () => {
+const DescriptionDetail = (props) => {
+  const { Detalle, Venta } = props;
+  const precio = quitarDecimales(Venta);
+  const dispatch = useDispatch();
+  const addToCart = (producto) => {
+    if(producto.StockTienda)
+    dispatch(addProductToCart({ ...producto }));
+  };
   return (
     <Container>
       <WrapperHeaderCard>
-        <AcercaDeProdcuto>Acerca de producto</AcercaDeProdcuto>
-        <PriceProduct>$500000</PriceProduct>
+        <AcercaDeProdcuto>Precio</AcercaDeProdcuto>
+        <PriceProduct>$ {precio}</PriceProduct>
       </WrapperHeaderCard>
       <WrapperInfoProducto>
-        <Titulo>Nombre Producto</Titulo>
+        <Titulo>{Detalle}</Titulo>
         <WrapperDescriptionProducto>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
-            at natus repellat unde commodi laborum dignissimos laboriosam saepe
-            quam voluptas eveniet eius perferendis reprehenderit, molestias
-            beatae velit cumque adipisci nisi.
-          </Description>
+          <Description>{Detalle}</Description>
         </WrapperDescriptionProducto>
         <WrapperTalleCantidad>
-          <WrapperSelector>
-            <LabelSelect>Talle</LabelSelect>
-            <Selector>
-              <option>Default</option>
-            </Selector>
-          </WrapperSelector>
-          <WrapperSelector>
+          {/* Por ahora sin selectores */}
+          {/* <WrapperSelector>
             <LabelSelect>Cantidad</LabelSelect>
             <Selector>
               <option>Default</option>
             </Selector>
-          </WrapperSelector>
+          </WrapperSelector> */}
         </WrapperTalleCantidad>
         <WrapperButtonCarrito>
-          <ButtonAñadirCarrito>
+          <ButtonAñadirCarrito onClick={() => addToCart(props)}>
             <i className="bi bi-cart-fill"></i>Añadir al carrito
           </ButtonAñadirCarrito>
         </WrapperButtonCarrito>

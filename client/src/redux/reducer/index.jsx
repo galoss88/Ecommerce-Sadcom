@@ -6,6 +6,9 @@ import {
   GET_PRODUCTS,
   RESET_FILTERS,
   BUSQUEDA,
+  VACIAR_CARRITO,
+  SELECCIONAR_PRODUCTO,
+  SHOW_DETAIL_PRODUCT,
 } from "../actions/index";
 //estado global redux
 const initialState = {
@@ -15,6 +18,8 @@ const initialState = {
   filtro: "",
   reset: "",
   search: "",
+  productoSeleccionado: null,
+  detalleProductoSeleccionado: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -25,10 +30,33 @@ export default function rootReducer(state = initialState, action) {
         products: action.payload,
       };
 
+    case SELECCIONAR_PRODUCTO: {
+      return {
+        ...state,
+        productoSeleccionado: action.payload,
+      };
+    }
+    case SHOW_DETAIL_PRODUCT: {
+      const todosProductos = state.products.productosAMostrar;
+
+      const detalleProducto = todosProductos?.find(
+        (producto) => (producto.IdArt = state.productoSeleccionado)
+      );
+      return {
+        ...state,
+        detalleProductoSeleccionado: detalleProducto,
+      };
+    }
     case ADD_PRODUCT_TO_CART: {
       return {
         ...state,
         cart: [...state.cart, action.payload],
+      };
+    }
+    case VACIAR_CARRITO: {
+      return {
+        ...state,
+        cart: [],
       };
     }
     case DELETE_PRODUCT_CART: {

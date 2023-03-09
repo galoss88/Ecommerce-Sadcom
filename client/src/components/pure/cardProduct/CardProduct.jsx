@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addProductToCart } from "../../../redux/actions";
+import { addProductToCart, seleccionarProducto } from "../../../redux/actions";
+import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   ButtonAddToCart,
   Card,
@@ -22,7 +23,9 @@ const CardProduct = ({ producto }) => {
   const navigate = useNavigate();
   const verDetalles = () => {
     navigate("/detailProduct");
+    dispatch(seleccionarProducto(producto.IdArt))
   };
+  const precio = quitarDecimales(Venta)
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>
@@ -33,7 +36,7 @@ const CardProduct = ({ producto }) => {
         <NameProduct>{Detalle}</NameProduct>
         <Stock stock={StockTienda}>{StockTienda ? "Quedan "+StockTienda : "Sin stock"}</Stock>
         {/* <NamePrice>Precio:</NamePrice> */}
-        <PriceProduct>$ {Venta}</PriceProduct>
+        <PriceProduct>$ {precio}</PriceProduct>
       </WrapperCard>
 
       <ButtonAddToCart onClick={() => addToCart(producto)}>

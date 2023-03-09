@@ -10,25 +10,26 @@ import CardProduct from "../../pure/cardProduct/CardProduct";
 import usePaginado from "../../../hooks/usePaginado";
 import { useContext } from "react";
 import { contextListaProductos } from "../../../context/ContextListaProductos";
+import Loading from "../../pure/Loading/Loading";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
   const enviarInfoFiltrado = useContext(contextListaProductos);
-  const { setInfoFiltros, infoFiltros } = enviarInfoFiltrado;
+  const { setInfoFiltros, infoFiltros, loading } = enviarInfoFiltrado;
   //Traigo del estado global lo que necesito para realizar los filtrados y renderizarlo en la lista de productos.
   const filtrar = useSelector((state) => state.filtro);
   const todosLosProductos = useSelector((state) => state.products);
-
   //---------------------->>
-  const [Paginado, currentPage] = usePaginado();
+  const [Paginado, currentPage, setCurrentPage] = usePaginado();
 
   useEffect(() => {
     setInfoFiltros({
       ...infoFiltros,
       filterPrice: filtrar,
       pageCurrent: currentPage,
+      resetPaginado: setCurrentPage,
     });
   }, [currentPage, filtrar]);
-
+  if (loading) return <Loading />;
   return (
     <Container>
       <WrapperCards>
@@ -42,9 +43,7 @@ const ListadoProductos = ({ mostrarDetalle }) => {
           ))}
         </CardContainer>
       </WrapperCards>
-      <WrapperPaginado>
-        <Paginado />
-      </WrapperPaginado>
+      <WrapperPaginado>{todosLosProductos && <Paginado />}</WrapperPaginado>
     </Container>
   );
 };

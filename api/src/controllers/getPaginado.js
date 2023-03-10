@@ -37,7 +37,9 @@ const paginado = async (page, filtro, search) => {
       productosTotales,
       productosSinFiltro,
     };
+  
     return paginado;
+ 
   } catch (e) {
     return e;
   }

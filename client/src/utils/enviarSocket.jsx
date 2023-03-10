@@ -1,5 +1,10 @@
 import io from "socket.io-client";
-const socket = io("http://localhost:4000");
+const socket = io("http://localhost:4000", {
+  transports: ["websocket"],
+  cors: {
+    origin: "*",
+  },
+});
 export const enviarSocket = (nameMensaje, contenidoMensaje) => {
   socket.emit(nameMensaje, contenidoMensaje);
 };
@@ -8,11 +13,11 @@ export const recibirSocket=(eventName, callback)=> {
   socket.on(eventName, (data, ack) => {
     try {
       callback(data);
-      if (ack) ack(result);
+      // if (ack) ack(result);
       
     } catch (error) {
       console.error(error);
-      if (ack) ack({ error: error.message });
+      // if (ack) ack({ error: error.message });
     }
   });
 }

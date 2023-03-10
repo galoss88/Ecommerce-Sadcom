@@ -20,7 +20,7 @@
 const { config } = require("dotenv");
 config();
 const { PORT } = process.env;
-const server = require("./src/app");
+const {server} = require("./src/app");
 const { conn } = require("./src/db.js");
 
 conn.sync({ force: false }).then(() => {

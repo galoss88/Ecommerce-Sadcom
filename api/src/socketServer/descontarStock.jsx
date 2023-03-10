@@ -15,11 +15,11 @@ const descontarStock = (socket) =>
         ) {
           productoAdescontar.StockTienda -= cantidad;
           await productoAdescontar.save();
-          socket.emit("compraProductos", "Exito");
+          await socket.emit("compra-exitosa", "Exito");
           return console.log("Se realizo la compra");
         }
 
-        socket.emit("compraProductos", "Fracaso");
+        socket.emit("compra-rechazada", "Fracaso");
         console.log("No hay más stock");
       }
     } catch (error) {

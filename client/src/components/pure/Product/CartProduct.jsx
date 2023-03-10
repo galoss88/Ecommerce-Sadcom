@@ -14,9 +14,13 @@ import {
 } from "./styles/stylesCartProduct";
 import Subtotal from "./Subtotal";
 import Total from "./Total";
+import { enviarSocket, recibirSocket } from "../../../utils/enviarSocket";
 
+//----------------
 const CartProduct = () => {
   const products = useSelector((state) => state.cart);
+  const [mensaje, setMensaje] = useState();
+
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
   const navigate = useNavigate();
@@ -28,8 +32,10 @@ const CartProduct = () => {
         title: "Oops...",
         text: "Su carrito esta vació.",
       });
+
     navigate("/resumenCompra");
   };
+
   return (
     <Container>
       <WrapperProductsCart>

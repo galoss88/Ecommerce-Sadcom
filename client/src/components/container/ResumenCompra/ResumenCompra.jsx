@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import io from "socket.io-client";
+const socket = io("http://localhost:4000");
 import {
   ContainerResumenCompra,
   WrapperProductos,
@@ -19,11 +21,10 @@ import { vaciarCarrito } from "../../../redux/actions";
 import SinProductos from "./SinProductos";
 const CartProduct = () => {
   const dispatch = useDispatch();
-  const [compras, setCompras] = useState([
-    {
-      respuesta: "",
-    },
-  ]);
+  //state comprobar compra
+  const [compraExitosa, setCompraExitosa] = useState("");
+
+  //
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
@@ -34,8 +35,10 @@ const CartProduct = () => {
         title: "Oops...",
         text: "Su carrito esta vació.",
       });
+      //--------------------- comprobar la compra ---------
     enviarSocket("carritoDescontarStock", conteoProductosCarrito);
     recibirSocket("compraProductos", setCompras);
+    console.log(compras)
     dispatch(vaciarCarrito());
 
     Swal.fire({

@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { convertirNumeroMiles } from "./convertirNumeroAmiles";
 
 const calcularTotalCarrito = (carrito) => {
   const total = carrito?.reduce(

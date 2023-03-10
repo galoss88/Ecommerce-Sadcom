@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Titulo, Wrapper } from "./styles/stylesSinProductos";
 
-const SinProductos = () => {
+const SinProductos = ({ message }) => {
   return (
     <Container>
       <Wrapper>

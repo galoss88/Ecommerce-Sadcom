@@ -1,16 +1,17 @@
 const { ArticuloTbl } = require("../db");
 const paginado = require("./getPaginado");
+
 const getProductos = async (req, res) => {
   const { page, filtro, search } = req.query;
-  console.log(page, filtro);
+
   try {
     let filtrar = "vacio";
-    if(filtro){
-      filtrar = filtro ==="menorAmayor" ? "ASC" : "DESC"
+    if (filtro) {
+      filtrar = filtro === "menorAmayor" ? "ASC" : "DESC";
     }
-    
-    const realizarPaginado = await paginado(page,filtrar,search);
-    
+
+    const realizarPaginado = await paginado(page, filtrar, search);
+
     res.status(200).json(realizarPaginado);
   } catch (e) {
     res.status(400).json({ error: e });

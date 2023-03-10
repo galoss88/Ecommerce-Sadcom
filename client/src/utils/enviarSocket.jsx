@@ -1,18 +1,16 @@
-import io from "socket.io-client";
-const socket = io("http://localhost:4000");
+import socket from "./socket/socket.jsx";
 export const enviarSocket = (nameMensaje, contenidoMensaje) => {
   socket.emit(nameMensaje, contenidoMensaje);
 };
 
-export const recibirSocket=(eventName, callback)=> {
+export const recibirSocket = (eventName, funcion) => {
   socket.on(eventName, (data, ack) => {
     try {
-      callback(data);
-      if (ack) ack(result);
-      
+      funcion(data);
+      // if (ack) ack(result);
     } catch (error) {
       console.error(error);
-      if (ack) ack({ error: error.message });
+      // if (ack) ack({ error: error.message });
     }
   });
-}
+};

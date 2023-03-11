@@ -7,7 +7,7 @@ import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
 import CartProducts from "../CartProducts/CartProducts";
-import { Wrapper, WrapperResponsive } from "./styles/stylesNavbar";
+import { Wrapper, WrapperResponsive, WrapperFixed } from "./styles/stylesNavbar";
 import Login from "../Login/Login";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export default function NavBar() {
   const toggleShow = () => setShow((s) => !s);
 
   return (
-    <div>
+    <WrapperFixed>
       <Navbar key="xxxl" bg="light" expand="xxxl">
         <Container className="d-flex justify-content-between sticky-top" fluid>
           <Navbar.Toggle
@@ -68,16 +68,11 @@ export default function NavBar() {
                   Productos
                 </Nav.Link>
                 <hr />
-                <Nav.Link onClick={() => navigate("/resumenCompra")}>
+                {/* <Nav.Link href="#action2">
                   <FaShoppingCart /> Carrito
                 </Nav.Link>
                 <hr />
-                <Nav.Link
-                  onClick={() => {
-                    navigate("/faq");
-                    toggleShow();
-                  }}
-                >
+                <Nav.Link onClick={() => {navigate("/faq"); toggleShow()}}>
                   Preguntas frecuentes
                 </Nav.Link>
                 <hr />
@@ -94,6 +89,6 @@ export default function NavBar() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-    </div>
+      </WrapperFixed>
   );
 }

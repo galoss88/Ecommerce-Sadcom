@@ -10,7 +10,7 @@ export default function Home() {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 75%;
-    height: 86vh;
+    height: 100vh;
     animation: home 1s ease-in-out 0s 1 alternate none;
     @keyframes home {
       0% {
@@ -28,7 +28,7 @@ export default function Home() {
     }
   `;
   const Detail = styled.div`
-    padding-top: 25vh;
+    padding-top: 35vh;
     padding-left: 5vw;
     width: 35vw;
     @media (max-width: 768px) {

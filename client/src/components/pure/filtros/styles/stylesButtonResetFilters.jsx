@@ -5,6 +5,7 @@ export const WrapperButton = styled.div`
     width: 100%;
     justify-content: end;
     padding:5px 5px 0 5px;
+    margin-top: 18vh;
 
   
 `

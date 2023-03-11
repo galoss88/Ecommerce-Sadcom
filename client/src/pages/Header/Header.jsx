@@ -4,7 +4,9 @@ export default function Header() {
     const Wrapper = styled.div`
         height: 5vh;
         background-color: #6F0000;
-       
+        position: fixed;
+        z-index:1000;
+        width: 100%;
         @media (max-width: 768px) {
             height: 4vh;
         }

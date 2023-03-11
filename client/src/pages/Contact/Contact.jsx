@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const Title = styled.h1`
-        padding: 8vh 0 5vh 5vw;
+        padding: 23vh 0 5vh 5vw;
     `
 
     const [input, setInput] = useState({

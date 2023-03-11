@@ -15,6 +15,7 @@ const ResponsiveSearcher = styled.div`
     justify-content: center;
     width: 100%;
     height: 2.4rem;
+    margin-top: 14vh;
     
     
   }

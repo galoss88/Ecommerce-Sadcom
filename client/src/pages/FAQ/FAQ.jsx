@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function FAQ() {
     const Wrapper = styled.div`
-        padding: 8vh 0 10vh 5vw;
+        padding: 23vh 0 10vh 5vw;
         width: 95vw;
     `
     const Title = styled.h1`

@@ -6,11 +6,14 @@ import { Container, ProductosEnCarrito } from "./stylesCartProducts";
 import CartProduct from "../../pure/Product/CartProduct";
 import { useSelector } from "react-redux";
 import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
+import { calcularProductosCarrito } from "../../../utils/calcularTotalProductosCarrito";
 
 const CartProducts = () => {
   const [showCart, setShowCart] = useState(false);
   const carritoConProductos = useSelector((state) => state.cart);
-  const productos = carritoConProductos.length;
+  const conteoProductosCarrito =
+    calcularProductosRepetidos(carritoConProductos);
+  const cantidadFinalCarrito = calcularProductosCarrito(conteoProductosCarrito);
   const mostrarOcultarCarrito = () => {
     setShowCart(!showCart);
   };
@@ -21,7 +24,7 @@ const CartProducts = () => {
         onClick={() => mostrarOcultarCarrito()}
         style={{ paddingTop: "1vh", fontSize: "2em" }}
       >
-        <ProductosEnCarrito>{productos}</ProductosEnCarrito>
+        <ProductosEnCarrito>{cantidadFinalCarrito}</ProductosEnCarrito>
         <i className="bi bi-cart3"></i>
       </Nav.Link>
       {showCart && <CartProduct />}

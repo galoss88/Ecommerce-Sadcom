@@ -30,6 +30,12 @@ const ListadoProductos = ({ mostrarDetalle }) => {
     });
   }, [currentPage, filtrar]);
   if (loading) return <Loading texto={"Cargando productos..."} />;
+  if (todosLosProductos.length === 0)
+    return (
+      <Container>
+        <b>Nos quedamos sin stock en los productos, lo sentimos! :¨(</b>
+      </Container>
+    );
   return (
     <Container>
       <WrapperCards>

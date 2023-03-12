@@ -42,6 +42,7 @@ export const seleccionarProducto = (idProducto) => {
 };
 //agregar producto al carrito
 export function addProductToCart(producto) {
+  
   return {
     type: ADD_PRODUCT_TO_CART,
     payload: producto,
@@ -56,6 +57,7 @@ export function vaciarCarrito() {
 
 //eliminar producto del carrito
 export function deleteProductCart(id) {
+  console.log(id, "ID DEL PRODUCOT ELIMINAR")
   return {
     type: DELETE_PRODUCT_CART,
     payload: id,

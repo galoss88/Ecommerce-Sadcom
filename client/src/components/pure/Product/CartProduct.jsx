@@ -20,12 +20,7 @@ const CartProduct = () => {
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
-  console.log(
-    conteoProductosCarrito,
-    "conteo",
-    productosSinRepetir,
-    "sin repetir"
-  );
+
   const navigate = useNavigate();
   const finalizarCompra = () => {
     //validar
@@ -54,8 +49,8 @@ const CartProduct = () => {
       <Subtotal />
       <Hr />
       <Total
-        // conteoProductos={conteoProductosCarrito}
-        // productosSinRepetir={{ productosSinRepetir }}
+      // conteoProductos={conteoProductosCarrito}
+      // productosSinRepetir={{ productosSinRepetir }}
       />
       <WrapperButton onClick={() => finalizarCompra()}>
         Finalizar Compra

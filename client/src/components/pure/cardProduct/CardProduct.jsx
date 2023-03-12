@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { addProductToCart, seleccionarProducto } from "../../../redux/actions";
 import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
 import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
-import { sumarPrecios } from "../../../utils/evaluarStockCarrtito";
+import { sumarPrecios } from "../../../utils/sumarPrecios";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   ButtonAddToCart,
@@ -17,16 +17,20 @@ import {
   Stock,
   WrapperCard,
 } from "./stylesCardProduct";
+import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
 const CardProduct = ({ producto }) => {
-  const { Detalle, StockTienda, Venta } = producto;
+  const { Detalle, StockTienda, Venta, IdArt } = producto;
   const dispatch = useDispatch();
   const productosEnCarrito = useSelector((state) => state.cart);
   const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
   const conteoProductosCarrito = calcularProductosRepetidos(productosEnCarrito);
-  
-  const addToCart = (producto) => {
-    // if(producto.StockTienda >)
-    dispatch(addProductToCart({ ...producto }));
+  const [agregarProducto] = evaluarStockYagregarProducto(
+    StockTienda,
+    IdArt,
+    producto
+  );
+  const addToCart = () => {
+    agregarProducto();
   };
   const navigate = useNavigate();
   const verDetalles = () => {
@@ -34,6 +38,7 @@ const CardProduct = ({ producto }) => {
     dispatch(seleccionarProducto(producto.IdArt));
   };
   const precio = quitarDecimales(Venta);
+
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>
@@ -49,7 +54,7 @@ const CardProduct = ({ producto }) => {
         <PriceProduct>$ {precio}</PriceProduct>
       </WrapperCard>
 
-      <ButtonAddToCart onClick={() => addToCart(producto)}>
+      <ButtonAddToCart onClick={() => addToCart()}>
         <i className="bi bi-cart-plus"></i>
       </ButtonAddToCart>
     </Card>

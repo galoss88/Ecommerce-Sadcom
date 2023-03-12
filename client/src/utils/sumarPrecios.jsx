@@ -7,10 +7,7 @@ export const sumarPrecios = (productosSinRepetir, conteoProductos) => {
     precios.push(producto);
   });
   const preciosTotal = precios.reduce((acumulador, precioActual, i) => {
-    console.log(
-      acumulador + precioActual.Venta * conteoProductos[precioActual.IdArt],
-      "acumulador"
-    );
+
     return (
       acumulador + precioActual.Venta * conteoProductos[precioActual.IdArt]
     );

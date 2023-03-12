@@ -71,7 +71,10 @@ export default function NavBar() {
                   Productos
                 </Nav.Link>
                 <hr />
-                <Nav.Link href="#action2">
+                <Nav.Link  onClick={() => {
+                    navigate("/resumenCompra");
+                    toggleShow();
+                  }}>
                   <FaShoppingCart /> Carrito
                 </Nav.Link>
                 <hr />

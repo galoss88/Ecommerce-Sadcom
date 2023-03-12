@@ -8,6 +8,18 @@ export const Container = styled.div`
   padding: 1rem;
   width: 100%;
   height: 100%;
+  animation: detail 1s ease-in-out 0s 1 alternate none;
+  transition: animation 2s ease-in-out;
+  margin-top: 15vh;
+  @keyframes detail {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 `;
 export const ContainerButton = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../../../redux/actions";
+import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   Container,
@@ -20,12 +21,15 @@ import {
 } from "./styles/stylesDescription";
 
 const DescriptionDetail = (props) => {
-  const { Detalle, Venta } = props;
+  const { Detalle, Venta, IdArt, StockTienda } = props;
   const precio = quitarDecimales(Venta);
-  const dispatch = useDispatch();
-  const addToCart = (producto) => {
-    if(producto.StockTienda)
-    dispatch(addProductToCart({ ...producto }));
+  const [agregarProducto] = evaluarStockYagregarProducto(
+    StockTienda,
+    IdArt,
+    props
+  );
+  const addToCart = () => {
+    agregarProducto();
   };
   return (
     <Container>

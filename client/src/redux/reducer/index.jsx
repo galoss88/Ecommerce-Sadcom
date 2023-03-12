@@ -60,15 +60,15 @@ export default function rootReducer(state = initialState, action) {
       };
     }
     case DELETE_PRODUCT_CART: {
-      const buscarProductoAEliminar = state.cart.find(
+      const productos = state.cart;
+      const productoAEliminar = productos.findIndex(
         (producto) => producto.IdArt === action.payload
       );
-      const eliminarProducto = state.cart.filter(
-        (producto) => producto !== buscarProductoAEliminar
-      );
+
+      const productoEliminado = productos.splice(productoAEliminar, 1);
       return {
         ...state,
-        cart: eliminarProducto,
+        cart: [...productos],
       };
     }
     case FILTER_PRICE: {

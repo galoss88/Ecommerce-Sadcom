@@ -3,6 +3,6 @@ export const calcularProductosCarrito = (productosSinRepetir)=>{
  const productos = Object.values(productosSinRepetir)
  const sumarCantidades = productos.reduce((acumulador, cantidad)=>{
     return acumulador + cantidad
- })
+ },0)
  return sumarCantidades
 }

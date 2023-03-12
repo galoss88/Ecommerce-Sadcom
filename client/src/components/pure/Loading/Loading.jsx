@@ -5,10 +5,10 @@ import {
   WrapperSpinnerLoading,
 } from "./stylesLoading";
 import Spinner from "react-bootstrap/Spinner";
-const Loading = () => {
+const Loading = ({texto}) => {
   return (
     <ContainerLoading>
-      <TextoLoading>Cargando productos...</TextoLoading>
+      <TextoLoading>{texto}</TextoLoading>
       <WrapperSpinnerLoading>
         <Spinner animation="grow" variant="danger" />
         <Spinner animation="grow" variant="danger" />

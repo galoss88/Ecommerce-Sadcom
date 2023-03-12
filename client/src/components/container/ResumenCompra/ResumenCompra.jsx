@@ -15,9 +15,9 @@ import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
 import Subtotal from "../../pure/Product/Subtotal";
 import Total from "../../pure/Product/Total";
 import ProductResumen from "../../pure/ProductResumen/ProductResumen";
-import { enviarSocket, recibirSocket } from "../../../utils/enviarSocket";
 import { vaciarCarrito } from "../../../redux/actions";
 import SinProductos from "./SinProductos";
+import Loading from "../../pure/Loading/Loading";
 const CartProduct = () => {
   const dispatch = useDispatch();
   //state comprobar compra
@@ -38,24 +38,50 @@ const CartProduct = () => {
     //--------------------- comprobar la compra ---------
     socket.emit("carritoDescontarStock", conteoProductosCarrito);
     setEsperandoCompra(true);
+    //as
+    socket.on("probando", (e) => setMessage(e));
+    socket.emit("probando", message);
   };
   useEffect(() => {
     socket.on("compra-exitosa", (mensaje) => {
       setCompraExitosa(true);
-      setEsperandoCompra(false);
-      setMessage(mensaje);
+      setTimeout(() => {
+        setEsperandoCompra(false);
+      }, 3000);
     });
+    return () => {
+      socket.off("compra-exitosa", (mensaje) => {
+        setCompraExitosa(true);
+        setTimeout(() => {
+          setEsperandoCompra(false);
+        }, 3000);
+      });
+    };
   }, []);
   useEffect(() => {
     socket.on("compra-rechazada", (mensaje) => {
       setCompraExitosa(false);
-      setEsperandoCompra(false);
+      setTimeout(() => {
+        setEsperandoCompra(false);
+      }, 3000);
     });
+    return () => {
+      socket.off("compra-rechazada", (mensaje) => {
+        setCompraExitosa(false);
+        setTimeout(() => {
+          setEsperandoCompra(false);
+        }, 3000);
+      });
+    };
   }, []);
 
-  if (!products.length) return <SinProductos message={message} />;
+  if (!products.length) return <SinProductos />;
   if (esperandoCompra)
-    return <div>Espere un segundo mientras procesamos su compra...</div>;
+    return (
+      <Loading
+        texto={"Procesando su compra, espere unos segundos, por favor..."}
+      />
+    );
   if (compraExitosa) {
     dispatch(vaciarCarrito());
     return Swal.fire({
@@ -73,7 +99,6 @@ const CartProduct = () => {
   return (
     <ContainerResumenCompra>
       <WrapperProductos>
-        {message}
         <WrapperProductosAcomprar>
           {productosSinRepetir?.map((producto, index) => (
             <ProductResumen

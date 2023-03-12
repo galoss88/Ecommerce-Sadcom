@@ -13,7 +13,6 @@ const server = http.createServer(app);
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 const configureSocket = require("./socketServer/configureSocket.jsx");
-// const { ArticuloTbl } = require("./db.js");
 //settings
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -41,7 +40,6 @@ mercadopago.configure({
 });
 
 app.use("/", routes);
-//compruebo socket
 
 app.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars

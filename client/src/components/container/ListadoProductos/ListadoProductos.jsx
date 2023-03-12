@@ -29,7 +29,7 @@ const ListadoProductos = ({ mostrarDetalle }) => {
       resetPaginado: setCurrentPage,
     });
   }, [currentPage, filtrar]);
-  if (loading) return <Loading />;
+  if (loading) return <Loading texto={"Cargando productos..."} />;
   return (
     <Container>
       <WrapperCards>

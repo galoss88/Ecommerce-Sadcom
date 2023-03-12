@@ -1,6 +1,4 @@
-const { ArticuloTbl } = require("../db");
 const paginado = require("./getPaginado");
-const {io} = require("../app")
 const getProductos = async (req, res) => {
   const { page, filtro, search } = req.query;
   try {

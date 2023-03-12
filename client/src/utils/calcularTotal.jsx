@@ -6,7 +6,8 @@ const calcularTotalCarrito = (carrito) => {
     (acumulador, precioActual) => acumulador + precioActual.Venta,
     0
   );
-  const totalSinDecimles = total.toFixed(2);
+  const totalSinDecimles = total
+  
   return totalSinDecimles;
 };
 export default calcularTotalCarrito;

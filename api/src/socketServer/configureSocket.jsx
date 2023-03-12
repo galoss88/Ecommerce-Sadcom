@@ -11,7 +11,7 @@
 
       //DESCONTAR STOCK
       descontarStock(socket);
-      //CAMBIAR PRECIO
+      //ENVIAR PRECIOS
 
     });
 

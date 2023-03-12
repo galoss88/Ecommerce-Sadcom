@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addProductToCart, seleccionarProducto } from "../../../redux/actions";
+import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
+import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
+import { sumarPrecios } from "../../../utils/evaluarStockCarrtito";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   ButtonAddToCart,
@@ -17,15 +20,20 @@ import {
 const CardProduct = ({ producto }) => {
   const { Detalle, StockTienda, Venta } = producto;
   const dispatch = useDispatch();
+  const productosEnCarrito = useSelector((state) => state.cart);
+  const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
+  const conteoProductosCarrito = calcularProductosRepetidos(productosEnCarrito);
+  
   const addToCart = (producto) => {
+    // if(producto.StockTienda >)
     dispatch(addProductToCart({ ...producto }));
   };
   const navigate = useNavigate();
   const verDetalles = () => {
     navigate("/detailProduct");
-    dispatch(seleccionarProducto(producto.IdArt))
+    dispatch(seleccionarProducto(producto.IdArt));
   };
-  const precio = quitarDecimales(Venta)
+  const precio = quitarDecimales(Venta);
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>
@@ -34,7 +42,9 @@ const CardProduct = ({ producto }) => {
           alt="sin imagen"
         ></ImgProduct>
         <NameProduct>{Detalle}</NameProduct>
-        <Stock stock={StockTienda}>{StockTienda ? "Quedan "+StockTienda : "Sin stock"}</Stock>
+        <Stock stock={StockTienda}>
+          {StockTienda ? "Quedan " + StockTienda : "Sin stock"}
+        </Stock>
         {/* <NamePrice>Precio:</NamePrice> */}
         <PriceProduct>$ {precio}</PriceProduct>
       </WrapperCard>

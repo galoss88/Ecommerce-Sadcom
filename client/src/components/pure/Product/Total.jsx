@@ -6,8 +6,12 @@ import { WrapperTotal, Total_, TotalPrice } from "./styles/stylesTotal";
 
 const Total = () => {
   const carrito = useSelector((state) => state.cart);
-  const calculoTotal = calcularTotalCarrito(carrito);
-  const total = quitarDecimales(calculoTotal);
+  const productosSinRepetir = eliminarRepetidos(carrito);
+  const conteoProductosCarrito = calcularProductosRepetidos(carrito);
+  const precioFinal = sumarPrecios(productosSinRepetir, conteoProductosCarrito);
+  const total = quitarDecimales(precioFinal);
+
+  //
 
   return (
     <WrapperTotal>

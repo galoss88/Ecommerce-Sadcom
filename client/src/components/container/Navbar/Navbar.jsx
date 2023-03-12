@@ -7,7 +7,11 @@ import Searcher from "../../pure/searcher/Searcher";
 import { useNavigate } from "react-router-dom";
 import "./stylesNavbar.css";
 import CartProducts from "../CartProducts/CartProducts";
-import { Wrapper, WrapperResponsive, WrapperFixed } from "./styles/stylesNavbar";
+import {
+  Wrapper,
+  WrapperResponsive,
+  WrapperFixed,
+} from "./styles/stylesNavbar";
 import Login from "../Login/Login";
 import { useState } from "react";
 
@@ -32,10 +36,9 @@ export default function NavBar() {
           </Navbar.Brand>
           <WrapperResponsive>
             <Searcher />
-            
           </WrapperResponsive>
           <Login />
-         
+
           <Wrapper>
             <CartProducts></CartProducts>
           </Wrapper>
@@ -68,11 +71,16 @@ export default function NavBar() {
                   Productos
                 </Nav.Link>
                 <hr />
-                {/* <Nav.Link href="#action2">
+                <Nav.Link href="#action2">
                   <FaShoppingCart /> Carrito
                 </Nav.Link>
                 <hr />
-                <Nav.Link onClick={() => {navigate("/faq"); toggleShow()}}>
+                <Nav.Link
+                  onClick={() => {
+                    navigate("/faq");
+                    toggleShow();
+                  }}
+                >
                   Preguntas frecuentes
                 </Nav.Link>
                 <hr />
@@ -89,6 +97,6 @@ export default function NavBar() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      </WrapperFixed>
+    </WrapperFixed>
   );
 }

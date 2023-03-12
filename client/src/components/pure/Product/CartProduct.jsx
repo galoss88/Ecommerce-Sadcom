@@ -18,9 +18,14 @@ import Total from "./Total";
 //----------------
 const CartProduct = () => {
   const products = useSelector((state) => state.cart);
-
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
+  console.log(
+    conteoProductosCarrito,
+    "conteo",
+    productosSinRepetir,
+    "sin repetir"
+  );
   const navigate = useNavigate();
   const finalizarCompra = () => {
     //validar
@@ -48,7 +53,10 @@ const CartProduct = () => {
       <Hr />
       <Subtotal />
       <Hr />
-      <Total />
+      <Total
+        // conteoProductos={conteoProductosCarrito}
+        // productosSinRepetir={{ productosSinRepetir }}
+      />
       <WrapperButton onClick={() => finalizarCompra()}>
         Finalizar Compra
       </WrapperButton>

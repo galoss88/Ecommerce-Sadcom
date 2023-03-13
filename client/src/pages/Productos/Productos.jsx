@@ -8,7 +8,7 @@ const DivProductos = styled.div`
   flex-direction: row;
   animation: pagina 1s ease-in-out 0s 1 alternate none;
   transition: animation 2s ease-in-out;
-  margin-top: 15vh;
+  margin-top: 0vh;
   @keyframes pagina {
     0% {
       opacity: 0;

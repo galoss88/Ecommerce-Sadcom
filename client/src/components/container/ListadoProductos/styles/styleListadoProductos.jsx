@@ -3,7 +3,7 @@ export const Container = styled.div`
   display: flex;
   width: 75%;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 6% 0 0 0;
   justify-content: center;
   align-items: center;
   gap: 1em;

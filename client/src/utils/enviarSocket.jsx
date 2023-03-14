@@ -3,10 +3,10 @@ export const enviarSocket = (nameMensaje, contenidoMensaje) => {
   socket.emit(nameMensaje, contenidoMensaje);
 };
 
-export const recibirSocket = (eventName, funcion) => {
+export const recibirSocket = (eventName, callback) => {
   socket.on(eventName, (data, ack) => {
     try {
-      funcion(data);
+      callback(data);
       // if (ack) ack(result);
     } catch (error) {
       console.error(error);

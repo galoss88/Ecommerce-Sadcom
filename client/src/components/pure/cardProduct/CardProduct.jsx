@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -18,12 +18,13 @@ import {
   WrapperCard,
 } from "./stylesCardProduct";
 import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
+import socket from "../../../utils/socket/socket";
 const CardProduct = ({ producto }) => {
   const { Detalle, StockTienda, Venta, IdArt } = producto;
   const dispatch = useDispatch();
   const productosEnCarrito = useSelector((state) => state.cart);
-  const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
-  const conteoProductosCarrito = calcularProductosRepetidos(productosEnCarrito);
+  // const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
+  // const conteoProductosCarrito = calcularProductosRepetidos(productosEnCarrito);
   const [agregarProducto] = evaluarStockYagregarProducto(
     StockTienda,
     IdArt,
@@ -38,7 +39,9 @@ const CardProduct = ({ producto }) => {
     dispatch(seleccionarProducto(producto.IdArt));
   };
   const precio = quitarDecimales(Venta);
-
+useEffect(()=>{
+  socket.emit("id-producto-actualizar", IdArt )
+},[])
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>

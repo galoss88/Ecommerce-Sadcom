@@ -15,7 +15,6 @@ const paginado = async (page, filtro, search) => {
         StockTienda: { [Op.gt]: 0 },
       }
     : { Venta: { [Op.gt]: 0 }, StockTienda: { [Op.gt]: 0 } };
-  console.log(busqueda);
   try {
     const options = {
       where: busqueda,
@@ -36,6 +35,8 @@ const paginado = async (page, filtro, search) => {
       lastPage: Math.ceil(productosTotales / productsPerPage),
       productosTotales,
       productosSinFiltro,
+       offset,
+      // limit
     };
   
     return paginado;

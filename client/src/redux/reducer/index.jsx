@@ -48,10 +48,15 @@ export default function rootReducer(state = initialState, action) {
       };
     }
     case ADD_PRODUCT_TO_CART: {
-      return {
-        ...state,
-        cart: [...state.cart, action.payload],
-      };
+      // return {
+      //   ...state,
+      //   cart: [...state.cart, action.payload],
+      // };
+      const newProduct = Array.isArray(action.payload) ? action.payload : [action.payload];
+  return {
+    ...state,
+    cart: [...state.cart, ...newProduct],
+  };
     }
     case VACIAR_CARRITO: {
       return {

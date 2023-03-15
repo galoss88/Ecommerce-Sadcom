@@ -10,7 +10,6 @@ const getProductos = async (req, res) => {
     const realizarPaginado = await paginado(page, filtrar, search);
    
     res.status(200).json(realizarPaginado);
-
   } catch (e) {
     res.status(400).json({ error: e });
   }

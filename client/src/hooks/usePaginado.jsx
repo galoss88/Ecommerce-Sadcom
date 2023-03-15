@@ -16,8 +16,11 @@ import { scroll } from "../utils/scroll";
 
 const usePaginado = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const totalPagination = useSelector((state) => state.products);
+
+  const { offset } = totalPagination;
   const estructuraPaginas = () => {
-    const totalPagination = useSelector((state) => state.products);
+   
     const totalPages = totalPagination?.lastPage;
     const prevPage = () => {
       if (!totalPagination.hasPrevPage) return;
@@ -34,6 +37,7 @@ const usePaginado = () => {
     const finalPage = () => {
       setCurrentPage(totalPages);
     };
+
     const NumerosPaginado = numerosPaginado(totalPages);
     return (
       <Container>
@@ -70,13 +74,13 @@ const usePaginado = () => {
         </WrapperButton>
         <WrapperButton>
           <Button onClick={() => finalPage()}>
-            <i class="bi bi-chevron-bar-right"></i>
+            <i className="bi bi-chevron-bar-right"></i>
           </Button>
         </WrapperButton>
       </Container>
     );
   };
-  return [estructuraPaginas, currentPage, setCurrentPage];
+  return [estructuraPaginas, currentPage, setCurrentPage, offset];
 };
 
 export default usePaginado;

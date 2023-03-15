@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import socket from "../../../utils/socket/socket";
 import {
   ContainerResumenCompra,
+  WrapperPreciosTotales,
   WrapperProductos,
   WrapperProductosAcomprar,
   WrapperRealizarCompra,
@@ -108,15 +109,18 @@ const CartProduct = () => {
             />
           ))}
         </WrapperProductosAcomprar>
-        <WrapperTotales>
-          <Subtotal />
-        </WrapperTotales>
-        <WrapperTotales>
-          <Total />
-        </WrapperTotales>
-        <WrapperRealizarCompra onClick={() => finalizarCompra()}>
-          Finalizar Compra
-        </WrapperRealizarCompra>
+
+        <WrapperPreciosTotales>
+          <WrapperTotales>
+            <Subtotal />
+          </WrapperTotales>
+          <WrapperTotales>
+            <Total />
+          </WrapperTotales>
+          <WrapperRealizarCompra onClick={() => finalizarCompra()}>
+            Finalizar Compra
+          </WrapperRealizarCompra>
+        </WrapperPreciosTotales>
       </WrapperProductos>
     </ContainerResumenCompra>
   );

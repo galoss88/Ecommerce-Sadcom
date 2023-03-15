@@ -5,6 +5,8 @@ export const ContainerLoading = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 20%;
+  margin: 20vh 0 0 0;
   flex-direction: column;
 `;
 export const TextoLoading = styled.h1`

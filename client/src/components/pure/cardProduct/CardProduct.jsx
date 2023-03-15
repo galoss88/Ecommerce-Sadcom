@@ -18,11 +18,11 @@ import {
   WrapperCard,
 } from "./stylesCardProduct";
 import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
-import socket from "../../../utils/socket/socket";
+import obtenerPrecioActual from "../../../utils/actualizarPrecio";
 const CardProduct = ({ producto }) => {
-  const { Detalle, StockTienda, Venta, IdArt } = producto;
+  const { Detalle, StockTienda, IdArt, Venta } = producto;
   const dispatch = useDispatch();
-  const productosEnCarrito = useSelector((state) => state.cart);
+  // const productosEnCarrito = useSelector((state) => state.cart);
   // const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
   // const conteoProductosCarrito = calcularProductosRepetidos(productosEnCarrito);
   const [agregarProducto] = evaluarStockYagregarProducto(
@@ -39,9 +39,7 @@ const CardProduct = ({ producto }) => {
     dispatch(seleccionarProducto(producto.IdArt));
   };
   const precio = quitarDecimales(Venta);
-useEffect(()=>{
-  socket.emit("id-producto-actualizar", IdArt )
-},[])
+
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>

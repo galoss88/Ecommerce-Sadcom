@@ -19,8 +19,8 @@ import Total from "./Total";
 const CartProduct = () => {
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
-  const productosSinRepetir = eliminarRepetidos(products);
-
+  const productosSinRepetir = eliminarRepetidos([...products]);
+console.log(products)
   const navigate = useNavigate();
   const finalizarCompra = () => {
     //validar

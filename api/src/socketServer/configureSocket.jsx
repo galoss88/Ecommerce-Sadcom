@@ -13,7 +13,8 @@ function configureSocket(server) {
     //DESCONTAR STOCK
     descontarStock(socket);
     //ENVIAR PRECIOS
-    actualizarPrecio(socket);
+    // actualizarPrecio(socket);
+    // socket.on("paginado", mensaje=>console.log(mensaje))
   });
 
   return io;

@@ -17,6 +17,7 @@ const CartProducts = () => {
   const mostrarOcultarCarrito = () => {
     setShowCart(!showCart);
   };
+  console.log(conteoProductosCarrito)
   return (
     <Container isOpen={showCart ? "open" : "close"}>
       <Nav.Link

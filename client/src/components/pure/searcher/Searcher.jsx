@@ -19,9 +19,15 @@ export default function Searcher() {
     setInfoFiltros({ ...infoFiltros, search: buscar });
     // setBuscar("");
   };
-  
+  useEffect(() => {
+    if (!search) setBuscar("");
+  }, [search]);
+
   return (
-    <Form className="d-flex" style={{ paddingRight: "20vw", paddingLeft: "20vw" }}>
+    <Form
+      className="d-flex"
+      style={{ paddingRight: "20vw", paddingLeft: "20vw" }}
+    >
       <Form.Control
         type="search"
         placeholder="Buscar..."

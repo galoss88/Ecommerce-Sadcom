@@ -19,7 +19,7 @@ import {
 } from "./stylesCardProduct";
 import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
 import obtenerPrecioActual from "../../../utils/actualizarPrecio";
-const CardProduct = ({ producto }) => {
+const CardProduct = ({ producto, actualizarPrecio }) => {
   const { Detalle, StockTienda, IdArt, Venta } = producto;
   const dispatch = useDispatch();
   // const productosEnCarrito = useSelector((state) => state.cart);
@@ -40,19 +40,30 @@ const CardProduct = ({ producto }) => {
   };
   const precio = quitarDecimales(Venta);
 
+  const precioSocket = actualizarPrecio
+    ? quitarDecimales(actualizarPrecio.Venta)
+    : precio;
   return (
     <Card>
       <WrapperCard onClick={() => verDetalles()}>
         <ImgProduct
           src="https://www.ansilta.com/img/articulos/2022/01/campera_crux_imagen18.jpg"
           alt="sin imagen"
+          loading="lazy"
         ></ImgProduct>
         <NameProduct>{Detalle}</NameProduct>
         <Stock stock={StockTienda}>
           {StockTienda ? "Quedan " + StockTienda : "Sin stock"}
         </Stock>
         {/* <NamePrice>Precio:</NamePrice> */}
-        <PriceProduct>$ {precio}</PriceProduct>
+        {/* //precio sin socket io */}
+        {precioSocket ? (
+          <PriceProduct>$ {precioSocket}</PriceProduct>
+        ) : (
+          <PriceProduct>$ {precio}</PriceProduct>
+        )}
+        {/* <PriceProduct>$ {precio}</PriceProduct> */}
+        {/* actualizar precio con socket io */}
       </WrapperCard>
 
       <ButtonAddToCart onClick={() => addToCart()}>

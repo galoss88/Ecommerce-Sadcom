@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteProductCart } from "../../../redux/actions";
-import { sumarPrecioTotalIndividual } from "../../../utils/calcularPrecioIndividualProductojsx";
+import { sumarPrecioTotalIndividual } from "../../../utils/calcularPrecioIndividualProducto.jsx";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   Cantidad,

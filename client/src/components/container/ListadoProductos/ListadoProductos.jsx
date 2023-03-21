@@ -13,6 +13,7 @@ import { contextListaProductos } from "../../../context/ContextListaProductos";
 import Loading from "../../pure/Loading/Loading";
 import usePrecioActualizado from "../../../hooks/usePrecioActualizado";
 import socket from "../../../utils/socket/socket";
+import enviarPreciosActuales from "../../../utils/actualizarPrecio";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
   const enviarInfoFiltrado = useContext(contextListaProductos);
@@ -25,17 +26,25 @@ const ListadoProductos = ({ mostrarDetalle }) => {
   const [Paginado, currentPage, setCurrentPage, offset] = usePaginado();
   const [actualizarPrecio, setActualizarPrecio] = useState({});
 
-  // useEffect(() => {
-  //   socket.emit("id-producto-actualizar", { offset, limit: 12 }, () => {
-  //     console.log("se envio ID producto");
-  //   });
-  //   socket.on("precio-actualizado", (mensaje, callback) => {
-  //     console.log("estes es el mensaje", mensaje);
-  //     setActualizarPrecio(mensaje);
-  //     if (mensaje) return callback("Todo funciono");
-  //     return callback("Hubo un error");
-  //   });
-  // }, []);
+  useEffect(() => {
+    socket.emit("id-producto-actualizar", { offset, limit: 12 }, () => {
+      console.log("se envio ID producto");
+    });
+    socket.on("precio-actualizado", (mensaje, callback) => {
+      console.log("estes es el mensaje", mensaje);
+      setActualizarPrecio(mensaje);
+      if (mensaje) return callback("Todo funciono");
+      return callback("Hubo un error");
+    });
+    return () => {
+      socket.off("precio-actualizado", (mensaje, callback) => {
+        setActualizarPrecio(mensaje);
+        if (mensaje) return callback("Todo funciono");
+        return callback("Hubo un error");
+      });
+    };
+  }, []);
+
   useEffect(() => {
     setInfoFiltros({
       ...infoFiltros,
@@ -61,7 +70,10 @@ const ListadoProductos = ({ mostrarDetalle }) => {
               key={producto.IdArt}
               producto={producto}
               mostrarDetalle={mostrarDetalle}
-              actualizarPrecio={actualizarPrecio}
+              actualizarPrecio={enviarPreciosActuales(
+                actualizarPrecio,
+                producto.IdArt
+              )}
             />
           ))}
         </CardContainer>

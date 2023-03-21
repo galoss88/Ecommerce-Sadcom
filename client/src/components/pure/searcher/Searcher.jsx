@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 import { contextListaProductos } from "../../../context/ContextListaProductos";
 import { getProducts, searchProduct } from "../../../redux/actions";
 
@@ -16,6 +17,11 @@ export default function Searcher() {
   };
   const realizarBusqueda = (e) => {
     e.preventDefault();
+    if(buscar.trim() === "") return Swal.fire({
+      icon: "error",
+      title: "Campo vacio",
+      text: "Debe escribir el producto que desea buscar",
+    });
     setInfoFiltros({ ...infoFiltros, search: buscar });
     // setBuscar("");
   };

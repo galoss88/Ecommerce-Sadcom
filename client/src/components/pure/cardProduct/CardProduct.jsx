@@ -49,6 +49,7 @@ const CardProduct = ({ producto, actualizarPrecio }) => {
         <ImgProduct
           src="https://www.ansilta.com/img/articulos/2022/01/campera_crux_imagen18.jpg"
           alt="sin imagen"
+          loading="lazy"
         ></ImgProduct>
         <NameProduct>{Detalle}</NameProduct>
         <Stock stock={StockTienda}>

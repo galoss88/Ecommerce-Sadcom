@@ -13,6 +13,7 @@ const server = http.createServer(app);
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 const configureSocket = require("./socketServer/configureSocket.jsx");
+const path = require("path");
 //settings
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -48,5 +49,6 @@ app.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
 module.exports = { server, io };

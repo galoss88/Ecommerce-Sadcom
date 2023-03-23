@@ -7,7 +7,7 @@ const { DATABASE_NAME, USER, PASSWORD, DIALECT, HOST, PORT_DATABASE } =
 const sequelize = new Sequelize(DATABASE_NAME, USER, PASSWORD, {
   dialect: DIALECT,
   host: HOST,
-  port: 1433, //predeterminado de SQL server
+  port: 3306, //predeterminado de SQL server
   logging:false,
   dialectOptions: {
     optiones: {

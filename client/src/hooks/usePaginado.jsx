@@ -43,7 +43,7 @@ const usePaginado = () => {
       <Container>
         <WrapperButton>
           <Button onClick={() => initialPage()}>
-            <i class="bi bi-chevron-bar-left"></i>
+            <i className="bi bi-chevron-bar-left"></i>
           </Button>
         </WrapperButton>
         <WrapperButton>

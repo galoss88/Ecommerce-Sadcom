@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon -L",
-    "client": "cd.. && npm run dev --prefix ./client",
+    "client": "cd .. && npm run dev --prefix ./client",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \" npm run client\" "
   },
   "keywords": [],
@@ -19,6 +19,7 @@
     "mercadopago": "^1.5.15",
     "morgan": "^1.10.0",
     "mssql": "^9.1.1",
+    "mysql2": "^3.2.0",
     "nodemon": "^2.0.20",
     "sequelize": "^6.28.0",
     "socket.io": "^4.6.1",

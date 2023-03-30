@@ -13,29 +13,33 @@ export const Container = styled.div`
     width: 100vw;
   }
 `;
-export const WrapperCards = styled.div`
-  display: flex;
-  width: 80%;
-  justify-content: center;
-`;
 export const WrapperPaginado = styled.div`
   display: flex;
   width: 100%;
   gap: 3rem;
   align-items: center;
 `;
+export const WrapperCards = styled.div`
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  flex-wrap: wrap;
+`;
+
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(33.33%, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 0.5fr));
+  gap: 2em;
   margin-top: 2rem;
-  width: 80%;
+  flex: 1;
+
   justify-content: center;
+
   &:hover {
     cursor: pointer;
   }
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
 
     width: 100%;
@@ -49,5 +53,5 @@ export const CardContainer = styled.div`
   @media (max-width: 300px) {
     grid-template-columns: repeat(1, 100%);
     margin: 1rem 50% 1rem 50%;
-  }
+  } */
 `;

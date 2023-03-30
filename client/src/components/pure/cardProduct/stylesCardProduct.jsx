@@ -4,25 +4,25 @@ export const Card = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  height: auto;
-  width: 14rem;
+  height: 30rem;
   background-color: #e4e4e4;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0.5rem 0.5rem 1rem grey;
   cursor: default;
 
+
+  
   &:hover {
     box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
-  }
-
-  @media (max-width: 761px) {
-    width: 10rem;
   }
 `;
 export const WrapperCard = styled.div`
   display: flex;
   flex-direction: column;
   user-select: none;
+  width: 100%;
+  
+  height: 100%;
 `;
 export const ImgProduct = styled.img`
   max-width: 100%;
@@ -47,15 +47,16 @@ export const PriceProduct = styled.label`
   margin: 1rem 0 0 0.8rem;
   font-weight: bold;
   position: absolute;
-  bottom: 0.3rem;
+  bottom: 0.3em;
+  font-size: 1.4em;
 `;
 export const NamePrice = styled.label`
   position: absolute;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   opacity: 0.3;
 
-  bottom: 1.5rem;
-  left: 0.8rem;
+  bottom: 1.5em;
+  left: 0.8em;
 `;
 export const Stock = styled.p`
   position: absolute;
@@ -74,7 +75,7 @@ export const ButtonAddToCart = styled.button`
   border: none;
   :hover {
     cursor: pointer;
-    background-color: #6F0000;
-    color: #FFF;
+    background-color: #6f0000;
+    color: #fff;
   }
 `;

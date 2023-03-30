@@ -3,8 +3,8 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DATABASE_NAME, USER, PASSWORD, DIALECT, HOST, PORT_DATABASE } =
-  process.env;
+const config = require("../config");
+const { DATABASE_NAME, USER, PASSWORD, DIALECT, HOST, PORT_DATABASE } = config;
 const sequelize = new Sequelize(DATABASE_NAME, USER, PASSWORD, {
   dialect: DIALECT,
   host: HOST,

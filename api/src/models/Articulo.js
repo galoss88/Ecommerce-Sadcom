@@ -8,6 +8,9 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
       },
+      Nombre: {
+        type: DataTypes.TEXT,
+      },
       Detalle: {
         type: DataTypes.TEXT,
         allowNull: true,
@@ -52,23 +55,18 @@ module.exports = (sequelize) => {
       },
       Combo: {
         type: DataTypes.BOOLEAN,
-        
       },
       InsumoDeCombo: {
         type: DataTypes.BOOLEAN,
-        
       },
       SolicitaPrecio: {
         type: DataTypes.BOOLEAN,
-        
       },
       SolicitaCantidad: {
         type: DataTypes.BOOLEAN,
-       
       },
       Retornable: {
         type: DataTypes.BOOLEAN,
-        
       },
       BloquearSiStockEnCero: {
         type: DataTypes.BOOLEAN,
@@ -76,15 +74,12 @@ module.exports = (sequelize) => {
       },
       BloquearSiStockEnCero: {
         type: DataTypes.DATE,
-        
       },
       BloquearSiStockEnCero: {
         type: DataTypes.DATE,
-        
       },
       BloquearSiStockEnCero: {
         type: DataTypes.DATE,
-       
       },
       ImprimirPrecioModif: {
         type: DataTypes.BOOLEAN,
@@ -94,7 +89,6 @@ module.exports = (sequelize) => {
       },
       Sistema: {
         type: DataTypes.BOOLEAN,
-      
       },
       IdIva: {
         type: DataTypes.INTEGER,

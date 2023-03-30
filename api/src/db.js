@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
@@ -7,17 +8,14 @@ const { DATABASE_NAME, USER, PASSWORD, DIALECT, HOST, PORT_DATABASE } =
 const sequelize = new Sequelize(DATABASE_NAME, USER, PASSWORD, {
   dialect: DIALECT,
   host: HOST,
-  port: 3306, //predeterminado de SQL server
-  logging:false,
+  port: PORT_DATABASE, //predeterminado de SQL server
+  logging: false,
   dialectOptions: {
-    optiones: {
+    options: {
       encrypt: true,
-      
     },
   },
 });
-
-
 
 const basename = path.basename(__filename);
 

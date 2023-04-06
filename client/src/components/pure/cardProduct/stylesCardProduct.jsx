@@ -27,7 +27,6 @@ export const WrapperCard = styled.div`
 export const ImgProduct = styled.img`
   max-width: 100%;
   height: 60%;
-
   @supports (object-fit: cover) {
     object-fit: cover;
     object-position: center center;

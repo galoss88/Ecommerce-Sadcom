@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: start;
   padding: 1rem;
   width: 100%;
-  height: 100%;
+  height: 85vh;
   animation: detail 1s ease-in-out 0s 1 alternate none;
   transition: animation 2s ease-in-out;
   margin-top: 15vh;
@@ -30,13 +30,14 @@ export const ContainerButton = styled.div`
 `;
 export const ContainerDescription = styled.div`
   display: flex;
-  width: 100%;
+  width: 93%;
+  height: 100%;
   gap: 1em;
 `;
 
 export const ContainerDetail = styled.div`
   display: flex;
-  width: 40%;
+  width: 50%;
   height: 100%;
 `;
 export const ContainerImageDetail = styled.div`

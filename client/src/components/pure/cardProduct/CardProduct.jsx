@@ -20,8 +20,8 @@ import {
 import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarProducto";
 import obtenerPrecioActual from "../../../utils/actualizarPrecio";
 const CardProduct = ({ producto, actualizarPrecio }) => {
-  const { Nombre,Detalle, StockTienda, IdArt, Venta } = producto;
-  console.log(producto)
+  const { Nombre, Detalle, StockTienda, IdArt, Venta } = producto;
+  console.log(producto);
   const dispatch = useDispatch();
   // const productosEnCarrito = useSelector((state) => state.cart);
   // const productosSinRepetir = eliminarRepetidos(productosEnCarrito);
@@ -52,7 +52,10 @@ const CardProduct = ({ producto, actualizarPrecio }) => {
           alt="Imagen del producto"
           loading="lazy"
         ></ImgProduct>
-        <NameProduct>{Detalle}{Nombre}</NameProduct>
+        <NameProduct>
+          {Detalle}
+          {Nombre}
+        </NameProduct>
         {/* <Stock stock={StockTienda}>
           {StockTienda ? "Quedan " + StockTienda : "Sin stock"}
         </Stock> */}

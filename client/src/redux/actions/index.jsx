@@ -14,6 +14,8 @@ export const SELECCIONAR_PRODUCTO = "SELECCIONAR_PRODUCTO";
 export const SHOW_DETAIL_PRODUCT = "SHOW_DETAIL_PRODUCT";
 export const GUARDAR_USUARIO = "GUARDAR_USUARIO";
 export const LOGIN_USER = "LOGIN_USER";
+export const CARGAR_IMAGENES = "CARGAR_IMAGENES";
+
 //Funciones actions
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
@@ -32,8 +34,11 @@ export function getProducts(page, filtro, search) {
 //LOGIN
 export const loginUser = (user) => {
   return async (dispatch) => {
-    const enviarUsuario = await axios.post("http://localhost:4000/api/login", user);
-    console.log(enviarUsuario, "ververver")
+    const enviarUsuario = await axios.post(
+      "http://localhost:4000/api/login",
+      user
+    );
+    console.log(enviarUsuario, "ververver");
     return dispatch({
       type: LOGIN_USER,
       payload: enviarUsuario.data,
@@ -108,5 +113,16 @@ export const guardarUsuario = (datosUser) => {
   return {
     type: GUARDAR_USUARIO,
     payload: datosUser,
+  };
+};
+
+//imagenes
+export const cargarImagenes = () => {
+  return async (dispatch) => {
+    const images = await axios.get("http://localhost:4000/api/images");
+    return dispatch({
+      type: CARGAR_IMAGENES,
+      payload: images.data,
+    });
   };
 };

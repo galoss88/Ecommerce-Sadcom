@@ -4,7 +4,7 @@ const router = Router();
 const productos = require("./Productos/Productos.js");
 const login = require("./Login/Login.js");
 const mercadopago = require("./MercadoPago/MercadoPago.js");
-
+const images = require("./Images/Images.js");
 const protegerRuta = require("../jwt/jwt.js");
 // const passport = require("../passport");
 router.use(express.json());
@@ -18,4 +18,5 @@ router.use(
   login
 );
 router.use("/", mercadopago);
+router.use("/images", images);
 module.exports = router;

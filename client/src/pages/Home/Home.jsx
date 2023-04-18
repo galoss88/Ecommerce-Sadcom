@@ -3,10 +3,20 @@ import image from "./image/pexels-photo-7153908.png";
 import Searcher from "../../components/pure/searcher/Searcher";
 import Button from "react-bootstrap/Button";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { cargarImagenes } from "../../redux/actions";
 
 export default function Home() {
+  const imagenes = useSelector((state) => state.imagenes);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(cargarImagenes());
+  }, []);
+  const {RutaBanner} = imagenes[0]
+  console.log(RutaBanner);
   const Wrapper = styled.div`
-    background-image: url(${image});
+    background-image: url(${RutaBanner});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 75%;
@@ -48,9 +58,9 @@ export default function Home() {
     border-radius: 0;
     border-width: 1px;
     background-color: transparent;
-    :hover{
-      background-color: #6F0000;
-      color: #FFF;
+    :hover {
+      background-color: #6f0000;
+      color: #fff;
     }
     @media (max-width: 768px) {
       display: none;
@@ -87,7 +97,9 @@ export default function Home() {
             esse? Esse error magnam accusamus laudantium assumenda beatae est in
             quia nemo!
           </p>
-          <Button onClick={() => navigate("/productos/listaProductos")}>Ver productos</Button>
+          <Button onClick={() => navigate("/productos/listaProductos")}>
+            Ver productos
+          </Button>
         </Detail>
       </Wrapper>
       <SecondBlock>

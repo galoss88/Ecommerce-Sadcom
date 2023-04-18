@@ -36,7 +36,7 @@ mercadopago.configure({
   access_token:
     "TEST-3387753665236650-030518-e050f756d85a6ab6612370dcb5490609-281850149",
 });
-app.use("/", routes);
+app.use("/api", routes);
 
 app.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars

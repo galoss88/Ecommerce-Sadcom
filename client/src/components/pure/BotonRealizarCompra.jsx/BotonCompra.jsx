@@ -2,7 +2,7 @@
 const { VITE_PUBLIC_KEY } = import.meta.env.VITE_PUBLIC_KEY;
 
 export const Checkout = async (carrito) => {
-  const response = await fetch("http://localhost:4000/payment", {
+  const response = await fetch("http://localhost:4000/api/payment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -9,6 +9,8 @@ import {
   VACIAR_CARRITO,
   SELECCIONAR_PRODUCTO,
   SHOW_DETAIL_PRODUCT,
+  GUARDAR_USUARIO,
+  LOGIN_USER,
 } from "../actions/index";
 //estado global redux
 const initialState = {
@@ -20,6 +22,8 @@ const initialState = {
   search: "",
   productoSeleccionado: null,
   detalleProductoSeleccionado: {},
+  usuario: {},
+  loginToken: "",
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -29,7 +33,12 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
-
+    case LOGIN_USER: {
+      return {
+        ...state,
+        loginToken: action.payload,
+      };
+    }
     case SELECCIONAR_PRODUCTO: {
       return {
         ...state,
@@ -48,15 +57,13 @@ export default function rootReducer(state = initialState, action) {
       };
     }
     case ADD_PRODUCT_TO_CART: {
-      // return {
-      //   ...state,
-      //   cart: [...state.cart, action.payload],
-      // };
-      const newProduct = Array.isArray(action.payload) ? action.payload : [action.payload];
-  return {
-    ...state,
-    cart: [...state.cart, ...newProduct],
-  };
+      const newProduct = Array.isArray(action.payload)
+        ? action.payload
+        : [action.payload];
+      return {
+        ...state,
+        cart: [...state.cart, ...newProduct],
+      };
     }
     case VACIAR_CARRITO: {
       return {
@@ -67,7 +74,7 @@ export default function rootReducer(state = initialState, action) {
     case DELETE_PRODUCT_CART: {
       const productos = state.cart;
       const productoAEliminar = productos.findIndex(
-        (producto) => producto.IdArt === action.payload
+        (producto) => producto.id === action.payload
       );
 
       const productoEliminado = productos.splice(productoAEliminar, 1);
@@ -92,6 +99,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         search: action.payload,
+      };
+    }
+    case GUARDAR_USUARIO: {
+      return {
+        ...state,
+        usuario: { ...action.payload },
       };
     }
     //Default

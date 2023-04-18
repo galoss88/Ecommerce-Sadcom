@@ -28,7 +28,7 @@ const CartProducts = () => {
       >
         <ProductosEnCarrito>{cantidadFinalCarrito}</ProductosEnCarrito>
         <i className="bi bi-cart3"></i>
-      </Nav.Link>
+      </Nav.Link>      
       {showCart && <CartProduct />}
     </Container>
   );

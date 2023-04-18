@@ -27,6 +27,12 @@ const routesSadcom = () => {
       <WrapperContenido>
         <Routes>
           <Route path="/productos/*" element={<Productos />}></Route>
+          <Route path="/pago-exitoso" element={<h1>Pago exitoso</h1>}></Route>
+          <Route path="/pago-fallido" element={<h1>Pago fallido</h1>}></Route>
+          <Route
+            path="/pago-pendiente"
+            element={<h1>Pago pendiente</h1>}
+          ></Route>
           <Route path="/detailProduct" element={<DetailProducts />} />
           <Route exact path="/" element={<Home />} />
           <Route path="/faq" element={<FAQ />} />

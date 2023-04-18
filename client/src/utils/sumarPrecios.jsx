@@ -3,17 +3,18 @@
 export const sumarPrecios = (productosSinRepetir, conteoProductos) => {
   const precios = [];
   const productos = () => {
-    productosSinRepetir.forEach(({ IdArt, Venta }) => {
-      const producto = { IdArt, Venta };
+    productosSinRepetir.forEach(({ id, unit_price }) => {
+      const producto = { id, unit_price };
       precios.push(producto);
     });
     const preciosTotal = precios.reduce((acumulador, precioActual, i) => {
+      console.log(acumulador);
       return (
-        acumulador + precioActual.Venta * conteoProductos[precioActual.IdArt]
+        acumulador + precioActual.unit_price * conteoProductos[precioActual.id]
       );
     }, 0);
+
     return preciosTotal;
   };
-
   return productos();
 };

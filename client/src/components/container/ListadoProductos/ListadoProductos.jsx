@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   CardContainer,
   Container,
@@ -11,7 +11,7 @@ import usePaginado from "../../../hooks/usePaginado";
 import { useContext } from "react";
 import { contextListaProductos } from "../../../context/ContextListaProductos";
 import Loading from "../../pure/Loading/Loading";
-import usePrecioActualizado from "../../../hooks/usePrecioActualizado";
+// import usePrecioActualizado from "../../../hooks/usePrecioActualizado";
 import socket from "../../../utils/socket/socket";
 import enviarPreciosActuales from "../../../utils/actualizarPrecio";
 // import Pagination from "react-bootstrap/Pagination";
@@ -31,7 +31,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
       console.log("se envio ID producto");
     });
     socket.on("precio-actualizado", (mensaje, callback) => {
-      console.log("estes es el mensaje", mensaje);
       setActualizarPrecio(mensaje);
       if (mensaje) return callback("Todo funciono");
       return callback("Hubo un error");
@@ -44,7 +43,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
       });
     };
   }, []);
-
   useEffect(() => {
     setInfoFiltros({
       ...infoFiltros,
@@ -60,7 +58,6 @@ const ListadoProductos = ({ mostrarDetalle }) => {
         <b>Nos quedamos sin stock en los productos, lo sentimos! :¨(</b>
       </Container>
     );
-
   return (
     <Container>
       <WrapperCards>

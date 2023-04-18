@@ -22,7 +22,7 @@ export default function Header() {
     return(
         <Wrapper>
             <Text>
-                Hoy 50% de descuento
+                
             </Text>
         </Wrapper>
         

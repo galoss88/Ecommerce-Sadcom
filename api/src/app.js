@@ -5,11 +5,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
-
 // //server http
 const http = require("http");
 const server = http.createServer(app);
-
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 const configureSocket = require("./socketServer/configureSocket.jsx");
@@ -20,9 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(morgan("dev"));
-
+//socketio
 const io = configureSocket(server);
-
+//
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
@@ -33,13 +31,11 @@ app.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
-
 // Credenciales mercado pago
 mercadopago.configure({
   access_token:
     "TEST-3387753665236650-030518-e050f756d85a6ab6612370dcb5490609-281850149",
 });
-
 app.use("/", routes);
 
 app.use((err, req, res, next) => {
@@ -49,6 +45,6 @@ app.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, "client/dist")));
 
 module.exports = { server, io };

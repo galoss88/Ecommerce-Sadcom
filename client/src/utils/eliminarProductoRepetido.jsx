@@ -4,7 +4,6 @@ export const eliminarRepetidos = (lista) => {
       ...new Set(lista?.map((elemento) => JSON.stringify(elemento))),
     ];
     const listaFinal = listaSinRepetidos?.map((el) => JSON.parse(el));
-    console.log(listaFinal);
     return listaFinal;
   };
   // lista.length ? sinRepetir() : [];

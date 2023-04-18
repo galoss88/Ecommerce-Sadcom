@@ -48,7 +48,7 @@ export const WrapperInputs = styled.div`
 //BOTON modificar info
 export const WrapperButtonSetInfo = styled.div`
   display: flex;
-
+gap:1rem;
   width: 100%;
   justify-content: center;
   margin-bottom: 0.4em;
@@ -60,6 +60,7 @@ export const ButtonSetInfo = styled.button`
   box-shadow: 0 0 3px 0 grey;
   padding: 0.5em 0.5em;
   margin-bottom: 0.5em;
+  
   :hover {
     background-color: #111111;
     color: #F2F2F2;

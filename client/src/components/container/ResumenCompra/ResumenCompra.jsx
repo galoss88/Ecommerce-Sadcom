@@ -16,32 +16,68 @@ import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
 import Subtotal from "../../pure/Product/Subtotal";
 import Total from "../../pure/Product/Total";
 import ProductResumen from "../../pure/ProductResumen/ProductResumen";
-import { vaciarCarrito } from "../../../redux/actions";
+import { loginUser, vaciarCarrito } from "../../../redux/actions";
 import SinProductos from "./SinProductos";
 import Loading from "../../pure/Loading/Loading";
+import { DatoUsuario } from "../../pure/login/PerfilUsuario/styles/stylesPerfilUsuario";
+import { comprobarDatosUsuario } from "../../../utils/comprobarDatosUsuario";
+import { enviarSocket } from "../../../utils/enviarSocket";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Checkout } from "../../pure/BotonRealizarCompra.jsx/BotonCompra";
+// import { Checkout } from "../../pure/BotonRealizarCompra.jsx/BotonCompra"; 
 const CartProduct = () => {
   const dispatch = useDispatch();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { user } = useAuth0();
   //state comprobar compra
   const [compraExitosa, setCompraExitosa] = useState(null);
   const [esperandoCompra, setEsperandoCompra] = useState(false);
   const [message, setMessage] = useState();
+  //info usuario
+  const datosUsuario = useSelector((state) => state.usuario);
   //
   const products = useSelector((state) => state.cart);
   const conteoProductosCarrito = calcularProductosRepetidos(products);
   const productosSinRepetir = eliminarRepetidos(products);
-  const finalizarCompra = () => {
+  const finalizarCompra = async() => {
     if (!products.length)
       return Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Su carrito esta vació.",
       });
+    //comprobar usuario logeado
+    if (isAuthenticated) {
+      dispatch(loginUser(user));
+    }
+    if (!isAuthenticated) {
+      return Swal.fire({
+        icon: "error",
+        title: "Usted no inicio sesion con su cuenta",
+        text: "Por Favor, debe iniciar sesión y recuerde tener completos todos sus datos!",
+      });
+    }
+
+    //comprobar info usuario
+
+    if (!comprobarDatosUsuario(datosUsuario)) {
+      return Swal.fire({
+        icon: "error",
+        title: "Falta completar datos de su usuario",
+        text: "Por favor verifique que cuente con todos los datos de usuario, ya que son necesarios para el envio de su producto.",
+      });
+    }
+    //enviar datos de usuario al servidor para la base de datos
+    // dispatch(crearUsuario(datosUsuario));
+    enviarSocket("datosUser", datosUsuario);
     //--------------------- comprobar la compra ---------
     socket.emit("carritoDescontarStock", conteoProductosCarrito);
+
+    
     setEsperandoCompra(true);
+    //REALIZAR COMPRA!!!! MERCADO PAGO
+   await Checkout(products)
     //as
-    socket.on("probando", (e) => setMessage(e));
-    socket.emit("probando", message);
   };
   useEffect(() => {
     socket.on("compra-exitosa", (mensaje) => {
@@ -75,6 +111,7 @@ const CartProduct = () => {
       });
     };
   }, []);
+  //comprobar login
 
   if (!products.length) return <SinProductos />;
   if (esperandoCompra)

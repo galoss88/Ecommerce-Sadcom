@@ -10,7 +10,7 @@ const paginado = async (page, filtro, search) => {
     ? //si tengo search en la columna Detalle hago una busqueda con comodin con el
       //operador like [Sequelize.Op.Like] que busca coincidencias
       {
-        Detalle: { [Sequelize.Op.like]: `%${search}%` },
+        Nombre: { [Sequelize.Op.like]: `%${search}%` },
         Venta: { [Op.gt]: 0 },
         StockTienda: { [Op.gt]: 0 },
       }
@@ -35,12 +35,11 @@ const paginado = async (page, filtro, search) => {
       lastPage: Math.ceil(productosTotales / productsPerPage),
       productosTotales,
       productosSinFiltro,
-       offset,
+      offset,
       // limit
     };
-  
+
     return paginado;
- 
   } catch (e) {
     return e;
   }

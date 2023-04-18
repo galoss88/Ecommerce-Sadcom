@@ -3,9 +3,9 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addProductToCart, seleccionarProducto } from "../../../redux/actions";
-import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
-import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
-import { sumarPrecios } from "../../../utils/sumarPrecios";
+// import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
+// import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
+// import { sumarPrecios } from "../../../utils/sumarPrecios";
 import { quitarDecimales } from "../../../utils/quitarDecimales";
 import {
   ButtonAddToCart,
@@ -21,7 +21,6 @@ import evaluarStockYagregarProducto from "../../../utils/evaluarStockYagregarPro
 import obtenerPrecioActual from "../../../utils/actualizarPrecio";
 const CardProduct = ({ producto, actualizarPrecio }) => {
   const { Nombre, Detalle, StockTienda, IdArt, Venta } = producto;
-  console.log(producto);
   const dispatch = useDispatch();
   // const productosEnCarrito = useSelector((state) => state.cart);
   // const productosSinRepetir = eliminarRepetidos(productosEnCarrito);

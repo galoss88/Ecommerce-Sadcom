@@ -18,42 +18,38 @@ import {
 
 const ProductResumen = ({ producto, conteoProductos }) => {
   const dispatch = useDispatch();
-  const { Detalle, Talle, Venta, IdArt } = producto;
+  const { Detalle: description, unit_price, id } = producto;
   const [showDelete, setShowDelete] = useState(false);
   const mostrarDelete = () => setShowDelete(true);
   const ocultarDelete = () => setShowDelete(false);
   const deleteProduct = (idProducto) => {
     dispatch(deleteProductCart(idProducto));
   };
-  const cantidadProducto = conteoProductos[IdArt];
-  const precio = quitarDecimales(Venta);
+  const cantidadProducto = conteoProductos[id];
+  const precio = quitarDecimales(unit_price);
 
   return (
     <WrapperProducto>
       {/* --------------- */}
 
       <WrapperImageAndNameProduct>
-        <WrapperImagenProducto  onMouseEnter={mostrarDelete}  onMouseLeave={ocultarDelete}>
+        <WrapperImagenProducto
+          onMouseEnter={mostrarDelete}
+          onMouseLeave={ocultarDelete}
+        >
           {showDelete ? (
-            <Delete
-              onClick={() => deleteProduct(IdArt)}
-             
-            >
+            <Delete onClick={() => deleteProduct(id)}>
               <i className="bi bi-x-circle"></i>
             </Delete>
           ) : (
-            <ImagenProduct
-             
-              src=""
-              alt="sin imagen"
-            />
+            <ImagenProduct src="" alt="sin imagen" />
           )}
           <Cantidad>{cantidadProducto}</Cantidad>
         </WrapperImagenProducto>
         <WrapperNameAndTalle>
-          <NameProduct>{Detalle}</NameProduct>
+          <NameProduct>{description}</NameProduct>
           {/* Deberia mostrar un talle, depende de la tienda */}
-          {Talle ? <Talle>talle M</Talle> : null}
+          {/* {Talle ? <Talle>talle M</Talle> : null} */}
           {/* ---------------------------------------------------- */}
         </WrapperNameAndTalle>
       </WrapperImageAndNameProduct>

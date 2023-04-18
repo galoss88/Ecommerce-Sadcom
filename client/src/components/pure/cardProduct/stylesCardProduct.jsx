@@ -34,12 +34,13 @@ export const ImgProduct = styled.img`
 `;
 export const NameProduct = styled.h2`
   display: flex;
-  width: 80%;
+  width: 96%;
   flex-wrap: wrap;
   font-family: Montserrat;
   margin: 0.3em 0 0em 0.8rem;
   line-height: 1.2rem;
-  font-size: 0.7rem;
+  font-size: 1.3rem;
+  font-weight: 700;
   white-space: wrap;
 `;
 export const PriceProduct = styled.label`
@@ -66,7 +67,7 @@ export const ButtonAddToCart = styled.button`
   position: absolute;
   bottom: 5px;
   right: 7px;
-  width: 2em;
+  width: 3em;
   text-align: center;
   padding: 0.2em;
 
@@ -77,4 +78,7 @@ export const ButtonAddToCart = styled.button`
     background-color: #6f0000;
     color: #fff;
   }
-`;
+  i{
+    font-size: 1.8em;
+  }
+  `;

@@ -13,18 +13,22 @@ updated_at: "2023-03-05T17:08:
 export const infoUsuario = [
   {
     label: "Nombre",
-    valor: "given_name",
+    valor: "Nombre",
   },
   {
-    label: "Apellido",
-    valor: "family_name",
+    label: "Email",
+    valor: "Email",
   },
   {
-    label: "Direccion",
-    valor: "",
+    label: "Domicilio",
+    valor: "Domicilio",
+  },
+  {
+    label: "Dni/Cuit",
+    valor: "DniCuit",
   },
   {
     label: "Telefono / Celular",
-    valor: "",
+    valor: "NroTel",
   },
 ];

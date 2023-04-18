@@ -12,6 +12,8 @@ export const VACIAR_CARRITO = "VACIAR_CARRITO";
 export const RESET_PAGINADO = "RESET_PAGINADO";
 export const SELECCIONAR_PRODUCTO = "SELECCIONAR_PRODUCTO";
 export const SHOW_DETAIL_PRODUCT = "SHOW_DETAIL_PRODUCT";
+export const GUARDAR_USUARIO = "GUARDAR_USUARIO";
+export const LOGIN_USER = "LOGIN_USER";
 //Funciones actions
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
@@ -27,6 +29,17 @@ export function getProducts(page, filtro, search) {
     });
   };
 }
+//LOGIN
+export const loginUser = (user) => {
+  return async (dispatch) => {
+    const enviarUsuario = await axios.post("http://localhost:4000/login", user);
+    console.log(enviarUsuario, "ververver")
+    return dispatch({
+      type: LOGIN_USER,
+      payload: enviarUsuario.data,
+    });
+  };
+};
 //mostrar detalles
 export const showDetailProduct = () => {
   return {
@@ -42,7 +55,6 @@ export const seleccionarProducto = (idProducto) => {
 };
 //agregar producto al carrito
 export function addProductToCart(producto) {
-  console.log(producto)
   return {
     type: ADD_PRODUCT_TO_CART,
     payload: producto,
@@ -57,7 +69,7 @@ export function vaciarCarrito() {
 
 //eliminar producto del carrito
 export function deleteProductCart(id) {
-  console.log(id, "ID DEL PRODUCOT ELIMINAR")
+  console.log(id, "ID DEL PRODUCOT ELIMINAR");
   return {
     type: DELETE_PRODUCT_CART,
     payload: id,
@@ -82,5 +94,19 @@ export const searchProduct = (buscar) => {
   return {
     type: BUSQUEDA,
     payload: buscar,
+  };
+};
+// export const crearUsuario = (datosUsuario) => {
+//   return async () => {
+//     await axios.post("http://localhost:4000/createUser", datosUsuario);
+//     return {
+//       type: "Crear Usuario",
+//     };
+//   };
+// };
+export const guardarUsuario = (datosUser) => {
+  return {
+    type: GUARDAR_USUARIO,
+    payload: datosUser,
   };
 };

@@ -5,24 +5,23 @@ import {
   LabelInfo,
   WrapperInfo,
 } from "../components/pure/login/PerfilUsuario/styles/stylesPerfilUsuario";
+import { useSelector } from "react-redux";
 
 const useDatosUsuario = (options) => {
-  //Se traen datos directamente de auth0, hasta que en la base de datos
-  //tengamos la info guardada.
+  //info usuario de base de datos
+  const dataUser = useSelector((state) => state.usuario);
   const generarDatoUsuario = (datos) => {
-    const { user } = useAuth0();
-    return datos ? user[datos] : "Sin definir";
+    return datos ? dataUser[datos] : "Sin definir";
   };
   const generarInput = () => {
-    const onChange = (e) => {
-      setDataInput({ ...dataInput, [e.target.name]: e.target.value });
-    };
-
+    if (!Object.keys(dataUser).length) return <h1>Cargando Datos</h1>;
     return (
       <>
         {options.map(({ label, valor }) => (
           <WrapperInfo key={label}>
-            <LabelInfo><b>{label}:</b></LabelInfo>
+            <LabelInfo>
+              <b>{label}:</b>
+            </LabelInfo>
             <DatoUsuario>{generarDatoUsuario(valor)}</DatoUsuario>
           </WrapperInfo>
         ))}

@@ -15,7 +15,6 @@ const DivProductos = styled.div`
     0% {
       opacity: 0;
     }
-
     100% {
       opacity: 1;
     }
@@ -30,7 +29,6 @@ const Productos = () => {
       <WrapperFiltros>
         <FiltrosProductos />
       </WrapperFiltros>
-
       <RoutesProduct />
     </DivProductos>
   );

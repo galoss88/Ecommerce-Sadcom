@@ -14,7 +14,6 @@ const Total = () => {
   //calcular el total de los productos
   const precioFinal = sumarPrecios(productosSinRepetir, conteoProductosCarrito);
   const total = quitarDecimales(precioFinal);
-  console.log(precioFinal)
 
   //
 

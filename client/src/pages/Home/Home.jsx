@@ -13,8 +13,8 @@ export default function Home() {
   useEffect(() => {
     dispatch(cargarImagenes());
   }, []);
-  const {RutaBanner} = imagenes[0]
-  console.log(RutaBanner);
+  const {RutaBanner, NombreTienda} = imagenes[0]
+  console.log(RutaBanner, NombreTienda);
   const Wrapper = styled.div`
     background-image: url(${RutaBanner});
     background-repeat: no-repeat;

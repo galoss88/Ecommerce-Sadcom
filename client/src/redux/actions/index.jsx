@@ -20,7 +20,7 @@ export const CARGAR_IMAGENES = "CARGAR_IMAGENES";
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
-      `http://localhost:4000/api/productos/?page=${page}${
+      `http://149.100.142.34:4000/api/productos/?page=${page}${
         filtro ? `&filtro=${filtro}` : ""
       }${search ? `&search=${search}` : ""}`
     );

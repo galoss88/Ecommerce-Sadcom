@@ -51,6 +51,7 @@ const {
   ArticuloImpIntTbl,
   ArticuloIvaTbl,
   PersonaTbl,
+  ConfiguracionTiendaTbl
 } = sequelize.models;
 //RELACIONES
 ArticuloTbl.belongsToMany(ArticuloContenedorClaseTbl, {

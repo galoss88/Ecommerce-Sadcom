@@ -18,7 +18,7 @@ export const LOGIN_USER = "LOGIN_USER";
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
-      `http://localhost:4000/productos/?page=${page}${
+      `http://localhost:4000/api/productos/?page=${page}${
         filtro ? `&filtro=${filtro}` : ""
       }${search ? `&search=${search}` : ""}`
     );
@@ -32,7 +32,7 @@ export function getProducts(page, filtro, search) {
 //LOGIN
 export const loginUser = (user) => {
   return async (dispatch) => {
-    const enviarUsuario = await axios.post("http://localhost:4000/login", user);
+    const enviarUsuario = await axios.post("http://localhost:4000/api/login", user);
     console.log(enviarUsuario, "ververver")
     return dispatch({
       type: LOGIN_USER,

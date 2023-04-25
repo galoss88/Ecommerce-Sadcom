@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
   // const { RutaBanner, NombreTienda } = imagenes[0];
   const Wrapper = styled.div`
-    background-image: url("https://srv887.hstgr.io:7443/fc48a56867d1226f/files/public_html/Banner/1900.webp");
+    background-image: url(${imagenes[0]?.RutaBanner});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 75%;

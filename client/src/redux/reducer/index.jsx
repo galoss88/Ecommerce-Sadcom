@@ -12,6 +12,7 @@ import {
   GUARDAR_USUARIO,
   LOGIN_USER,
   CARGAR_IMAGENES,
+  GET_DATA_USER,
 } from "../actions/index";
 //estado global redux
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   productoSeleccionado: null,
   detalleProductoSeleccionado: {},
   usuario: {},
+  // probando: null,
   loginToken: "",
   imagenes: [],
 };
@@ -107,6 +109,12 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         search: action.payload,
+      };
+    }
+    case GET_DATA_USER: {
+      return {
+        ...state,
+        usuario: action.payload,
       };
     }
     case GUARDAR_USUARIO: {

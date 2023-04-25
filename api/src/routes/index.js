@@ -6,6 +6,7 @@ const login = require("./Login/Login.js");
 const mercadopago = require("./MercadoPago/MercadoPago.js");
 const images = require("./Images/Images.js");
 const protegerRuta = require("../jwt/jwt.js");
+const getInfoUser = require("../controllers/getInfoUser.js");
 // const passport = require("../passport");
 router.use(express.json());
 // router.use("/listaProductos", paginado);
@@ -17,6 +18,7 @@ router.use(
   // passport.authenticate("jwt", { session: false }),
   login
 );
+router.use("/dataUser", getInfoUser);
 router.use("/", mercadopago);
 router.use("/images", images);
 module.exports = router;

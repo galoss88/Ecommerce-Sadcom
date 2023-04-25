@@ -14,6 +14,7 @@ import {
   WrapperHeader,
   WrapperNavbar,
 } from "./stylesRoutes/stylesSadcom";
+import PagoExitoso from "../components/pure/RespuestaPagos/PagoExitoso";
 
 const routesSadcom = () => {
   return (
@@ -27,7 +28,7 @@ const routesSadcom = () => {
       <WrapperContenido>
         <Routes>
           <Route path="/productos/*" element={<Productos />}></Route>
-          <Route path="/pago-exitoso" element={<h1>Pago exitoso</h1>}></Route>
+          <Route path="/pago-exitoso" element={<PagoExitoso/>}></Route>
           <Route path="/pago-fallido" element={<h1>Pago fallido</h1>}></Route>
           <Route
             path="/pago-pendiente"

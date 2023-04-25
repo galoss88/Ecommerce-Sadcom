@@ -5,9 +5,18 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
+
+//https
+// const fs = require("fs");
+// const https = require("https");
+// const options = {
+//   key: fs.readFileSync("./clave.key"),
+//   cert: fs.readFileSync("./certificado.crt"),
+// };
 // //server http
 const http = require("http");
 const server = http.createServer(app);
+
 // SDK de Mercado Pago
 const mercadopago = require("mercadopago");
 const configureSocket = require("./socketServer/configureSocket.jsx");
@@ -32,11 +41,11 @@ app.use((req, res, next) => {
   next();
 });
 // Credenciales mercado pago
-mercadopago.configure({
-  access_token:
-    "TEST-3387753665236650-030518-e050f756d85a6ab6612370dcb5490609-281850149",
-});
-app.use("/api", routes);
+// mercadopago.configure({
+//   access_token:
+//     "APP_USR-2889120682731276-041423-74a6e8604a7072d3aac50a25b581ac45-1353138790",
+// });
+app.use("/", routes);
 
 app.use((err, req, res, next) => {
   // eslint-disable-line no-unused-vars

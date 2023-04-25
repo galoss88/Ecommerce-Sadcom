@@ -15,12 +15,25 @@ export const SHOW_DETAIL_PRODUCT = "SHOW_DETAIL_PRODUCT";
 export const GUARDAR_USUARIO = "GUARDAR_USUARIO";
 export const LOGIN_USER = "LOGIN_USER";
 export const CARGAR_IMAGENES = "CARGAR_IMAGENES";
+export const GET_DATA_USER = "GET_DATA_USER";
 
 //Funciones actions
+//traer datos usuario
+export const getDataUser = (emailUser) => {
+  return async function (dispatch) {
+    let datos = await axios.get(`http://localhost:4000/dataUser/?emailUser=${emailUser}`);
+
+    return dispatch({
+      type: GET_DATA_USER,
+      payload: datos.data,
+    });
+  };
+};
+
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
-      `http://localhost:4000/api/productos/?page=${page}${
+      `http://localhost:4000/productos?page=${page}${
         filtro ? `&filtro=${filtro}` : ""
       }${search ? `&search=${search}` : ""}`
     );
@@ -34,11 +47,7 @@ export function getProducts(page, filtro, search) {
 //LOGIN
 export const loginUser = (user) => {
   return async (dispatch) => {
-    const enviarUsuario = await axios.post(
-      "http://localhost:4000/api/login",
-      user
-    );
-    console.log(enviarUsuario, "ververver");
+    const enviarUsuario = await axios.post("http://localhost:4000/login", user);
     return dispatch({
       type: LOGIN_USER,
       payload: enviarUsuario.data,
@@ -74,7 +83,6 @@ export function vaciarCarrito() {
 
 //eliminar producto del carrito
 export function deleteProductCart(id) {
-  console.log(id, "ID DEL PRODUCOT ELIMINAR");
   return {
     type: DELETE_PRODUCT_CART,
     payload: id,
@@ -119,7 +127,7 @@ export const guardarUsuario = (datosUser) => {
 //imagenes
 export const cargarImagenes = () => {
   return async (dispatch) => {
-    const images = await axios.get("http://localhost:4000/api/images");
+    const images = await axios.get("http://localhost:4000/images");
     return dispatch({
       type: CARGAR_IMAGENES,
       payload: images.data,

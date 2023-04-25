@@ -19,7 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const { config } = require("dotenv");
 config();
-const { PORT } = process.env;
+const {PORT} = require("./config");
 const { server } = require("./src/app");
 const { conn } = require("./src/db.js");
 

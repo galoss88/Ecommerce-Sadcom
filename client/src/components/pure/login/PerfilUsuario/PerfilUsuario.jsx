@@ -29,8 +29,8 @@ const PerfilUsuario = ({ ocultarPerfil }) => {
     }
     setEditarInfo(!editarInfo);
   };
+
   const actualizarInformacion = () => {
-    // dispatch(guardarUsuario(valuesInputs));
     enviarSocket("datosUser", valuesInputs);
     Swal.fire({
       icon: "success",
@@ -40,6 +40,7 @@ const PerfilUsuario = ({ ocultarPerfil }) => {
     setUserBaseDatos({ ...valuesInputs });
     dispatch(guardarUsuario(userBaseDatos));
   };
+  //
   const cerrarPerfilUsuario = () => {
     ocultarPerfil(false);
   };
@@ -55,6 +56,8 @@ const PerfilUsuario = ({ ocultarPerfil }) => {
       });
     };
   }, [userBaseDatos]);
+  //
+
   return (
     <ContainerPerfilUsuario>
       <WrapperDatosPerfil>

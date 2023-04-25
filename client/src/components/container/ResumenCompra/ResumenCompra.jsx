@@ -73,28 +73,30 @@ const CartProduct = () => {
     //--------------------- comprobar la compra ---------
     socket.emit("carritoDescontarStock", conteoProductosCarrito);
 
-    
-    setEsperandoCompra(true);
     //REALIZAR COMPRA!!!! MERCADO PAGO
    await Checkout(products)
+    setEsperandoCompra(true);
+    
     //as
   };
-  useEffect(() => {
-    socket.on("compra-exitosa", (mensaje) => {
-      setCompraExitosa(true);
-      setTimeout(() => {
-        setEsperandoCompra(false);
-      }, 3000);
-    });
-    return () => {
-      socket.off("compra-exitosa", (mensaje) => {
-        setCompraExitosa(true);
-        setTimeout(() => {
-          setEsperandoCompra(false);
-        }, 3000);
-      });
-    };
-  }, []);
+
+  //quitamos mensaje de compra exitosa por ahora, hasta confirmar con mercado pago
+  // useEffect(() => {
+  //   socket.on("compra-exitosa", (mensaje) => {
+  //     setCompraExitosa(true);
+  //     setTimeout(() => {
+  //       setEsperandoCompra(false);
+  //     }, 3000);
+  //   });
+  //   return () => {
+  //     socket.off("compra-exitosa", (mensaje) => {
+  //       setCompraExitosa(true);
+  //       setTimeout(() => {
+  //         setEsperandoCompra(false);
+  //       }, 3000);
+  //     });
+  //   };
+  // }, []);
   useEffect(() => {
     socket.on("compra-rechazada", (mensaje) => {
       setCompraExitosa(false);
@@ -120,20 +122,21 @@ const CartProduct = () => {
         texto={"Procesando su compra, espere unos segundos, por favor..."}
       />
     );
-  if (compraExitosa) {
-    dispatch(vaciarCarrito());
-    return Swal.fire({
-      icon: "success",
-      title: "Gracias por su compra!",
-      text: "Le llegara la factura a su correo",
-    });
-  } else if (compraExitosa === false) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "No hay stock o Hubo algun problema",
-    });
-  }
+    //quitamos mensaje por ahora
+  // if (compraExitosa) {
+  //   dispatch(vaciarCarrito());
+  //   return Swal.fire({
+  //     icon: "success",
+  //     title: "Gracias por su compra!",
+  //     text: "Le llegara la factura a su correo",
+  //   });
+  // } else if (compraExitosa === false) {
+  //   Swal.fire({
+  //     icon: "error",
+  //     title: "Oops...",
+  //     text: "No hay stock o Hubo algun problema",
+  //   });
+  // }
   return (
     <ContainerResumenCompra>
       <WrapperProductos>

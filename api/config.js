@@ -11,4 +11,6 @@ module.exports = {
   DIALECT: "mysql",
   MERCADOPAGO_TOKEN:
     "APP_USR-2889120682731276-041423-74a6e8604a7072d3aac50a25b581ac45-1353138790",
+  EMAIL_COMPRAS: "tiendafestilandia@festilandiacotillon.com",
+  CLAVE_EMAIL_COMPRAS:"Sadcom2023#+"
 };

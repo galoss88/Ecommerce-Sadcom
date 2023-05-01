@@ -1,4 +1,4 @@
-export const sumarPrecioTotalIndividual = (precio, id, conteoProductos) => {
-  const cantidadDelProducto = conteoProductos[id];
+export const sumarPrecioTotalIndividual = (precio, conteoProductos) => {
+  const cantidadDelProducto = conteoProductos;
   return precio * cantidadDelProducto;
 };

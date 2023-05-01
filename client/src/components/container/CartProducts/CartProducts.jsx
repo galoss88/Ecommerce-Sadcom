@@ -1,35 +1,46 @@
-import React, { useState } from "react";
-import Product from "../../pure/Product/Product";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "react-bootstrap/Nav";
-import { FaShoppingCart } from "react-icons/fa";
-import { Container, ProductosEnCarrito } from "./stylesCartProducts";
+
+import { Container, ProductosEnCarrito, Icono } from "./stylesCartProducts";
 import CartProduct from "../../pure/Product/CartProduct";
-import { useSelector } from "react-redux";
-import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
-import { calcularProductosCarrito } from "../../../utils/calcularTotalProductosCarrito";
+
 import useCantidadFinalCarrito from "../../../hooks/useCantidadFinalCarrito";
 
 const CartProducts = () => {
   const [showCart, setShowCart] = useState(false);
-  // const carritoConProductos = useSelector((state) => state.cart);
-  // const conteoProductosCarrito =
-  //   calcularProductosRepetidos(carritoConProductos);
-  // const cantidadFinalCarrito = calcularProductosCarrito(conteoProductosCarrito);
-  const cantidadFinalCarrito = useCantidadFinalCarrito()
+  const cartOpenRef = useRef(null);
+  const cantidadFinalCarrito = useCantidadFinalCarrito();
   const mostrarOcultarCarrito = () => {
     setShowCart(!showCart);
   };
+  const clickFueraCarrito = (e) => {
+    cartOpenRef.current &&
+      !cartOpenRef.current.contains(e.target) &&
+      setShowCart(false);
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", clickFueraCarrito);
+    return () => {
+      document.removeEventListener("mousedown", clickFueraCarrito);
+    };
+  }, []);
   return (
     <Container isOpen={showCart ? "open" : "close"}>
       <Nav.Link
         className="abreCierraCarrito"
         onClick={() => mostrarOcultarCarrito()}
-        style={{ paddingTop: "1vh", fontSize: "2em" }}
+        style={{ paddingTop: "1vh", fontSize: "2.5em" }}
       >
         <ProductosEnCarrito>{cantidadFinalCarrito}</ProductosEnCarrito>
-        <i className="bi bi-cart3"></i>
-      </Nav.Link>      
-      {showCart && <CartProduct />}
+        <Icono>
+          <i className="bi bi-cart3"></i>
+        </Icono>
+      </Nav.Link>
+      {showCart && (
+        <div ref={cartOpenRef}>
+          <CartProduct />
+        </div>
+      )}
     </Container>
   );
 };

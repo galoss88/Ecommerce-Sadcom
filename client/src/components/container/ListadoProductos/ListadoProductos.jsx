@@ -14,6 +14,8 @@ import Loading from "../../pure/Loading/Loading";
 // import usePrecioActualizado from "../../../hooks/usePrecioActualizado";
 import socket from "../../../utils/socket/socket";
 import enviarPreciosActuales from "../../../utils/actualizarPrecio";
+import FiltrosProductos from "../FiltrosProductos/FiltrosProductos";
+import Layout from "../../../pages/Layout/Layout";
 // import Pagination from "react-bootstrap/Pagination";
 const ListadoProductos = ({ mostrarDetalle }) => {
   const enviarInfoFiltrado = useContext(contextListaProductos);
@@ -59,24 +61,28 @@ const ListadoProductos = ({ mostrarDetalle }) => {
       </Container>
     );
   return (
-    <Container>
-      <WrapperCards>
-        <CardContainer>
-          {todosLosProductos?.productosAMostrar?.map((producto) => (
-            <CardProduct
-              key={producto.IdArt}
-              producto={producto}
-              mostrarDetalle={mostrarDetalle}
-              actualizarPrecio={enviarPreciosActuales(
-                actualizarPrecio,
-                producto.IdArt
-              )}
-            />
-          ))}
-        </CardContainer>
-      </WrapperCards>
-      <WrapperPaginado>{todosLosProductos && <Paginado />}</WrapperPaginado>
-    </Container>
+    <Layout>
+      <Container>
+        <FiltrosProductos />
+        <WrapperCards>
+          <CardContainer>
+            {todosLosProductos?.productosAMostrar?.map((producto) => (
+              <CardProduct
+                key={producto.IdArt}
+                producto={producto}
+                mostrarDetalle={mostrarDetalle}
+                actualizarPrecio={enviarPreciosActuales(
+                  actualizarPrecio,
+                  producto.IdArt
+                )}
+              />
+            ))}
+          </CardContainer>
+        <WrapperPaginado>{todosLosProductos && <Paginado />}</WrapperPaginado>
+
+        </WrapperCards>
+      </Container>
+    </Layout>
   );
 };
 

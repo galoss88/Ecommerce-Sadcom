@@ -15,19 +15,20 @@ import {
   WrapperPriceProduct,
   WrapperProducto,
 } from "./Styles/stylesProductResumen";
+import { sumarPrecioTotalIndividual } from "../../../utils/calcularPrecioIndividualProducto";
 
-const ProductResumen = ({ producto, conteoProductos }) => {
+const ProductResumen = ({ producto }) => {
   const dispatch = useDispatch();
-  const { Detalle: description, unit_price, id } = producto;
+  const { description, unit_price, picture_url, id, title, quantity } =
+    producto;
   const [showDelete, setShowDelete] = useState(false);
   const mostrarDelete = () => setShowDelete(true);
   const ocultarDelete = () => setShowDelete(false);
   const deleteProduct = (idProducto) => {
     dispatch(deleteProductCart(idProducto));
   };
-  const cantidadProducto = conteoProductos[id];
-  const precio = quitarDecimales(unit_price);
-
+  const precioUnitario = quitarDecimales(unit_price);
+  const precioTotal = sumarPrecioTotalIndividual(precioUnitario, quantity);
   return (
     <WrapperProducto>
       {/* --------------- */}
@@ -42,20 +43,22 @@ const ProductResumen = ({ producto, conteoProductos }) => {
               <i className="bi bi-x-circle"></i>
             </Delete>
           ) : (
-            <ImagenProduct src="" alt="sin imagen" />
+            <ImagenProduct src={picture_url} alt="sin imagen" />
           )}
-          <Cantidad>{cantidadProducto}</Cantidad>
+          <Cantidad>{quantity}</Cantidad>
         </WrapperImagenProducto>
+
         <WrapperNameAndTalle>
-          <NameProduct>{description}</NameProduct>
+          <NameProduct>{title}</NameProduct>
           {/* Deberia mostrar un talle, depende de la tienda */}
           {/* {Talle ? <Talle>talle M</Talle> : null} */}
           {/* ---------------------------------------------------- */}
         </WrapperNameAndTalle>
       </WrapperImageAndNameProduct>
       {/* --------------- */}
+
       <WrapperPriceProduct>
-        <PriceProduct>$ {precio}</PriceProduct>
+        <PriceProduct>$ {precioTotal}</PriceProduct>
       </WrapperPriceProduct>
       {/* --------------- */}
     </WrapperProducto>

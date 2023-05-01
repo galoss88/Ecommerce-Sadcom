@@ -13,6 +13,8 @@ import {
   LOGIN_USER,
   CARGAR_IMAGENES,
   GET_DATA_USER,
+  GUARDAR_DATOS_COMPRA,
+  GET_DATA_EMPRESA,
 } from "../actions/index";
 //estado global redux
 const initialState = {
@@ -28,6 +30,8 @@ const initialState = {
   // probando: null,
   loginToken: "",
   imagenes: [],
+  datosCompra: {},
+  dataEmpresa: {},
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -41,6 +45,18 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         imagenes: action.payload,
+      };
+    }
+    case GET_DATA_EMPRESA: {
+      return {
+        ...state,
+        dataEmpresa: action.payload,
+      };
+    }
+    case GUARDAR_DATOS_COMPRA: {
+      return {
+        ...state,
+        datosCompra: action.payload,
       };
     }
     case LOGIN_USER: {
@@ -67,14 +83,32 @@ export default function rootReducer(state = initialState, action) {
       };
     }
     case ADD_PRODUCT_TO_CART: {
-      const newProduct = Array.isArray(action.payload)
-        ? action.payload
-        : [action.payload];
-      return {
-        ...state,
-        cart: [...state.cart, ...newProduct],
-      };
+      const newProduct = action.payload;
+      const productIndex = state.cart.findIndex(
+        (product) => product.id === newProduct.id
+      );
+
+      if (productIndex !== -1) {
+        const updatedProduct = {
+          ...state.cart[productIndex],
+          quantity: newProduct.quantity,
+        };
+
+        const cart = [...state.cart];
+        cart.splice(productIndex, 1, updatedProduct);
+
+        return {
+          ...state,
+          cart: cart,
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, newProduct],
+        };
+      }
     }
+
     case VACIAR_CARRITO: {
       return {
         ...state,
@@ -82,17 +116,27 @@ export default function rootReducer(state = initialState, action) {
       };
     }
     case DELETE_PRODUCT_CART: {
-      const productos = state.cart;
-      const productoAEliminar = productos.findIndex(
-        (producto) => producto.id === action.payload
-      );
-
-      const productoEliminado = productos.splice(productoAEliminar, 1);
+      const idEliminar = action.payload;
+      const productos = state.cart
+        .map((producto) => {
+          if (producto.id === idEliminar) {
+            if (producto.quantity > 2) {
+              return { ...producto, quantity: producto.quantity - 1 };
+            } else if (producto.quantity === 2) {
+              return { ...producto, quantity: producto.quantity - 1 };
+            } else {
+              return null;
+            }
+          }
+          return producto;
+        })
+        .filter((producto) => producto !== null);
       return {
         ...state,
-        cart: [...productos],
+        cart: productos,
       };
     }
+
     case FILTER_PRICE: {
       return {
         ...state,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { calcularProductosRepetidos } from "../../../utils/calcularProductosRepetidos";
+import { calcularCantidadTotalProductos } from "../../../utils/calcularCantidadTotalProductos";
 import { eliminarRepetidos } from "../../../utils/eliminarProductoRepetido";
 import Product from "./Product";
 import Swal from "sweetalert2";
@@ -12,14 +12,14 @@ import {
   WrapperProductsCart,
   Hr,
 } from "./styles/stylesCartProduct";
-import Subtotal from "./Subtotal";
+// import Subtotal from "./Subtotal";
 import Total from "./Total";
 
 //----------------
 const CartProduct = () => {
   const products = useSelector((state) => state.cart);
-  const conteoProductosCarrito = calcularProductosRepetidos(products);
-  const productosSinRepetir = eliminarRepetidos([...products]);
+  const conteoProductosCarrito = calcularCantidadTotalProductos(products);
+  // const productosSinRepetir = eliminarRepetidos([...products]);
   const navigate = useNavigate();
   const finalizarCompra = () => {
     //validar
@@ -36,7 +36,7 @@ const CartProduct = () => {
   return (
     <Container>
       <WrapperProductsCart>
-        {productosSinRepetir?.map((producto, index) => (
+        {products?.map((producto, index) => (
           <Product
             key={index}
             producto={producto}

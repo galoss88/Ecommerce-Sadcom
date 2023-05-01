@@ -4,13 +4,15 @@ export const NavMenuUsuario = styled.nav`
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: -8rem;
+  bottom: -9rem;
   left: -3%;
-  width: 10rem;
+  width: 14.5rem;
   height: auto;
   justify-content: center;
+  border-radius: 5px;
   align-items: center;
   gap: 0.5em;
+  font-size: var(--font-size);
   padding: 0.5rem 0.2rem;
   box-shadow: 0 0 0.1rem 0;
   background-color: rgb(111, 0, 0);
@@ -26,6 +28,24 @@ export const NavMenuUsuario = styled.nav`
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.4rem;
+    left: -2rem;
+    bottom: -10rem;
+    width: 12rem;
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    bottom: -11rem;
+    width: 15rem;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+  @media (max-width: 320px) {
   }
 `;
 export const WrapperButtonMenu = styled.div`

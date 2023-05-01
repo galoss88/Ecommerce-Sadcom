@@ -1,26 +1,43 @@
 import styled from "styled-components";
-/* export const ButtonLogin = styled.button`
-  border: none;
-
-  padding: 0.3rem 0.3rem;
-  outline: 0.3rem solid rgba(73, 35, 19, 0.2);
-
-  :hover {
-    animation: none;
-    outline: 0.3rem solid rgba(73, 35, 19, 1);
-  }
-  :active{
-    animation: none;
-  }
-`; */
 
 export const ButtonLogin = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
   cursor: pointer;
-`
+  @media (max-width: 1281px) {
+  }
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
+  }
+`;
 
 export const Login = styled.p`
-  margin: 0 0 0 .5em;
-`
+  margin: 0 0 0 0.5rem;
+  font-size: 2.1rem;
+  font-weight: 600;
+  
+  @media (max-width: 1281px) {
+  }
+  @media (max-width: 1200px) {
+    font-size: 1.3rem;
+    
+  }
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
+  }
+`;

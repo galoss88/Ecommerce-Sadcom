@@ -14,27 +14,32 @@ import {
   ContainerDetail,
   ContainerImageDetail,
 } from "./stylesDetailProducts";
+import Layout from "../../../pages/Layout/Layout";
 
 const DetailProducts = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(showDetailProduct());
   }, []);
-  const productDetail = useSelector(state=>state.detalleProductoSeleccionado)
+  const productDetail = useSelector(
+    (state) => state.detalleProductoSeleccionado
+  );
   return (
-    <Container>
-      <ContainerButton>
-        <ButtonNavigate accion={-1} />
-      </ContainerButton>
-      <ContainerDescription>
-        <ContainerImageDetail>
-          <ImagesDetail />
-        </ContainerImageDetail>
-        <ContainerDetail>
-          <DescriptionDetail {...productDetail} />
-        </ContainerDetail>
-      </ContainerDescription>
-    </Container>
+    <Layout>
+      <Container>
+        <ContainerButton>
+          <ButtonNavigate accion={-1} />
+        </ContainerButton>
+        <ContainerDescription>
+          <ContainerImageDetail>
+            <ImagesDetail />
+          </ContainerImageDetail>
+          <ContainerDetail>
+            <DescriptionDetail {...productDetail} />
+          </ContainerDetail>
+        </ContainerDescription>
+      </Container>
+    </Layout>
   );
 };
 

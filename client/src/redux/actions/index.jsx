@@ -16,12 +16,15 @@ export const GUARDAR_USUARIO = "GUARDAR_USUARIO";
 export const LOGIN_USER = "LOGIN_USER";
 export const CARGAR_IMAGENES = "CARGAR_IMAGENES";
 export const GET_DATA_USER = "GET_DATA_USER";
-
+export const GUARDAR_DATOS_COMPRA = "GUARDAR_DATOS_COMPRA";
+export const GET_DATA_EMPRESA = "GET_DATA_EMPRESA";
 //Funciones actions
 //traer datos usuario
 export const getDataUser = (emailUser) => {
   return async function (dispatch) {
-    let datos = await axios.get(`http://localhost:4000/dataUser/?emailUser=${emailUser}`);
+    let datos = await axios.get(
+      `http://localhost:4000/dataUser/?emailUser=${emailUser}`
+    );
 
     return dispatch({
       type: GET_DATA_USER,
@@ -29,7 +32,12 @@ export const getDataUser = (emailUser) => {
     });
   };
 };
-
+export function guardarDatosCompra(datosCompra) {
+  return {
+    type: GUARDAR_DATOS_COMPRA,
+    payload: datosCompra,
+  };
+}
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
@@ -123,7 +131,14 @@ export const guardarUsuario = (datosUser) => {
     payload: datosUser,
   };
 };
-
+export const enviarEmailCompra = (datosCompra) => {
+  return async (dispatch) => {
+    await axios.post("http://localhost:4000/sendEmail", datosCompra);
+    return dispatch({
+      type: "ENVIAR_EMAIL_COMPRA",
+    });
+  };
+};
 //imagenes
 export const cargarImagenes = () => {
   return async (dispatch) => {
@@ -131,6 +146,16 @@ export const cargarImagenes = () => {
     return dispatch({
       type: CARGAR_IMAGENES,
       payload: images.data,
+    });
+  };
+};
+
+export const getDataEmpresa = () => {
+  return async (dispatch) => {
+    const dataEmpresa = await axios.get("http://localhost:4000/dataEmpresa");
+    return dispatch({
+      type: GET_DATA_EMPRESA,
+      payload: dataEmpresa.data,
     });
   };
 };

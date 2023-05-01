@@ -21,12 +21,13 @@ import {
 } from "./styles/stylesDescription";
 
 const DescriptionDetail = (props) => {
-  const { Detalle, Venta, IdArt, StockTienda } = props;
+  const { Nombre, Detalle, Venta, IdArt, StockTienda, RutaImagen } = props;
   const precio = quitarDecimales(Venta);
   const [agregarProducto] = evaluarStockYagregarProducto(
     StockTienda,
     IdArt,
-    props
+    props,
+    RutaImagen
   );
   const addToCart = () => {
     agregarProducto();
@@ -34,11 +35,11 @@ const DescriptionDetail = (props) => {
   return (
     <Container>
       <WrapperHeaderCard>
-        <AcercaDeProdcuto>Precio</AcercaDeProdcuto>
+        <AcercaDeProdcuto>Precio: </AcercaDeProdcuto>
         <PriceProduct>$ {precio}</PriceProduct>
       </WrapperHeaderCard>
       <WrapperInfoProducto>
-        <Titulo>{Detalle}</Titulo>
+        <Titulo>{Nombre}</Titulo>
         <WrapperDescriptionProducto>
           <Description>{Detalle}</Description>
         </WrapperDescriptionProducto>

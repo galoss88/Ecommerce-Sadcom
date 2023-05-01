@@ -34,8 +34,9 @@ export const WrapperProductsCart = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 50rem;
   gap: 0.3em;
+  
   padding-top: 0.3em;
   overflow-y: scroll;
 `;

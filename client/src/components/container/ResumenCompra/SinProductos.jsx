@@ -1,14 +1,17 @@
 import React from "react";
 import { Container, Titulo, Wrapper } from "./styles/stylesSinProductos";
+import Layout from "../../../pages/Layout/Layout";
 
 const SinProductos = () => {
   return (
-    <Container>
-      <Wrapper>
-        <i className="bi bi-basket3"></i>
-        <Titulo>Carrito vació</Titulo>
-      </Wrapper>
-    </Container>
+    <Layout>
+      <Container>
+        <Wrapper>
+          <i className="bi bi-basket3"></i>
+          <Titulo>Carrito vació</Titulo>
+        </Wrapper>
+      </Container>
+    </Layout>
   );
 };
 

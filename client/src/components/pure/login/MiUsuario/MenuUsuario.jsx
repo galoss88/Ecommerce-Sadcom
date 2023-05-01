@@ -11,11 +11,9 @@ import {
 const MenuUsuario = () => {
   const [showPerfilUsuario, setShowPerfilUsuario] = useState(false);
   const { logout } = useAuth0();
-  
-
   const cerrarSesion = () => {
     logout({
-      returnTo: "https://festilandiacotillon.com/"
+      returnTo: "https://festilandiacotillon.com/",
     });
   };
   const verPerfilusuario = () => {

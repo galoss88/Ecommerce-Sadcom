@@ -19,24 +19,21 @@ import {
 
 const Product = ({ producto, conteoProductos }) => {
   const dispatch = useDispatch();
-  const { description, unit_price, id } = producto;
+  const { description, unit_price, id, quantity, picture_url } = producto;
   const [showDelete, setShowDelete] = useState(false);
   const mostrarDelete = () => setShowDelete(true);
   const ocultarDelete = () => setShowDelete(false);
   const deleteProduct = (idProducto) => {
     dispatch(deleteProductCart(idProducto));
   };
-  const cantidadProducto = conteoProductos[id];
   const precio = quitarDecimales(unit_price);
   const precioFinalProducto = sumarPrecioTotalIndividual(
-    precio,
-    id,
-    conteoProductos
+    precio,    
+    quantity
   );
   return (
     <WrapperProducto>
       {/* --------------- */}
-
       <WrapperImageAndNameProduct>
         <WrapperImagenProducto
           onMouseEnter={mostrarDelete}
@@ -47,9 +44,9 @@ const Product = ({ producto, conteoProductos }) => {
               <i className="bi bi-x-circle"></i>
             </Delete>
           ) : (
-            <ImagenProduct src="" alt="sin imagen" />
+            <ImagenProduct src={picture_url} alt="sin imagen" />
           )}
-          <Cantidad>{cantidadProducto}</Cantidad>
+          <Cantidad>{quantity}</Cantidad>
         </WrapperImagenProducto>
         <WrapperNameAndTalle>
           <NameProduct>{description}</NameProduct>

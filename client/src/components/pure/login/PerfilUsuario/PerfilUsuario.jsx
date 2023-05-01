@@ -80,7 +80,6 @@ const PerfilUsuario = ({ ocultarPerfil }) => {
               Editar informacion
             </ButtonSetInfo>
           )}
-          -
         </WrapperButtonSetInfo>
       </WrapperDatosPerfil>
     </ContainerPerfilUsuario>

@@ -1,3 +1,11 @@
+:root {
+  --color-principal: #6f0000;
+  --color-navbar: #efeaea57;
+  --color-secundario: #fff;
+  --color-searcher: #6f000038;
+  --font-size: 2rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +15,7 @@ html {
   font-size: 62.5%;
   color: #2b2b2b;
 }
-body{
+body {
   font-family: "Montserrat", sans-serif;
 }
 ul,

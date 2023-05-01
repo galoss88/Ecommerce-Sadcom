@@ -2,10 +2,10 @@ const { PersonaTbl } = require("../db");
 
 const crearNuevoUsuario = (socket) =>
   socket.on("datosUser", async (nuevoUsuario) => {
-    const { name, apellido, direccion, dni_cuit, celular, email } =
+    const { name, direccion, dni_cuit, celular, email } =
       nuevoUsuario;
     const registrarUsuario = {
-      Nombre: `${name} ${apellido}`,
+      Nombre: `${name}`,
       DniCuit: dni_cuit,
       Email: email,
       Domicilio: direccion,
@@ -16,7 +16,6 @@ const crearNuevoUsuario = (socket) =>
       IdCajaCtaCte: 1,
       IdPersonaCategoria: 1,
     };
-    console.log(nuevoUsuario, "usuario que llega del front");
     try {
       // Busca un usuario por email o lo crea si no existe
       const [user, created] = await PersonaTbl.findOrCreate({

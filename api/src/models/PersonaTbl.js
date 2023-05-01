@@ -44,12 +44,12 @@ module.exports = (sequelize) => {
       IdCajaCtaCte: {
         type: DataTypes.INTEGER,
       },
-      TokenMercadoPago: {
-        type: DataTypes.STRING,
-      },
-      CuentaAsociadaAStore: {
-        type: DataTypes.TINYINT,
-      },
+      // TokenMercadoPago: {
+      //   type: DataTypes.STRING,
+      // },
+      // CuentaAsociadaAStore: {
+      //   type: DataTypes.TINYINT,
+      // },
     },
     {
       freezeTableName: true,

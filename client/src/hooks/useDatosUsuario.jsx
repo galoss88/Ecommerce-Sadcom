@@ -19,7 +19,6 @@ const useDatosUsuario = (options) => {
     dispatch(getDataUser(user.email));
   }, []);
   const generarInput = () => {
-    // if (!Object.keys(dataUser).length) return <h1>Cargando Datos</h1>;
     return (
       <>
         {options.map(({ label, valor }) => (

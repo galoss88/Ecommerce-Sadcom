@@ -2,9 +2,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 70%;
   gap: 0.4em;
   justify-content: center;
+  align-items: center;
 `;
 export const WrapperUl = styled.div`
   display: flex;
@@ -24,7 +25,8 @@ export const Ul = styled.ul`
   gap: 0.2em;
 `;
 export const Label = styled.label`
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.3rem;
 `;
 export const Li = styled.li`
   list-style: none;
@@ -41,7 +43,7 @@ export const WrapperButton = styled.div`
   background-color: black;
 `;
 export const Button = styled.button`
-  width: 2em;
+  width: 3rem;
   border-radius: 5px;
   height: 100%;
   :hover{

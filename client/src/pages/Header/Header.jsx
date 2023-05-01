@@ -1,15 +1,12 @@
 import styled from "styled-components";
+import NavBar from "../../components/container/Navbar/Navbar";
 
 export default function Header() {
     const Wrapper = styled.div`
-        height: 5vh;
-        background-color: #6F0000;
-        position: fixed;
-        z-index:1000;
-        width: 100%;
-        @media (max-width: 768px) {
-            height: 4vh;
-        }
+    height: 10vh;
+    width: 100vw;
+    background-color: red;
+
     `
     const Text = styled.p`
         font-size: 1rem;
@@ -21,9 +18,10 @@ export default function Header() {
 
     return(
         <Wrapper>
-            <Text>
-                
-            </Text>
+            asdas
+            {/* <Text>
+                sadasd
+            </Text> */}
         </Wrapper>
         
     )

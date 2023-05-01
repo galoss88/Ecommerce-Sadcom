@@ -4,29 +4,36 @@ export const Card = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  height: 30rem;
+  height: 34rem;  
   background-color: #e4e4e4;
-  border-radius: 15px;
+  border-radius: 0px 5px 5px 5px;
   box-shadow: 0.5rem 0.5rem 1rem grey;
   cursor: default;
-
-
-  
+  border: 1px solid rgba(0, 0, 0, 0.115);  
   &:hover {
-    box-shadow: 0.5rem 0.5rem 1rem #3f3f46;
+    /* box-shadow: 0.5rem 0.5rem 1rem #3f3f46; */
+    filter: drop-shadow(0px 1px 5px var(--color-principal));
   }
+  @media (max-width: 768px) {
+justify-content: center;
+
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 320px) {
+
+}
 `;
 export const WrapperCard = styled.div`
   display: flex;
   flex-direction: column;
   user-select: none;
-  width: 100%;
-  
+  width: 100%;  
   height: 100%;
 `;
 export const ImgProduct = styled.img`
   max-width: 100%;
-  height: 60%;
+  height: 70%;
   @supports (object-fit: cover) {
     object-fit: cover;
     object-position: center center;
@@ -34,11 +41,12 @@ export const ImgProduct = styled.img`
 `;
 export const NameProduct = styled.h2`
   display: flex;
-  width: 96%;
+  width: 95%;
   flex-wrap: wrap;
+  text-align: start;
   font-family: Montserrat;
   margin: 0.3em 0 0em 0.8rem;
-  line-height: 1.2rem;
+  line-height: 1.6rem;
   font-size: 1.3rem;
   font-weight: 700;
   white-space: wrap;

@@ -6,4 +6,5 @@ export const WrapperSearcher = styled.div`
 export const WrapperFiltros = styled.div`
   display: flex;
   width: 20%;
+  height: 100%;
 `;

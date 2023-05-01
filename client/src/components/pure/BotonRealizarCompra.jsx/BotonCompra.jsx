@@ -1,7 +1,8 @@
-// import { checkout } from "../../../../../api/src/routes";
-const { VITE_PUBLIC_KEY } = import.meta.env.VITE_PUBLIC_KEY;
+import { getDataEmpresa, guardarDatosCompra } from "../../../redux/actions";
+import { calcularCantidadTotalProductos } from "../../../utils/calcularCantidadTotalProductos";
+import { sumarPrecios } from "../../../utils/sumarPrecios";
 
-export const Checkout = async (carrito) => {
+export const Checkout = async (carrito, datosUsuario, dispatch) => {
   const response = await fetch("http://localhost:4000/payment", {
     method: "POST",
     headers: {
@@ -13,9 +14,23 @@ export const Checkout = async (carrito) => {
     }),
   });
   const preference = await response.json();
-  // console.log(preference)
-  // return (window.location.href = preference.resp.body.init_point);
+  if (preference.resp.body) {
+    const { items } = preference.resp.body;
+    const { DniCuit, Domicilio, Email, Nombre, NroTel } = datosUsuario;
+    const totalVendidos = calcularCantidadTotalProductos(items);
+    const precioTotal = sumarPrecios(items);
+    const datosCompra = {
+      Nombre,
+      DniCuit,
+      NroTel,
+      Email,
+      Domicilio,
+      totalVendidos,
+      precioTotal,
+      items,
+    };
+    dispatch(guardarDatosCompra(datosCompra));
+    dispatch(getDataEmpresa());
+  }
   return (window.location.href = preference.resp.body.init_point);
-
-
 };

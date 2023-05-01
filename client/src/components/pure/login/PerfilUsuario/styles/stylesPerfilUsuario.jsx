@@ -31,10 +31,23 @@ export const WrapperDatosPerfil = styled.div`
   height: 60%;
   /* background: rgb(111, 0, 0); */
   background-color: #f2f2f2;
-
-  @media (max-width: 768px) {
-    width: 80vw;
+  @media (max-width: 1200px) {
+     height: 30%;
+  }  
+@media (max-width: 1024px) {
+ 
+  }  
+@media (max-width: 768px) {
+  height: 50%;
+  width: 60%;
   }
+  @media (max-width: 480px) {
+      height: 50rem;
+  width: 30rem;
+  }
+  @media (max-width: 320px) {
+  }
+
 `;
 export const WrapperInputs = styled.div`
   display: flex;

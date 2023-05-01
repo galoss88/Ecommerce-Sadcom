@@ -12,17 +12,17 @@ updated_at: "2023-03-05T17:08:
 */
 export const optionsInput = [
   {
-    label: "Nombre",
+    label: "Nombre y Apellido",
     name: "name",
     type: "text",
     placeholder: "Nuevo nombre",
   },
-  {
-    label: "Apellido",
-    name: "apellido",
-    type: "text",
-    placeholder: "Nuevo apellido",
-  },
+  // {
+  //   label: "Apellido",
+  //   name: "apellido",
+  //   type: "text",
+  //   placeholder: "Nuevo apellido",
+  // },
   {
     label: "Direccion",
     name: "direccion",

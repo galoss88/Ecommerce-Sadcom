@@ -113,6 +113,9 @@ module.exports = (sequelize) => {
       CantidadCompradas: {
         type: DataTypes.REAL,
       },
+      RutaImagen: {
+        type: DataTypes.TEXT("long"),
+      },
     },
     {
       freezeTableName: true,

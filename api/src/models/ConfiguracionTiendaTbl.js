@@ -9,6 +9,10 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
+      IdEmpresa: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       NombreTienda: {
         type: DataTypes.TEXT("long"),
       },
@@ -20,6 +24,15 @@ module.exports = (sequelize) => {
       },
       DescripcionBanner: {
         type: DataTypes.TEXT("long"),
+      },
+      TokenMercadoPago: {
+        type: DataTypes.STRING,
+      },
+      EstadoTienda: {
+        type: DataTypes.TINYINT,
+      },
+      TituloBanner: {
+        type: DataTypes.STRING("1000"),
       },
     },
     {

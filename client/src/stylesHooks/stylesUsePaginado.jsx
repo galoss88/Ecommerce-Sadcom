@@ -46,8 +46,8 @@ export const Button = styled.button`
   width: 3rem;
   border-radius: 5px;
   height: 100%;
-  :hover{
-    background-color: rgba(111,0,0,1);
-    color: #FFF;
+  :hover {
+    background-color: rgba(111, 0, 0, 1);
+    color: #fff;
   }
 `;

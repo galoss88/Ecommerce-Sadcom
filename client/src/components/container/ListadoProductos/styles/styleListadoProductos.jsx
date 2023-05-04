@@ -28,7 +28,7 @@ export const Container = styled.div`
 
   @media (max-width: 480px) {
     width: 100%;
-    margin-top: 13rem;
+    margin-top: 19rem;
   }
   @media (max-width: 320px) {
     margin-top: 12rem;
@@ -85,7 +85,11 @@ export const WrapperCards = styled.div`
   @media (max-width: 320px) {
   }
 `;
-
+export const TextSinResultados = styled.h2`
+ font-size: 5rem;
+ width: 100%;
+ height: 100%;
+`
 export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 0.85fr));

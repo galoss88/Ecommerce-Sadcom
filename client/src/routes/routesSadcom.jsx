@@ -28,7 +28,6 @@ const routesSadcom = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/facturaprob" element={<FacturaProb />} />
         <Route path="/listaProductos" element={<ListadoProductos />} />
-
         <Route path="*" element={<p>Not found</p>} />
       </Routes>
     </>

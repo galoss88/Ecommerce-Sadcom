@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 //comparamos que tengan los mismos datos el usuario final de la compra, al generado al logear.
 const compararDatosUsuario = (usuarioActual) => {
   const datosComprobar = ["Nombre", "DniCuit", "Email", "Domicilio", "NroTel"];

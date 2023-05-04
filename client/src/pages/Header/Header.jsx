@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import NavBar from "../../components/container/Navbar/Navbar";
 
 export default function Header() {
     const Wrapper = styled.div`

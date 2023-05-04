@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import socket from "../utils/socket/socket";
 
 const usePrecioActualizado = (IdArt) => {
   const [actualizarPrecio, setActualizarPrecio] = useState({});
 
-  //VER, VA EN OTRO LADO
-  //   useEffect(() => {
   socket.emit("id-producto-actualizar", IdArt, () => {
     console.log("se envio ID producto");
   });

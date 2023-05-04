@@ -54,10 +54,3 @@ export const FormFilters = styled.form`
   }
 `;
 
-// export const ButtonFilters = styled.button`
-//   display: none;
-//   @media (max-width: 760px) {
-//     display: block;
-//     /* background-color: ${(props)=>props.showButtonResponsive ? "blue": "red"}; */
-//   }
-// `;

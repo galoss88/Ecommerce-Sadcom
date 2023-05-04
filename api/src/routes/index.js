@@ -25,5 +25,5 @@ router.use("/dataUser", getInfoUser);
 router.use("/", mercadopago);
 router.use("/images", images);
 router.use("/sendEmail", sendEmail);
-router.use("/dataEmpresa", dataEmpresa)
+router.use("/dataEmpresa", dataEmpresa);
 module.exports = router;

@@ -4,9 +4,9 @@ export const ContainerMiUsuario = styled.div`
   width: 100%;
   position: relative;
   @media (max-width: 1200px) {
-  }  
-@media (max-width: 1024px) {
-  }  
+  }
+  @media (max-width: 1024px) {
+  }
   @media (max-width: 768px) {
     justify-content: center;
     align-items: center;
@@ -26,16 +26,16 @@ export const ButtonMiUsuario = styled.p`
   :hover {
     color: #2222b5;
   }
-    @media (max-width: 1281px) {
-      font-size: 1.4rem;
-  }  
+  @media (max-width: 1281px) {
+    font-size: 1.4rem;
+  }
   @media (max-width: 1200px) {
     width: 100%;
     font-size: 1.3rem;
     text-align: center;
-  }  
-@media (max-width: 1024px) {
-  }  
+  }
+  @media (max-width: 1024px) {
+  }
   @media (max-width: 768px) {
     width: 100%;
     font-size: 2rem;

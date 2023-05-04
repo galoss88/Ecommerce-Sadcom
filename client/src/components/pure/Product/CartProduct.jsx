@@ -45,7 +45,7 @@ const CartProduct = () => {
         ))}
       </WrapperProductsCart>
       {/* <Hr /> */}
-      
+
       {/* <Subtotal /> */}
       <Hr />
       <Total

@@ -13,8 +13,15 @@ const paginado = async (page, filtro, search) => {
         Nombre: { [Sequelize.Op.like]: `%${search}%` },
         Venta: { [Op.gt]: 0 },
         StockTienda: { [Op.gt]: 0 },
+        EstadoArt: 1,
+        MostrarEnTienda: 1,
       }
-    : { Venta: { [Op.gt]: 0 }, StockTienda: { [Op.gt]: 0 } };
+    : {
+        Venta: { [Op.gt]: 0 },
+        StockTienda: { [Op.gt]: 0 },
+        EstadoArt: 1,
+        MostrarEnTienda: 1,
+      };
   try {
     const options = {
       where: busqueda,

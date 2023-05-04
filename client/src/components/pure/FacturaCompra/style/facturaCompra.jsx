@@ -5,6 +5,23 @@ export const ContainerFacturaCompra = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1200px) {
+    height: 20%;
+    width: 50%;
+  }
+
+  @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+    width: 100%;
+
+    
+  }
+  @media (max-width: 320px) {
+    
+  }
 `;
 
 export const WrapperDownloadPdf = styled.div`

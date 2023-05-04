@@ -4,16 +4,16 @@ export const NavMenuUsuario = styled.nav`
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: -9rem;
+  top: 170%;
   left: -3%;
-  width: 14.5rem;
+  width: 100%;
   height: auto;
   justify-content: center;
   border-radius: 5px;
   align-items: center;
   gap: 0.5em;
   font-size: var(--font-size);
-  padding: 0.5rem 0.2rem;
+  padding: 24% 10%;
   box-shadow: 0 0 0.1rem 0;
   background-color: rgb(111, 0, 0);
   z-index: 1;
@@ -29,18 +29,28 @@ export const NavMenuUsuario = styled.nav`
       transform: translateY(0);
     }
   }
+  @media (max-width: 1441px) {
+    top: 7rem;
+    font-size:1.2rem;
+
+
+  
+  }
+
   @media (max-width: 1200px) {
     font-size: 1.4rem;
     left: -2rem;
     bottom: -10rem;
-    width: 12rem;
+  top: 120%;
+
+    /* width: 12rem; */
   }
   @media (max-width: 1024px) {
   }
   @media (max-width: 768px) {
     font-size: 1.7rem;
     bottom: -11rem;
-    width: 15rem;
+    /* width: 15rem; */
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -63,4 +73,5 @@ export const ButtonMenu = styled.button`
     box-shadow: 0 0 0rem 0.1rem #fff;
     border-radius: 5px;
   }
+
 `;

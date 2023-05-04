@@ -4,11 +4,12 @@ export const ContainerNavbar = styled.div`
   display: flex;
   position: fixed;
   z-index: 2;
-  height: 20%;
+  height: 16%;
   width: 100%;
   background: var(--color-navbar);
   border-top: 3.4rem solid var(--color-principal);
-
+  @media (max-width: 1441px) {
+  }
   @media (max-width: 768px) {
   }
   @media (max-width: 480px) {
@@ -131,6 +132,9 @@ export const WrapperLinks = styled.div`
   width: 33%;
 
   height: 100%;
+  @media (max-width: 1441px) {
+    width: 65%;
+  }
   @media (max-width: 1281px) {
     width: 50%;
   }

@@ -5,6 +5,7 @@ export const ContainerHome = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
+
   @media (max-width: 768px) {
   }
   @media (max-width: 480px) {
@@ -53,7 +54,10 @@ export const Detail = styled.div`
   left: 0rem;
   width: 100%;
   height: 80%;
-  background-color: #6f000026;
+  background-color: transparent;
+  @media (max-width: 1441px) {
+
+  }  
   @media (max-width: 768px) {
     padding-top: 10vh;
     width: 70vw;

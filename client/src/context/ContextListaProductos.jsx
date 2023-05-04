@@ -49,7 +49,7 @@ const ListaProductosProvider = (props) => {
         value={{
           infoFiltros,
           loading,
-          search:infoFiltros.search,
+          search: infoFiltros.search,
           setInfoFiltros,
           resetFiltros,
           verTodosLosProductos,

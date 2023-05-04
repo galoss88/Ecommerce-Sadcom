@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {
   CardContainer,
   Container,
+  TextSinResultados,
   WrapperCards,
   WrapperPaginado,
 } from "./styles/styleListadoProductos";
@@ -54,17 +55,17 @@ const ListadoProductos = ({ mostrarDetalle }) => {
     });
   }, [currentPage, filtrar]);
   if (loading) return <Loading texto={"Cargando productos..."} />;
-  if (todosLosProductos.length === 0)
-    return (
-      <Container>
-        <b>Nos quedamos sin stock en los productos, lo sentimos! :¨(</b>
-      </Container>
-    );
+
   return (
     <Layout>
       <Container>
         <FiltrosProductos />
         <WrapperCards>
+          {todosLosProductos?.productosAMostrar.length === 0 ? (
+            <TextSinResultados>
+              "No se encontro el producto, lo sentimos!"
+            </TextSinResultados>
+          ) : null}
           <CardContainer>
             {todosLosProductos?.productosAMostrar?.map((producto) => (
               <CardProduct
@@ -78,8 +79,7 @@ const ListadoProductos = ({ mostrarDetalle }) => {
               />
             ))}
           </CardContainer>
-        <WrapperPaginado>{todosLosProductos && <Paginado />}</WrapperPaginado>
-
+          <WrapperPaginado>{todosLosProductos && <Paginado />}</WrapperPaginado>
         </WrapperCards>
       </Container>
     </Layout>
@@ -87,3 +87,4 @@ const ListadoProductos = ({ mostrarDetalle }) => {
 };
 
 export default ListadoProductos;
+

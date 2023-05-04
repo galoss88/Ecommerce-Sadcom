@@ -6,19 +6,11 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 
-//https
-// const fs = require("fs");
-// const https = require("https");
-// const options = {
-//   key: fs.readFileSync("./clave.key"),
-//   cert: fs.readFileSync("./certificado.crt"),
-// };
 // //server http
 const http = require("http");
 const server = http.createServer(app);
 
 // SDK de Mercado Pago
-const mercadopago = require("mercadopago");
 const configureSocket = require("./socketServer/configureSocket.jsx");
 const path = require("path");
 //settings

@@ -7,11 +7,9 @@ import { loginUser } from "../../../../redux/actions";
 
 const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
-  const { user } = useAuth0();
-  const dispatch = useDispatch();
+
   const iniciarSesion = () => {
     loginWithRedirect();
-    
   };
   return (
     <ButtonLogin onClick={() => iniciarSesion()}>

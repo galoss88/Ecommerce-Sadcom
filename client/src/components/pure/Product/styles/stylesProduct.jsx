@@ -84,11 +84,9 @@ export const Delete = styled.div`
   height: 100%;
   width: 100%;
   cursor: pointer;
-  i{
+  i {
     font-size: 1.5em;
-    
-    color: #FFF;
-    
-    
+
+    color: #fff;
   }
 `;

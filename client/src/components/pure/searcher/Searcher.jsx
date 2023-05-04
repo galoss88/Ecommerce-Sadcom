@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import { contextListaProductos } from "../../../context/ContextListaProductos";
@@ -13,7 +14,7 @@ export default function Searcher() {
   const busqueda = useContext(contextListaProductos);
   const { search, setInfoFiltros, infoFiltros } = busqueda;
   const [buscar, setBuscar] = useState("");
-
+  const navigate = useNavigate()
   const onChange = (e) => {
     setBuscar(e.target.value);
   };
@@ -26,6 +27,7 @@ export default function Searcher() {
         text: "Debe escribir el producto que desea buscar",
       });
     setInfoFiltros({ ...infoFiltros, search: buscar });
+    navigate("/listaProductos")
   };
   useEffect(() => {
     if (!search) setBuscar("");

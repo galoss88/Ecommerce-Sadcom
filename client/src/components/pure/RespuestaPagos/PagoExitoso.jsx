@@ -18,7 +18,7 @@ const PagoExitoso = () => {
   const [compraExitosa, setCompraExitosa] = useState(null);
   useEffect(() => {
     socket.emit("carritoDescontarStock", cart);
-    dispatch(enviarEmailCompra({ ...datosCompra}));
+    dispatch(enviarEmailCompra({ ...datosCompra }));
     dispatch(vaciarCarrito());
   }, []);
   useEffect(() => {
@@ -36,7 +36,7 @@ const PagoExitoso = () => {
     return (
       <Layout>
         <ContainerPagoExitoso>
-          <ResumenCompra/>
+          <ResumenCompra />
           <Factura />
         </ContainerPagoExitoso>
       </Layout>

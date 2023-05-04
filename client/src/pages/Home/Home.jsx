@@ -1,7 +1,4 @@
-// import styled from "styled-components";
-// import image from "./image/pexels-photo-7153908.png";
-// import Searcher from "../../components/pure/searcher/Searcher";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { cargarImagenes } from "../../redux/actions";

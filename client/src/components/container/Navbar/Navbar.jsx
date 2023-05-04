@@ -42,7 +42,7 @@ export default function NavBar() {
           <Login />
         </WrapperLogin>
         <WrapperLinks>
-          <LinkNavBar to="/">Home</LinkNavBar>
+          {/* <LinkNavBar to="/">Inicio</LinkNavBar> */}
           <LinkNavBar to="/listaProductos">Productos</LinkNavBar>
           <LinkNavBar to="/resumenCompra">
             <FaShoppingCart /> Carrito

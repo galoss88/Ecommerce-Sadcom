@@ -1,5 +1,3 @@
-
-
 export const numerosPaginado = (numeros) => {
   const arrayNumeros = [];
   for (let i = 1; i <= numeros; i++) {
@@ -7,4 +5,3 @@ export const numerosPaginado = (numeros) => {
   }
   return arrayNumeros;
 };
-

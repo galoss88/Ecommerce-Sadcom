@@ -20,7 +20,6 @@ const usePaginado = () => {
 
   const { offset } = totalPagination;
   const estructuraPaginas = () => {
-   
     const totalPages = totalPagination?.lastPage;
     const prevPage = () => {
       if (!totalPagination.hasPrevPage) return;

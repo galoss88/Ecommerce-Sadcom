@@ -2,8 +2,7 @@ const { PersonaTbl } = require("../db");
 
 const crearNuevoUsuario = (socket) =>
   socket.on("datosUser", async (nuevoUsuario) => {
-    const { name, direccion, dni_cuit, celular, email } =
-      nuevoUsuario;
+    const { name, direccion, dni_cuit, celular, email } = nuevoUsuario;
     const registrarUsuario = {
       Nombre: `${name}`,
       DniCuit: dni_cuit,

@@ -1,4 +1,3 @@
-
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState } from "react";
 import {
@@ -9,12 +8,6 @@ import {
 import { useSelector } from "react-redux";
 
 const useInputUsuario = (options) => {
-  const { user } = useAuth0();
-  //   Nombre(pin):"Nicolas ivan gallo garcia"
-  // DniCuit(pin):"38800970"
-  // Email(pin):"gallogarcianicolas@gmail.com"
-  // Domicilio(pin):"13 oeste 1131"
-  // NroTel(pin):"2804954284"
   const infoUsuarioActual = useSelector((state) => state.usuario);
   const { Nombre, DniCuit, Email, Domicilio, NroTel } = infoUsuarioActual;
   const [dataInput, setDataInput] = useState({

@@ -5,12 +5,24 @@ export const ContainerHome = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-
+  @media (max-width: 1281px) {
+  }
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 1024px) {
+    height: 88vh;
+  }
   @media (max-width: 768px) {
+    height: 85vh;
+  }
+  @media (max-width: 800px) {
+    height: 83vh;
   }
   @media (max-width: 480px) {
+    height: 80vh;
   }
   @media (max-width: 320px) {
+    height: 100%;
   }
 `;
 
@@ -56,14 +68,27 @@ export const Detail = styled.div`
   height: 80%;
   background-color: transparent;
   @media (max-width: 1441px) {
-
-  }  
+  }
+  @media (max-width: 1281px) {
+  }
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 1024px) {
+  }
   @media (max-width: 768px) {
     padding-top: 10vh;
     width: 70vw;
     font-weight: 100;
     font-size: 1.2rem;
     line-height: normal;
+  }
+  @media (max-width: 500px) {
+    width: 90vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 320px) {
   }
   h1 {
     font-size: 5rem;

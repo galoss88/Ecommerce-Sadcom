@@ -4,6 +4,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
+import Layout from "../Layout/Layout";
 
 export default function Contact() {
   const Title = styled.h1`

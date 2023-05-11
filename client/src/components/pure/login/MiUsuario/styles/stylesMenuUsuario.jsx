@@ -4,9 +4,10 @@ export const NavMenuUsuario = styled.nav`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 170%;
+  bottom: -9rem;
   left: -3%;
   width: 100%;
+  top: 170%;
   height: auto;
   justify-content: center;
   border-radius: 5px;
@@ -31,26 +32,31 @@ export const NavMenuUsuario = styled.nav`
   }
   @media (max-width: 1441px) {
     top: 7rem;
-    font-size:1.2rem;
-
-
-  
+    font-size: 1.2rem;
   }
-
+  @media (max-width: 1280px) {
+   
+  }
   @media (max-width: 1200px) {
     font-size: 1.4rem;
     left: -2rem;
     bottom: -10rem;
-  top: 120%;
-
-    /* width: 12rem; */
+    width: 100%;
   }
   @media (max-width: 1024px) {
+    height: 8rem;
+    width: 12rem;
+  }
+  @media (max-width: 800px) {
+    font-size: 1.4rem;
+    bottom: 0;
+    top: 5.4rem;
+    width: 12rem;
   }
   @media (max-width: 768px) {
     font-size: 1.7rem;
     bottom: -11rem;
-    /* width: 15rem; */
+    width: 100%;
   }
   @media (max-width: 480px) {
     width: 100%;
@@ -73,5 +79,4 @@ export const ButtonMenu = styled.button`
     box-shadow: 0 0 0rem 0.1rem #fff;
     border-radius: 5px;
   }
-
 `;

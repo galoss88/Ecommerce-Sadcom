@@ -4,31 +4,35 @@ export const Card = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: space-between;
-  height: 34rem;  
+  height: 42rem;
+  width: 100%;
   background-color: #e4e4e4;
   border-radius: 0px 5px 5px 5px;
   box-shadow: 0.5rem 0.5rem 1rem grey;
   cursor: default;
-  border: 1px solid rgba(0, 0, 0, 0.115);  
+  border: 1px solid rgba(0, 0, 0, 0.115);
   &:hover {
     /* box-shadow: 0.5rem 0.5rem 1rem #3f3f46; */
     filter: drop-shadow(0px 1px 5px var(--color-principal));
   }
+  @media (max-width: 1200px) {
+  }
+  @media (max-width: 1024px) {
+  }
   @media (max-width: 768px) {
-justify-content: center;
-
-}
-@media (max-width: 480px) {
-}
-@media (max-width: 320px) {
-
-}
+    justify-content: center;
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
+    height: 25rem;
+  }
 `;
 export const WrapperCard = styled.div`
   display: flex;
   flex-direction: column;
   user-select: none;
-  width: 100%;  
+  width: 100%;
   height: 100%;
 `;
 export const ImgProduct = styled.img`
@@ -86,7 +90,7 @@ export const ButtonAddToCart = styled.button`
     background-color: #6f0000;
     color: #fff;
   }
-  i{
+  i {
     font-size: 1.8em;
   }
-  `;
+`;

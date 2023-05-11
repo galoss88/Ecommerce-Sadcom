@@ -24,7 +24,6 @@ export const Container = styled.div`
     align-items: center;
   }
   @media (max-width: 480px) {
-    flex-direction: column;
   }
   @media (max-width: 320px) {
   }
@@ -53,4 +52,3 @@ export const FormFilters = styled.form`
   @media (max-width: 320px) {
   }
 `;
-

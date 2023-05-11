@@ -27,13 +27,25 @@ export const Ul = styled.ul`
 export const Label = styled.label`
   font-weight: 700;
   font-size: 1.3rem;
+  @media (max-width: 1281px) {
+  }  
+@media (max-width: 1200px) {
+  }  
+@media (max-width: 1024px) {
+  }  
+@media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
+    font-size: 1rem;
+  }
 `;
 export const Li = styled.li`
   list-style: none;
   border: 1px solid;
   border-radius: 5px;
   width: 2.2vw;
-
   background-color: ${({ paginaActual }) => (paginaActual ? "green" : "")};
 `;
 export const WrapperButton = styled.div`

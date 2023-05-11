@@ -15,9 +15,10 @@ const PagoExitoso = () => {
   const dataEmpresa = useSelector((state) => state.dataEmpresa);
   const cart = useSelector((state) => state.cart);
   // const conteoProductosCarrito = calcularCantidadTotalProductos(cart);
+  const datosCart = {cart,datosCompra}
   const [compraExitosa, setCompraExitosa] = useState(null);
   useEffect(() => {
-    socket.emit("carritoDescontarStock", cart);
+    socket.emit("carritoDescontarStock", datosCart);
     dispatch(enviarEmailCompra({ ...datosCompra }));
     dispatch(vaciarCarrito());
   }, []);

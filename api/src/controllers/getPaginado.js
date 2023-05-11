@@ -30,9 +30,22 @@ const paginado = async (page, filtro, search) => {
       offset,
     };
     if (filtro !== "vacio") options.order = [["Venta", filtro]];
-    const productosTotales = await ArticuloTbl.count();
+    const productosTotales = await ArticuloTbl.count({
+      where: {
+        Venta: { [Op.gt]: 0 },
+        StockTienda: { [Op.gt]: 0 },
+        EstadoArt: 1,
+        MostrarEnTienda: 1,
+      },
+    });
     const productosAMostrar = await ArticuloTbl.findAll(options);
     const productosSinFiltro = await ArticuloTbl.findAll();
+
+    console.log(
+      Math.ceil(productosTotales / productsPerPage),
+      productosTotales,
+      productsPerPage
+    );
     const paginado = {
       productosAMostrar,
       hasNextPage: productsPerPage * pageCurrent < productosTotales,

@@ -38,13 +38,14 @@ export const ButtonMiUsuario = styled.p`
   }
   @media (max-width: 768px) {
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
   }
-  @media (max-width: 480px) {
+  @media (max-width: 500px) {
+    font-size:100%;
   }
   @media (max-width: 320px) {
-    font-size: 2.2rem;
+    font-size: 80%;
     text-align: center;
   }
 `;

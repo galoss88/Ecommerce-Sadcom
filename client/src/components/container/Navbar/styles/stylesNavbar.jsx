@@ -10,11 +10,20 @@ export const ContainerNavbar = styled.div`
   border-top: 3.4rem solid var(--color-principal);
   @media (max-width: 1441px) {
   }
+  @media (max-width: 1024px) {
+    height: 10%;
+  }
+  @media (max-width: 800px) {
+    height: 16%;
+  }
   @media (max-width: 768px) {
+    height: 14%;
   }
   @media (max-width: 480px) {
+    height: 18%;
   }
   @media (max-width: 320px) {
+    height: 35%;
   }
 `;
 export const WrapperFixed = styled.div`
@@ -23,11 +32,11 @@ export const WrapperFixed = styled.div`
   justify-content: space-around;
   gap: 5rem;
   align-items: center;
-  @media (max-width: 1281px) {
-    gap: 3rem;
+  @media (max-width: 1280px) {
+    gap: 2rem;
   }
   @media (max-width: 1200px) {
-    gap: 3rem;
+    gap: 2rem;
   }
   @media (max-width: 1024px) {
   }
@@ -81,9 +90,17 @@ export const WrapperCartProducts = styled.div`
 `;
 export const WrapperLogo = styled.div`
   display: flex;
+  @media (max-width: 1280px) {
+  }
   @media (max-width: 1200px) {
   }
   @media (max-width: 1024px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
   }
 `;
 
@@ -109,14 +126,21 @@ export const Img = styled.img`
   height: 8rem;
   width: 9rem;
   border-radius: 5px;
-  @media (max-width: 1200px) {
+  @media (max-width: 1280px) {
     height: 6rem;
-    width: 6rem;
+    width: 6.5rem;
+    margin-left: 0.7rem;
+  }
+  @media (max-width: 1200px) {
+    height: 5rem;
+    width: 3rem;
     margin-left: 0.7rem;
   }
   @media (max-width: 1024px) {
+    width: 5rem;
   }
   @media (max-width: 768px) {
+    width: 5.3rem;
   }
   @media (max-width: 480px) {
   }
@@ -143,6 +167,8 @@ export const WrapperLinks = styled.div`
     height: auto;
   }
   @media (max-width: 1024px) {
+    width: 93%;
+    justify-content: space-between;
   }
   @media (max-width: 768px) {
     display: none;
@@ -154,6 +180,9 @@ export const WrapperLinks = styled.div`
 `;
 
 export const LinkNavBar = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--color-principal);
   font-size: var(--font-size);
   font-weight: 600;
@@ -167,6 +196,13 @@ export const LinkNavBar = styled(Link)`
     font-size: 1.3rem;
   }
   @media (max-width: 1024px) {
+    gap: .5rem;
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
   }
 `;
 

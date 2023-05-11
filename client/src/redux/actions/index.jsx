@@ -20,11 +20,13 @@ export const GUARDAR_DATOS_COMPRA = "GUARDAR_DATOS_COMPRA";
 export const GET_DATA_EMPRESA = "GET_DATA_EMPRESA";
 //Funciones actions
 //traer datos usuario
+const local = "http://localhost:4000";
+const prod = "/api";
+const url = local;
+
 export const getDataUser = (emailUser) => {
   return async function (dispatch) {
-    let datos = await axios.get(
-      `http://localhost:4000/dataUser/?emailUser=${emailUser}`
-    );
+    let datos = await axios.get(`${url}/dataUser/?emailUser=${emailUser}`);
 
     return dispatch({
       type: GET_DATA_USER,
@@ -41,9 +43,9 @@ export function guardarDatosCompra(datosCompra) {
 export function getProducts(page, filtro, search) {
   return async function (dispatch) {
     let products = await axios.get(
-      `http://localhost:4000/productos?page=${page}${
-        filtro ? `&filtro=${filtro}` : ""
-      }${search ? `&search=${search}` : ""}`
+      `${url}/productos?page=${page}${filtro ? `&filtro=${filtro}` : ""}${
+        search ? `&search=${search}` : ""
+      }`
     );
 
     return dispatch({
@@ -55,8 +57,8 @@ export function getProducts(page, filtro, search) {
 //LOGIN
 export const loginUser = (user) => {
   return async (dispatch) => {
-    const enviarUsuario = await axios.post("http://localhost:4000/login", user);
-    return dispatch({
+    const enviarUsuario = await axios.post(`${url}/login`, user);
+    return dispatch({   
       type: LOGIN_USER,
       payload: enviarUsuario.data,
     });
@@ -119,7 +121,7 @@ export const searchProduct = (buscar) => {
 };
 // export const crearUsuario = (datosUsuario) => {
 //   return async () => {
-//     await axios.post("http://localhost:4000/createUser", datosUsuario);
+//     await axios.post("${url}/createUser", datosUsuario);
 //     return {
 //       type: "Crear Usuario",
 //     };
@@ -133,7 +135,7 @@ export const guardarUsuario = (datosUser) => {
 };
 export const enviarEmailCompra = (datosCompra) => {
   return async (dispatch) => {
-    await axios.post("http://localhost:4000/sendEmail", datosCompra);
+    await axios.post(`${url}/sendEmail`, datosCompra);
     return dispatch({
       type: "ENVIAR_EMAIL_COMPRA",
     });
@@ -142,7 +144,7 @@ export const enviarEmailCompra = (datosCompra) => {
 //imagenes
 export const cargarImagenes = () => {
   return async (dispatch) => {
-    const images = await axios.get("http://localhost:4000/images");
+    const images = await axios.get(`${url}/images`);
     return dispatch({
       type: CARGAR_IMAGENES,
       payload: images.data,
@@ -152,7 +154,7 @@ export const cargarImagenes = () => {
 
 export const getDataEmpresa = () => {
   return async (dispatch) => {
-    const dataEmpresa = await axios.get("http://localhost:4000/dataEmpresa");
+    const dataEmpresa = await axios.get(`${url}/dataEmpresa`);
     return dispatch({
       type: GET_DATA_EMPRESA,
       payload: dataEmpresa.data,

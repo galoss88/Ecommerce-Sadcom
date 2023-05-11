@@ -8,6 +8,9 @@ export const Container = styled.div`
   padding: 0;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1280px) {
+    width: 40%;
+  }  
   @media (max-width: 1200px) {
     width: 70%;
   }  
@@ -27,14 +30,26 @@ export const ProductosEnCarrito = styled.span`
   width: 2.2rem;
   text-align: center;
   font-size: 1.4rem;
+  @media (max-width: 1280px) {
+    right: 1rem;
+  }  
   @media (max-width: 1200px) {
     width: 1.7rem;
     font-size: 1.2rem;
     right: .5rem;
     top: .6rem;
   }  
-@media (max-width: 1024px) {
-  }  
+  @media (max-width: 1024px) {
+  top: -.1rem;
+
+  }
+  @media (max-width: 768px) {
+
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 320px) {
+  } 
 `;
 export const Icono = styled.div`
 font-size: 4rem;
